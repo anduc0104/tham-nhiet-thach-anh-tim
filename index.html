@@ -199,18 +199,70 @@
     }
     .btn-dark:hover { color: #fff; background: #3a2152; }
 
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      animation: ken 18s ease-in-out infinite alternate;
+    }
+    .hero-shade {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background: linear-gradient(90deg, rgba(22, 11, 34, 0.94) 0%, rgba(22, 11, 34, 0.86) 42%, rgba(22, 11, 34, 0.35) 100%);
+    }
     .hero-main {
       position: relative;
       z-index: 1;
       flex: 1;
-      display: grid;
-      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-      gap: 2rem;
+      display: flex;
       align-items: center;
       width: min(1120px, calc(100% - 2rem));
       margin: 0 auto;
       padding-bottom: 4.5rem;
     }
+    .hero-copy { max-width: 38rem; }
+    .gallery, .shots {
+      list-style: none;
+      display: grid;
+      gap: 0.9rem;
+      margin: 1.4rem 0 0;
+      padding: 0;
+    }
+    .band { padding: 2.2rem 0 0; }
+    .gallery { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .shots-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .shots-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .shots-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .ph { margin: 0; }
+    .ph img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+      border-radius: 18px;
+      background: #efe4f4;
+    }
+    .ph.tall img { aspect-ratio: 4 / 5; }
+    .ph.sq img { aspect-ratio: 1; }
+    .ph p, .ph figcaption {
+      margin: 0.45rem 0 0;
+      font-weight: 600;
+    }
+    .frame { margin: 0; }
+    .frame img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border-radius: 24px;
+      display: block;
+    }
+    #thai-doc .ph p { color: #f6efe8; }
+    #tu-van .frame { margin-bottom: 1rem; }
     .kicker {
       margin: 0 0 0.8rem;
       color: var(--gold);
@@ -247,7 +299,7 @@
       flex-wrap: wrap;
       gap: 0.75rem;
       margin-top: 1.5rem;
-      animation: rise 0.9s ease 0.48s both;
+        animation: rise 0.7s ease 0.16s both;
     }
     .fine {
       margin: 1rem 0 0;
@@ -453,7 +505,7 @@
     .l2 { top: 100px; background: linear-gradient(90deg, #8d62b8, #5d347f); animation-delay: -0.4s; }
     .l3 { top: 180px; background: linear-gradient(90deg, #e39a55, #b4531e); animation-delay: -0.8s; }
     .l4 { top: 260px; background: linear-gradient(90deg, #3d2a4d, #24182f); animation-delay: -1.2s; }
-    .specs { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.7rem; }
+    .specs { list-style: none; margin: 1.3rem 0 0; padding: 0; display: grid; gap: 0.7rem; }
     .specs li {
       display: flex;
       justify-content: space-between;
@@ -652,6 +704,10 @@
       0%, 100% { transform: translateY(8px) scaleX(0.92); opacity: 0.35; }
       50% { transform: translateY(-12px) scaleX(1); opacity: 0.9; }
     }
+    @keyframes ken {
+      from { transform: scale(1); }
+      to { transform: scale(1.08); }
+    }
     @keyframes bob {
       0%, 100% { transform: translate(-50%, 0); }
       50% { transform: translate(-50%, 10px); }
@@ -682,7 +738,9 @@
     }
 
     @media (max-width: 900px) {
+      .hero-shade { background: linear-gradient(180deg, rgba(22, 11, 34, 0.72), rgba(22, 11, 34, 0.86) 42%, rgba(22, 11, 34, 0.92)); }
       .hero-main, .grid-2, .bounds, .myth, .steps, .trust { grid-template-columns: minmax(0, 1fr); }
+      .gallery, .shots-4, .shots-3, .shots-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .brand { min-width: 0; flex: 1; font-size: 0.95rem; }
       .grid-2 > *, .bounds > *, .myth > *, .trust > * { min-width: 0; }
       .rings { display: none; }
@@ -712,8 +770,7 @@
       .hero-main { padding-bottom: 3.4rem; }
       .hero h1 { font-size: 2.05rem; }
       .dek { font-size: 1.2rem; }
-      .steps { grid-template-columns: 1fr; }
-      .stage { height: 220px; }
+      .gallery, .shots-4, .shots-3 { grid-template-columns: minmax(0, 1fr); }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -729,9 +786,10 @@
   <a class="skip" href="#noi-dung">Đi tới nội dung</a>
 
   <header class="hero" id="dau-trang">
+    <img class="hero-bg" src="images/hero.png" alt="Banner đầu trang" width="1600" height="900">
+    <div class="hero-shade" aria-hidden="true"></div>
     <div class="orb o1" aria-hidden="true"></div>
     <div class="orb o2" aria-hidden="true"></div>
-    <div class="orb o3" aria-hidden="true"></div>
     <div class="rings" aria-hidden="true">
       <span class="ring"></span>
       <span class="ring"></span>
@@ -753,25 +811,15 @@
     </div>
 
     <div class="hero-main">
-      <div>
+      <div class="hero-copy">
         <p class="kicker">Quà chăm sóc mùa đông</p>
         <h1>Ngày bé, bố mẹ giữ ấm cho con.</h1>
         <p class="dek">Mùa đông này, đến lượt con chăm sóc bố mẹ.</p>
-        <p class="hero-lead">Thảm nhiệt mang đến những phút giây nghỉ ngơi ấm áp tại nhà. Giữ ấm, thư giãn và hỗ trợ giảm đau mỏi tạm thời — dựa trên nguyên lý nhiệt trị liệu, không phải lời hứa chữa bệnh.</p>
+        <p class="hero-lead">Giữ ấm, thư giãn, hỗ trợ giảm đau mỏi tạm thời tại nhà.</p>
         <div class="hero-actions">
           <a class="btn btn-heat" href="#tu-van">Nhận tư vấn quà tặng bố mẹ</a>
           <a class="btn btn-ghost" href="#khoa-hoc">Xem cơ chế giữ ấm</a>
         </div>
-        <p class="fine">Không quảng cáo như thiết bị chữa bệnh hoặc thảm thải độc.</p>
-      </div>
-      <div class="stage" aria-hidden="true">
-        <div class="heatwave"></div>
-        <div class="mat">
-          <span class="c1"></span>
-          <span class="c2"></span>
-          <span class="c3"></span>
-        </div>
-        <p class="stage-caption">Hình minh họa lớp đá và hơi ấm. Không phải ảnh sản phẩm thương mại.</p>
       </div>
     </div>
     <a class="scroll-cue" href="#khoa-hoc">Kéo xuống</a>
@@ -784,93 +832,53 @@
     </div>
   </div>
 
+  <section class="band">
+    <ul class="gallery wrap">
+      <li class="ph">
+        <img src="images/phong-nghi.png" alt="Phòng nghỉ" width="800" height="600">
+        <p>Phòng nghỉ</p>
+      </li>
+      <li class="ph">
+        <img src="images/tham.png" alt="Tấm thảm" width="800" height="600">
+        <p>Tấm thảm</p>
+      </li>
+      <li class="ph">
+        <img src="images/da.png" alt="Đá thạch anh tím" width="800" height="600">
+        <p>Đá thạch anh tím</p>
+      </li>
+      <li class="ph">
+        <img src="images/dieu-khien.png" alt="Bộ điều khiển" width="800" height="600">
+        <p>Bộ điều khiển</p>
+      </li>
+    </ul>
+  </section>
+
   <main id="noi-dung">
     <section id="khoa-hoc">
       <div class="wrap grid-2">
-        <div class="reveal">
-          <p class="sec-num">02 — Giải thích khoa học</p>
-          <h2>Nhiệt bề mặt làm ấm vùng tiếp xúc.</h2>
-          <p class="lede">Nhiệt bề mặt có thể hỗ trợ giảm đau lưng cấp hoặc bán cấp trong ngắn hạn, và giúp cơ bắp dễ chịu hơn. Đây là cơ chế chung của liệu pháp nhiệt, không phải kết quả thử nghiệm lâm sàng trên đúng tấm thảm thạch anh tím này.</p>
-          <div class="cites">
-            <article>
-              <h3>Đau lưng cấp và bán cấp</h3>
-              <p>Qaseem và cộng sự (2017), Annals of Internal Medicine: hướng dẫn của American College of Physicians đề xuất nhiệt bề mặt như một lựa chọn không dùng thuốc. <a href="https://doi.org/10.7326/M16-2367" target="_blank" rel="noopener">DOI 10.7326/M16-2367</a>.</p>
-            </article>
-            <article>
-              <h3>Lợi ích ngắn hạn, bằng chứng còn giới hạn</h3>
-              <p>French và cộng sự (2006), Cochrane: nhiệt hoặc lạnh bề mặt có thể giảm đau ngắn hạn ở một số người. <a href="https://doi.org/10.1002/14651858.CD004750.pub2" target="_blank" rel="noopener">DOI 10.1002/14651858.CD004750.pub2</a>.</p>
-            </article>
-          </div>
-        </div>
         <div>
-          <ol class="mech">
-            <li>
-              <span class="idx">1</span>
-              <div>
-                <h3>Gia nhiệt có kiểm soát</h3>
-                <p>Chọn mức nhiệt thấp trước, theo đúng hướng dẫn của phiên bản đang dùng.</p>
-              </div>
-            </li>
-            <li>
-              <span class="idx">2</span>
-              <div>
-                <h3>Làm ấm vùng tiếp xúc</h3>
-                <p>Hơi ấm nằm trên bề mặt da, không phải tác dụng riêng của viên đá.</p>
-              </div>
-            </li>
-            <li>
-              <span class="idx">3</span>
-              <div>
-                <h3>Giãn mạch, bớt cảm giác căng</h3>
-                <p>Nhiệt tại chỗ có cơ sở sinh lý để hỗ trợ thư giãn cơ.</p>
-              </div>
-            </li>
-            <li>
-              <span class="idx">4</span>
-              <div>
-                <h3>Nghỉ ngơi dễ chịu hơn</h3>
-                <p>Hỗ trợ giảm đau mỏi tạm thời. Không dùng thay khám và điều trị.</p>
-              </div>
-            </li>
-          </ol>
-          <p class="note">Không sử dụng nhiệt quá cao hoặc quá lâu, nhất là với người giảm cảm giác nóng. Có thể dùng để thư giãn trước giờ ngủ; không cam kết điều trị mất ngủ.</p>
+          <p class="sec-num">02 — Giải thích khoa học</p>
+          <h2>Nhiệt bề mặt làm ấm chỗ tiếp xúc.</h2>
+          <p class="lede">Có thể dễ chịu hơn và hỗ trợ giảm đau lưng cấp trong ngắn hạn. Đây không phải thử nghiệm trên riêng tấm thảm này.</p>
+          <p class="note">Giữ ấm, thư giãn, hỗ trợ giảm đau mỏi tạm thời. Không thải độc, không chữa bệnh, không chữa mất ngủ.</p>
         </div>
-      </div>
-      <div class="wrap bounds">
-        <article class="panel yes reveal">
-          <h3>Sản phẩm hướng tới</h3>
-          <ul>
-            <li>Giữ ấm và thư giãn, nhấn trải nghiệm dễ chịu tại nhà.</li>
-            <li>Hỗ trợ giảm đau lưng cấp hoặc bán cấp trong ngắn hạn nhờ nhiệt bề mặt — không suy ra hiệu quả riêng của thảm.</li>
-            <li>Hỗ trợ thư giãn cơ khi vai gáy hoặc lưng cảm thấy căng cứng.</li>
-            <li>Hồng ngoại xa, PEMF hoặc ion âm: chỉ nêu thông số đã đo trên đúng mẫu thiết bị.</li>
-          </ul>
-        </article>
-        <article class="panel no reveal">
-          <h3>Ngoài phạm vi của thảm</h3>
-          <ul>
-            <li>Thảm thải độc, hoặc mồ hôi loại bỏ kim loại nặng.</li>
-            <li>Đá thạch anh tím chữa bệnh.</li>
-            <li>Chữa mất ngủ hoặc thay thế thuốc, bác sĩ.</li>
-            <li>Công bố tác dụng điều trị khi chưa có nghiên cứu trên chính sản phẩm.</li>
-          </ul>
-        </article>
+        <figure class="frame">
+          <img src="images/co-che.png" alt="Vùng lưng được giữ ấm" width="900" height="1100">
+        </figure>
       </div>
     </section>
 
     <section id="cau-tao">
-      <div class="wrap grid-2">
-        <div class="reveal">
-          <p class="sec-num">03 — Cấu tạo và công nghệ</p>
-          <h2>Đá thạch anh tím và hệ thống gia nhiệt.</h2>
-          <p class="lede">Tấm thảm kết hợp lớp đá với bộ gia nhiệt có kiểm soát. Kích thước và chất liệu bề mặt dưới đây là mức đề xuất; công suất, dải nhiệt và chứng nhận chỉ được in khi nhà cung cấp đã xác nhận đúng phiên bản.</p>
-          <div class="stack" aria-hidden="true">
-            <div class="layer l1">Bề mặt PU</div>
-            <div class="layer l2">Đá thạch anh tím</div>
-            <div class="layer l3">Lớp gia nhiệt</div>
-            <div class="layer l4">Đế và bộ điều khiển</div>
-          </div>
-        </div>
+      <div class="wrap">
+        <p class="sec-num">03 — Cấu tạo và công nghệ</p>
+        <h2>Đá thạch anh tím và hệ thống gia nhiệt.</h2>
+        <p class="lede">Khoảng 75 × 185 cm. Công suất và dải nhiệt chỉ ghi khi nhà cung cấp xác nhận đúng phiên bản.</p>
+        <ul class="shots shots-4">
+          <li class="ph"><img src="images/be-mat.png" alt="Bề mặt PU" width="800" height="600"><p>Bề mặt PU</p></li>
+          <li class="ph"><img src="images/lop-da.png" alt="Lớp đá thạch anh tím" width="800" height="600"><p>Lớp đá</p></li>
+          <li class="ph"><img src="images/gia-nhiet.png" alt="Lớp gia nhiệt" width="800" height="600"><p>Lớp gia nhiệt</p></li>
+          <li class="ph"><img src="images/de.png" alt="Đế và bộ điều khiển" width="800" height="600"><p>Đế và điều khiển</p></li>
+        </ul>
         <ul class="specs">
           <li><strong>Kích thước</strong><span>khoảng 75 × 185 cm</span></li>
           <li><strong>Bề mặt</strong><span>PU — cần xác nhận đúng phiên bản</span></li>
@@ -888,30 +896,12 @@
       <div class="wrap">
         <p class="sec-num">04 — Hiểu đúng về thải độc</p>
         <h2>Ra mồ hôi không có nghĩa là thải độc.</h2>
-        <p class="lede">Nhiệt có thể làm cơ thể đổ mồ hôi. Điều đó không chứng minh thảm loại bỏ độc tố hay kim loại nặng. Thông điệp của sản phẩm là giữ ấm và thư giãn.</p>
-        <div class="myth">
-          <article class="reveal">
-            <div class="icon" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3c2 3 2 5 0 8 3 0 6 2 6 6a6 6 0 1 1-12 0c0-4 3-6 6-6-2-3-2-5 0-8z"/></svg>
-            </div>
-            <h3>Mồ hôi</h3>
-            <p>Chủ yếu giúp điều hòa thân nhiệt khi da được làm ấm.</p>
-          </article>
-          <article class="reveal">
-            <div class="icon" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M6 7h12M8 17h8"/></svg>
-            </div>
-            <h3>Cơ quan đào thải</h3>
-            <p>Gan, thận và hệ tiêu hóa mới là nơi chuyển hóa và đào thải nhiều chất.</p>
-          </article>
-          <article class="reveal">
-            <div class="icon" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21a8 8 0 1 0-8-8"/><path d="M8 13l3 3 5-6"/></svg>
-            </div>
-            <h3>Lời nên nhớ</h3>
-            <p>Ưu tiên cảm giác ấm, dễ chịu. Không mua thảm để “thải độc”.</p>
-          </article>
-        </div>
+        <p class="lede">Đổ mồ hôi chỉ để điều hòa nhiệt. Gan và thận mới đảm nhiệm đào thải. Thảm dùng để giữ ấm.</p>
+        <ul class="shots shots-3">
+          <li class="ph"><img src="images/mo-hoi.png" alt="Mồ hôi điều hòa thân nhiệt" width="800" height="600"><p>Mồ hôi</p></li>
+          <li class="ph"><img src="images/co-quan.png" alt="Gan và thận" width="800" height="600"><p>Gan và thận</p></li>
+          <li class="ph"><img src="images/giu-am.png" alt="Giữ ấm và thư giãn" width="800" height="600"><p>Giữ ấm</p></li>
+        </ul>
       </div>
     </section>
 
@@ -919,47 +909,32 @@
       <div class="wrap">
         <p class="sec-num">05 — Trải nghiệm an toàn</p>
         <h2>Bắt đầu từ mức nhiệt thấp.</h2>
-        <p class="lede">Dùng như một lớp giữ ấm có kiểm soát. Dừng ngay nếu da đỏ rát, chóng mặt hoặc khó chịu.</p>
-        <ol class="steps">
-          <li>
-            <span class="idx">1</span>
-            <h3>Trải thảm</h3>
-            <p>Đặt phẳng trên giường hoặc ghế, đúng mặt tiếp xúc theo hướng dẫn.</p>
-          </li>
-          <li>
-            <span class="idx">2</span>
-            <h3>Nối điện đúng cách</h3>
-            <p>Cắm đúng chiều và đúng ổ, không dùng dây nối nếu sách hướng dẫn cấm.</p>
-          </li>
-          <li>
-            <span class="idx">3</span>
-            <h3>Chọn mức thấp</h3>
-            <p>Làm quen với nhiệt trước khi tăng. Người giảm cảm giác nóng cần người khác theo dõi.</p>
-          </li>
-          <li>
-            <span class="idx">4</span>
-            <h3>Nghỉ đúng thời gian</h3>
-            <p>Ở trong khoảng thời gian khuyến nghị. Không ngủ quên trên thảm đang gia nhiệt nếu hướng dẫn không cho phép.</p>
-          </li>
-        </ol>
+        <p class="lede">Dừng ngay nếu da đỏ rát, chóng mặt hoặc khó chịu. Không ngủ quên trên thảm đang gia nhiệt nếu hướng dẫn không cho phép.</p>
+        <ul class="shots shots-4">
+          <li class="ph sq"><img src="images/buoc-1.png" alt="Trải thảm" width="800" height="800"><p>1. Trải thảm</p></li>
+          <li class="ph sq"><img src="images/buoc-2.png" alt="Nối điện đúng cách" width="800" height="800"><p>2. Nối điện</p></li>
+          <li class="ph sq"><img src="images/buoc-3.png" alt="Chọn mức nhiệt thấp" width="800" height="800"><p>3. Mức thấp</p></li>
+          <li class="ph sq"><img src="images/buoc-4.png" alt="Nghỉ trong thời gian khuyến nghị" width="800" height="800"><p>4. Nghỉ ngơi</p></li>
+        </ul>
         <div class="warn">
-          <h3>Nên hỏi bác sĩ trước khi dùng</h3>
-          <p>Người cao tuổi, người mắc bệnh nền, người giảm cảm giác nóng, bệnh lý tuần hoàn, người đang mang thai, hoặc người có thiết bị điện tử cấy ghép — đặc biệt nếu sản phẩm có PEMF.</p>
-          <ul>
-            <li>Ngừng dùng khi da đỏ rát, chóng mặt hoặc khó chịu.</li>
-            <li>Không dùng để thay thế khám và điều trị y tế.</li>
-            <li>Không tự ý dùng nhiệt cao, thời gian dài.</li>
-          </ul>
+          <h3>Hỏi bác sĩ trước nếu</h3>
+          <p>Người cao tuổi, bệnh nền, giảm cảm giác nóng, bệnh tuần hoàn, đang mang thai, hoặc có máy cấy ghép — nhất là khi sản phẩm có PEMF. Không thay khám bệnh.</p>
         </div>
       </div>
     </section>
 
     <section id="niem-tin">
+      <div class="wrap">
+        <p class="sec-num">06 — Niềm tin và ưu đãi</p>
+        <h2>Chỉ công bố những gì đã kiểm chứng.</h2>
+        <ul class="shots shots-2">
+          <li class="ph"><img src="images/san-pham.png" alt="Ảnh sản phẩm và hộp" width="800" height="600"><p>Sản phẩm</p></li>
+          <li class="ph"><img src="images/qua.png" alt="Quà tặng mùa đông" width="800" height="600"><p>Quà tặng</p></li>
+        </ul>
+      </div>
       <div class="wrap trust">
         <div>
-          <p class="sec-num">06 — Niềm tin và ưu đãi</p>
-          <h2>Chỉ công bố những gì đã kiểm chứng.</h2>
-          <p class="lede">Giá, bảo hành và giao hàng được báo khi tư vấn, theo đúng phiên bản đang bán. Phản hồi khách hàng chỉ đăng sau khi xác minh người mua.</p>
+          <p class="lede">Giá, bảo hành và giao hàng báo khi tư vấn. Phản hồi chỉ đăng khi đã xác minh người mua.</p>
           <p><a class="btn btn-dark" href="#tu-van">Nhận giá và ưu đãi mùa đông</a></p>
         </div>
         <div class="panel">
@@ -981,7 +956,10 @@
         <div>
           <p class="sec-num">07 — Nhận tư vấn</p>
           <h2>Để lại lời nhắn, cửa hàng gọi lại.</h2>
-          <p class="lede">Điền họ tên, số điện thoại, người sẽ sử dụng và mục đích. Chỉ các mục đích: giữ ấm, thư giãn, hoặc hỗ trợ giảm đau mỏi tạm thời.</p>
+          <figure class="frame">
+            <img src="images/tu-van.png" alt="Ảnh người thân dùng thảm" width="800" height="1000">
+          </figure>
+          <p class="lede">Họ tên, số điện thoại, người sử dụng và mục đích: giữ ấm, thư giãn, hoặc hỗ trợ giảm đau mỏi tạm thời.</p>
           <details class="policy">
             <summary>Chính sách bảo mật ngắn</summary>
             <p>Họ tên và số điện thoại chỉ dùng để liên hệ tư vấn sản phẩm và ưu đãi mùa đông. Bạn có thể yêu cầu ngừng liên hệ hoặc xóa thông tin khi cửa hàng gọi lại.</p>
