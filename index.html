@@ -225,44 +225,57 @@
       padding-bottom: 4.5rem;
     }
     .hero-copy { max-width: 38rem; }
-    .gallery, .shots {
-      list-style: none;
+    .pile {
       display: grid;
-      gap: 0.9rem;
-      margin: 1.4rem 0 0;
-      padding: 0;
+      grid-template-columns: 1.4fr 0.8fr;
+      align-items: start;
     }
-    .band { padding: 2.2rem 0 0; }
-    .gallery { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-    .shots-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-    .shots-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .shots-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .ph { margin: 0; }
-    .ph img {
+    .pile-3 { grid-template-columns: 1.15fr 0.7fr 0.7fr; }
+    .card {
+      position: relative;
+      margin: 0;
+      border-radius: 22px;
+      overflow: hidden;
+      min-height: 210px;
+      box-shadow: 0 16px 36px rgba(22, 11, 34, 0.18);
+    }
+    .card img {
+      position: absolute;
+      inset: 0;
       width: 100%;
-      height: auto;
-      aspect-ratio: 4 / 3;
+      height: 100%;
       object-fit: cover;
       display: block;
-      border-radius: 18px;
-      background: #efe4f4;
     }
-    .ph.tall img { aspect-ratio: 4 / 5; }
-    .ph.sq img { aspect-ratio: 1; }
-    .ph p, .ph figcaption {
-      margin: 0.45rem 0 0;
-      font-weight: 600;
+    .card figcaption {
+      position: relative;
+      z-index: 1;
+      min-height: 210px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      gap: 0.25rem;
+      margin: 0;
+      padding: 1rem 1.05rem;
+      color: #fff;
+      background: linear-gradient(180deg, rgba(16, 8, 24, 0.05) 20%, rgba(16, 8, 24, 0.82) 100%);
     }
-    .frame { margin: 0; }
-    .frame img {
-      width: 100%;
-      aspect-ratio: 4 / 5;
-      object-fit: cover;
-      border-radius: 24px;
-      display: block;
+    .card h2, .card h3, .card p { margin: 0; color: #fff; }
+    .card h2 { font-size: clamp(1.55rem, 2.6vw, 2.15rem); line-height: 1.15; }
+    .card h3 { font-size: 1.15rem; }
+    .card .sec-num { color: var(--gold); }
+    .card-b { margin-top: 64px; margin-left: -64px; z-index: 1; }
+    .card-c { margin-top: 112px; margin-left: -48px; z-index: 2; }
+    .row-pile {
+      display: flex;
+      align-items: stretch;
+      margin-top: 0.9rem;
     }
-    #thai-doc .ph p { color: #f6efe8; }
-    #tu-van .frame { margin-bottom: 1rem; }
+    .row-pile .card { flex: 1 1 0; min-height: 168px; }
+    .row-pile .card + .card { margin-left: -36px; }
+    .row-pile .card:nth-child(even) { margin-top: 28px; }
+    .row-pile figcaption { min-height: 168px; padding-right: 2.2rem; }
+    .pile > .card:first-child figcaption { padding-right: 2.6rem; }
     .kicker {
       margin: 0 0 0.8rem;
       color: var(--gold);
@@ -393,7 +406,7 @@
       letter-spacing: 0.04em;
     }
 
-    section { position: relative; padding: 5.5rem 0; }
+    section { position: relative; padding: 2.4rem 0; }
     .sec-num {
       font-family: var(--serif);
       font-style: italic;
@@ -505,7 +518,7 @@
     .l2 { top: 100px; background: linear-gradient(90deg, #8d62b8, #5d347f); animation-delay: -0.4s; }
     .l3 { top: 180px; background: linear-gradient(90deg, #e39a55, #b4531e); animation-delay: -0.8s; }
     .l4 { top: 260px; background: linear-gradient(90deg, #3d2a4d, #24182f); animation-delay: -1.2s; }
-    .specs { list-style: none; margin: 1.3rem 0 0; padding: 0; display: grid; gap: 0.7rem; }
+    .specs { list-style: none; margin: 1rem 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0.55rem; }
     .specs li {
       display: flex;
       justify-content: space-between;
@@ -739,8 +752,13 @@
 
     @media (max-width: 900px) {
       .hero-shade { background: linear-gradient(180deg, rgba(22, 11, 34, 0.72), rgba(22, 11, 34, 0.86) 42%, rgba(22, 11, 34, 0.92)); }
-      .hero-main, .grid-2, .bounds, .myth, .steps, .trust { grid-template-columns: minmax(0, 1fr); }
-      .gallery, .shots-4, .shots-3, .shots-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .hero-main, .grid-2, .bounds, .myth, .steps, .trust, .pile, .pile-3 { grid-template-columns: minmax(0, 1fr); }
+      .card-b, .card-c { margin-left: 10%; margin-top: -22px; }
+      .pile > .card:first-child figcaption,
+      .row-pile figcaption { padding-bottom: 1.8rem; }
+      .row-pile { flex-direction: column; }
+      .row-pile .card + .card { margin-left: 8%; margin-top: -28px; }
+      .row-pile .card:nth-child(even) { margin-left: 0; }
       .brand { min-width: 0; flex: 1; font-size: 0.95rem; }
       .grid-2 > *, .bounds > *, .myth > *, .trust > * { min-width: 0; }
       .rings { display: none; }
@@ -766,11 +784,11 @@
     }
 
     @media (max-width: 720px) {
-      section { padding: 3.6rem 0; }
+      section { padding: 1.8rem 0; }
       .hero-main { padding-bottom: 3.4rem; }
       .hero h1 { font-size: 2.05rem; }
       .dek { font-size: 1.2rem; }
-      .gallery, .shots-4, .shots-3 { grid-template-columns: minmax(0, 1fr); }
+      .specs { grid-template-columns: 1fr; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -832,53 +850,35 @@
     </div>
   </div>
 
-  <section class="band">
-    <ul class="gallery wrap">
-      <li class="ph">
-        <img src="images/phong-nghi.png" alt="Phòng nghỉ" width="800" height="600">
-        <p>Phòng nghỉ</p>
-      </li>
-      <li class="ph">
-        <img src="images/tham.png" alt="Tấm thảm" width="800" height="600">
-        <p>Tấm thảm</p>
-      </li>
-      <li class="ph">
-        <img src="images/da.png" alt="Đá thạch anh tím" width="800" height="600">
-        <p>Đá thạch anh tím</p>
-      </li>
-      <li class="ph">
-        <img src="images/dieu-khien.png" alt="Bộ điều khiển" width="800" height="600">
-        <p>Bộ điều khiển</p>
-      </li>
-    </ul>
-  </section>
-
   <main id="noi-dung">
     <section id="khoa-hoc">
-      <div class="wrap grid-2">
-        <div>
-          <p class="sec-num">02 — Giải thích khoa học</p>
-          <h2>Nhiệt bề mặt làm ấm chỗ tiếp xúc.</h2>
-          <p class="lede">Có thể dễ chịu hơn và hỗ trợ giảm đau lưng cấp trong ngắn hạn. Đây không phải thử nghiệm trên riêng tấm thảm này.</p>
-          <p class="note">Giữ ấm, thư giãn, hỗ trợ giảm đau mỏi tạm thời. Không thải độc, không chữa bệnh, không chữa mất ngủ.</p>
-        </div>
-        <figure class="frame">
+      <div class="wrap pile">
+        <figure class="card">
           <img src="images/co-che.png" alt="Vùng lưng được giữ ấm" width="900" height="1100">
+          <figcaption>
+            <p class="sec-num">02 — Giải thích khoa học</p>
+            <h2>Nhiệt bề mặt làm ấm chỗ tiếp xúc.</h2>
+            <p>Hỗ trợ giảm đau lưng cấp trong ngắn hạn. Không phải thử nghiệm trên riêng tấm thảm này.</p>
+          </figcaption>
+        </figure>
+        <figure class="card card-b">
+          <img src="images/phong-nghi.png" alt="Phòng nghỉ" width="800" height="600">
+          <figcaption>
+            <h3>Giữ ấm, thư giãn</h3>
+            <p>Không thải độc, không chữa bệnh.</p>
+          </figcaption>
         </figure>
       </div>
     </section>
 
     <section id="cau-tao">
       <div class="wrap">
-        <p class="sec-num">03 — Cấu tạo và công nghệ</p>
-        <h2>Đá thạch anh tím và hệ thống gia nhiệt.</h2>
-        <p class="lede">Khoảng 75 × 185 cm. Công suất và dải nhiệt chỉ ghi khi nhà cung cấp xác nhận đúng phiên bản.</p>
-        <ul class="shots shots-4">
-          <li class="ph"><img src="images/be-mat.png" alt="Bề mặt PU" width="800" height="600"><p>Bề mặt PU</p></li>
-          <li class="ph"><img src="images/lop-da.png" alt="Lớp đá thạch anh tím" width="800" height="600"><p>Lớp đá</p></li>
-          <li class="ph"><img src="images/gia-nhiet.png" alt="Lớp gia nhiệt" width="800" height="600"><p>Lớp gia nhiệt</p></li>
-          <li class="ph"><img src="images/de.png" alt="Đế và bộ điều khiển" width="800" height="600"><p>Đế và điều khiển</p></li>
-        </ul>
+        <div class="row-pile">
+          <figure class="card"><img src="images/be-mat.png" alt="Bề mặt PU" width="800" height="600"><figcaption><p class="sec-num">03 — Cấu tạo</p><h3>Bề mặt PU</h3><p>Khoảng 75 × 185 cm</p></figcaption></figure>
+          <figure class="card"><img src="images/lop-da.png" alt="Lớp đá thạch anh tím" width="800" height="600"><figcaption><h3>Lớp đá</h3></figcaption></figure>
+          <figure class="card"><img src="images/gia-nhiet.png" alt="Lớp gia nhiệt" width="800" height="600"><figcaption><h3>Gia nhiệt</h3></figcaption></figure>
+          <figure class="card"><img src="images/de.png" alt="Đế và bộ điều khiển" width="800" height="600"><figcaption><h3>Đế thảm</h3></figcaption></figure>
+        </div>
         <ul class="specs">
           <li><strong>Kích thước</strong><span>khoảng 75 × 185 cm</span></li>
           <li><strong>Bề mặt</strong><span>PU — cần xác nhận đúng phiên bản</span></li>
@@ -894,28 +894,35 @@
 
     <section id="thai-doc">
       <div class="wrap">
-        <p class="sec-num">04 — Hiểu đúng về thải độc</p>
-        <h2>Ra mồ hôi không có nghĩa là thải độc.</h2>
-        <p class="lede">Đổ mồ hôi chỉ để điều hòa nhiệt. Gan và thận mới đảm nhiệm đào thải. Thảm dùng để giữ ấm.</p>
-        <ul class="shots shots-3">
-          <li class="ph"><img src="images/mo-hoi.png" alt="Mồ hôi điều hòa thân nhiệt" width="800" height="600"><p>Mồ hôi</p></li>
-          <li class="ph"><img src="images/co-quan.png" alt="Gan và thận" width="800" height="600"><p>Gan và thận</p></li>
-          <li class="ph"><img src="images/giu-am.png" alt="Giữ ấm và thư giãn" width="800" height="600"><p>Giữ ấm</p></li>
-        </ul>
+        <div class="pile pile-3">
+          <figure class="card">
+            <img src="images/mo-hoi.png" alt="Mồ hôi điều hòa thân nhiệt" width="800" height="600">
+            <figcaption>
+              <p class="sec-num">04 — Thải độc</p>
+              <h2>Ra mồ hôi không phải thải độc.</h2>
+              <p>Mồ hôi chỉ giúp điều hòa nhiệt.</p>
+            </figcaption>
+          </figure>
+          <figure class="card card-b">
+            <img src="images/co-quan.png" alt="Gan và thận" width="800" height="600">
+            <figcaption><h3>Gan và thận</h3><p>Nơi đào thải chính.</p></figcaption>
+          </figure>
+          <figure class="card card-c">
+            <img src="images/giu-am.png" alt="Giữ ấm và thư giãn" width="800" height="600">
+            <figcaption><h3>Giữ ấm</h3><p>Đúng việc của thảm.</p></figcaption>
+          </figure>
+        </div>
       </div>
     </section>
 
     <section id="an-toan">
       <div class="wrap">
-        <p class="sec-num">05 — Trải nghiệm an toàn</p>
-        <h2>Bắt đầu từ mức nhiệt thấp.</h2>
-        <p class="lede">Dừng ngay nếu da đỏ rát, chóng mặt hoặc khó chịu. Không ngủ quên trên thảm đang gia nhiệt nếu hướng dẫn không cho phép.</p>
-        <ul class="shots shots-4">
-          <li class="ph sq"><img src="images/buoc-1.png" alt="Trải thảm" width="800" height="800"><p>1. Trải thảm</p></li>
-          <li class="ph sq"><img src="images/buoc-2.png" alt="Nối điện đúng cách" width="800" height="800"><p>2. Nối điện</p></li>
-          <li class="ph sq"><img src="images/buoc-3.png" alt="Chọn mức nhiệt thấp" width="800" height="800"><p>3. Mức thấp</p></li>
-          <li class="ph sq"><img src="images/buoc-4.png" alt="Nghỉ trong thời gian khuyến nghị" width="800" height="800"><p>4. Nghỉ ngơi</p></li>
-        </ul>
+        <div class="row-pile">
+          <figure class="card"><img src="images/buoc-1.png" alt="Trải thảm" width="800" height="800"><figcaption><p class="sec-num">05 — An toàn</p><h3>1. Trải thảm</h3><p>Bắt đầu từ mức thấp.</p></figcaption></figure>
+          <figure class="card"><img src="images/buoc-2.png" alt="Nối điện đúng cách" width="800" height="800"><figcaption><h3>2. Nối điện</h3></figcaption></figure>
+          <figure class="card"><img src="images/buoc-3.png" alt="Chọn mức nhiệt thấp" width="800" height="800"><figcaption><h3>3. Mức thấp</h3></figcaption></figure>
+          <figure class="card"><img src="images/buoc-4.png" alt="Nghỉ trong thời gian khuyến nghị" width="800" height="800"><figcaption><h3>4. Nghỉ ngơi</h3></figcaption></figure>
+        </div>
         <div class="warn">
           <h3>Hỏi bác sĩ trước nếu</h3>
           <p>Người cao tuổi, bệnh nền, giảm cảm giác nóng, bệnh tuần hoàn, đang mang thai, hoặc có máy cấy ghép — nhất là khi sản phẩm có PEMF. Không thay khám bệnh.</p>
@@ -924,18 +931,26 @@
     </section>
 
     <section id="niem-tin">
-      <div class="wrap">
-        <p class="sec-num">06 — Niềm tin và ưu đãi</p>
-        <h2>Chỉ công bố những gì đã kiểm chứng.</h2>
-        <ul class="shots shots-2">
-          <li class="ph"><img src="images/san-pham.png" alt="Ảnh sản phẩm và hộp" width="800" height="600"><p>Sản phẩm</p></li>
-          <li class="ph"><img src="images/qua.png" alt="Quà tặng mùa đông" width="800" height="600"><p>Quà tặng</p></li>
-        </ul>
+      <div class="wrap pile">
+        <figure class="card">
+          <img src="images/san-pham.png" alt="Ảnh sản phẩm và hộp" width="800" height="600">
+          <figcaption>
+            <p class="sec-num">06 — Niềm tin và ưu đãi</p>
+            <h2>Chỉ công bố những gì đã kiểm chứng.</h2>
+            <p>Giá và bảo hành báo khi tư vấn.</p>
+          </figcaption>
+        </figure>
+        <figure class="card card-b">
+          <img src="images/qua.png" alt="Quà tặng mùa đông" width="800" height="600">
+          <figcaption>
+            <h3>Quà tặng</h3>
+            <p><a class="btn btn-heat" href="#tu-van">Nhận ưu đãi mùa đông</a></p>
+          </figcaption>
+        </figure>
       </div>
       <div class="wrap trust">
         <div>
-          <p class="lede">Giá, bảo hành và giao hàng báo khi tư vấn. Phản hồi chỉ đăng khi đã xác minh người mua.</p>
-          <p><a class="btn btn-dark" href="#tu-van">Nhận giá và ưu đãi mùa đông</a></p>
+          <p class="lede">Phản hồi chỉ đăng khi đã xác minh người mua.</p>
         </div>
         <div class="panel">
           <h3>Hồ sơ cần có trước khi quảng cáo tác dụng</h3>
@@ -954,12 +969,14 @@
     <section id="tu-van">
       <div class="wrap grid-2">
         <div>
-          <p class="sec-num">07 — Nhận tư vấn</p>
-          <h2>Để lại lời nhắn, cửa hàng gọi lại.</h2>
-          <figure class="frame">
+          <figure class="card">
             <img src="images/tu-van.png" alt="Ảnh người thân dùng thảm" width="800" height="1000">
+            <figcaption>
+              <p class="sec-num">07 — Nhận tư vấn</p>
+              <h2>Để lại lời nhắn, cửa hàng gọi lại.</h2>
+              <p>Giữ ấm, thư giãn, hoặc hỗ trợ giảm đau mỏi tạm thời.</p>
+            </figcaption>
           </figure>
-          <p class="lede">Họ tên, số điện thoại, người sử dụng và mục đích: giữ ấm, thư giãn, hoặc hỗ trợ giảm đau mỏi tạm thời.</p>
           <details class="policy">
             <summary>Chính sách bảo mật ngắn</summary>
             <p>Họ tên và số điện thoại chỉ dùng để liên hệ tư vấn sản phẩm và ưu đãi mùa đông. Bạn có thể yêu cầu ngừng liên hệ hoặc xóa thông tin khi cửa hàng gọi lại.</p>
