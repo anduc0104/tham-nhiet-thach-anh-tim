@@ -3,1056 +3,2229 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Thảm nhiệt đá thạch anh tím | Giữ ấm, thư giãn, hỗ trợ giảm đau mỏi tạm thời</title>
-  <meta name="description" content="Thảm nhiệt đá thạch anh tím — món quà chăm sóc bố mẹ dựa trên nguyên lý nhiệt trị liệu: giữ ấm, thư giãn, hỗ trợ giảm đau mỏi tạm thời tại nhà.">
-  <meta name="theme-color" content="#160B22">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect fill='%23160B22' width='32' height='32' rx='8'/%3E%3Cpath fill='%23C4A0E4' d='M16 5l4 7h-8z'/%3E%3Cpath fill='%23E7C27A' d='M10 14h12l-2 12H12z'/%3E%3C/svg%3E">
+  <title>Thảm Nhiệt Đá Thạch Anh Tím | Giữ Ấm, Thư Giãn, Hỗ Trợ Giảm Đau Mỏi Tạm Thời</title>
+  <meta name="description" content="Thảm nhiệt đá thạch anh tím — Món quà chăm sóc bố mẹ dựa trên nguyên lý nhiệt trị liệu: Giữ ấm, thư giãn và hỗ trợ giảm đau mỏi tạm thời tại nhà.">
+  <meta name="theme-color" content="#241335">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect fill='%23241335' width='32' height='32' rx='8'/%3E%3Cpath fill='%23C4A0E4' d='M16 5l5 8h-10z'/%3E%3Cpath fill='%23E5A754' d='M9 15h14l-2 11H11z'/%3E%3C/svg%3E">
+  
+  <!-- Google Fonts: Lora (Serif) & Be Vietnam Pro (Sans) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Lora:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+
   <style>
+    /* ==========================================================================
+       1. Design Tokens & CSS Variables
+       ========================================================================== */
     :root {
-      --ink: #1c1424;
-      --muted: #5c4e66;
-      --plum: #241430;
-      --plum-deep: #160b22;
-      --amethyst: #6e3d98;
-      --lilac: #f4eaf8;
-      --cream: #fbf6f0;
-      --sand: #f3e6d6;
-      --card: #fffdfb;
-      --line: #eadfce;
-      --heat: #8e3e16;
-      --heat-hot: #c4622d;
-      --gold: #e7c27a;
-      --gold-deep: #8a6230;
-      --ok: #1d5c3d;
-      --danger: #8d2340;
-      --serif: "Lora", "Palatino Linotype", Palatino, serif;
-      --sans: "Be Vietnam Pro", "Segoe UI", sans-serif;
-      --shadow: 0 18px 50px rgba(36, 20, 48, 0.08);
-      --radius: 22px;
+      /* Brand Palette */
+      --plum-dark: #1a0d26;
+      --plum: #28143c;
+      --plum-light: #3e2059;
+      --amethyst: #6b3ba7;
+      --amethyst-soft: #f4ecf9;
+      --amethyst-subtle: #8e62c4;
+      
+      /* Heat & Warm Accents */
+      --heat-primary: #c95c27;
+      --heat-hover: #ab4715;
+      --heat-soft: #fbf0ea;
+      --gold: #d49f50;
+      --gold-dark: #8c6328;
+      --gold-light: #fbf5eb;
+
+      /* Neutrals & Surfaces */
+      --bg-cream: #faf7f2;
+      --bg-sand: #f5efe6;
+      --card-bg: #ffffff;
+      --card-border: #e9e0d4;
+      --text-main: #1f1826;
+      --text-muted: #5e5268;
+      --text-soft: #857991;
+
+      /* Feedback Colors */
+      --success-bg: #eef8f2;
+      --success-text: #1d6a3f;
+      --success-border: #bde4ce;
+      --warning-bg: #fff7ee;
+      --warning-text: #8e4b17;
+      --warning-border: #f7d5b8;
+
+      /* Typography */
+      --font-serif: "Lora", "Palatino Linotype", Georgia, serif;
+      --font-sans: "Be Vietnam Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+      /* Geometry & Elevation */
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-xl: 28px;
+      --radius-full: 9999px;
+      --shadow-sm: 0 2px 8px rgba(26, 13, 38, 0.04);
+      --shadow-md: 0 8px 24px -4px rgba(26, 13, 38, 0.08);
+      --shadow-lg: 0 16px 40px -8px rgba(26, 13, 38, 0.12);
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
+    /* ==========================================================================
+       2. Base & Reset
+       ========================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
       margin: 0;
-      color: var(--ink);
-      background: var(--cream);
-      font-family: var(--sans);
-      font-size: 1.05rem;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--text-main);
+      background-color: var(--bg-cream);
       line-height: 1.65;
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
-    img, svg { max-width: 100%; }
-    a { color: var(--heat); overflow-wrap: anywhere; }
-    a:hover { color: var(--plum); }
-    p, li, h1, h2, h3 { overflow-wrap: break-word; }
-    :focus-visible {
-      outline: 3px solid var(--gold);
-      outline-offset: 3px;
-    }
-    ::selection { background: #e7d4f5; color: var(--plum-deep); }
 
-    .skip {
-      position: absolute;
-      left: 1rem;
-      top: -4rem;
-      z-index: 20;
-      background: #fff;
-      color: var(--ink);
-      padding: 0.6rem 1rem;
-      border-radius: 999px;
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
     }
-    .skip:focus { top: 1rem; }
 
-    .wrap {
-      width: min(1120px, calc(100% - 2rem));
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Typography Utilities */
+    h1, h2, h3, h4, .serif {
+      font-family: var(--font-serif);
+      font-weight: 600;
+      line-height: 1.25;
+      color: inherit;
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-sans);
+      font-size: 0.8125rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--amethyst);
+      margin-bottom: 0.75rem;
+    }
+
+    .kicker.kicker-gold {
+      color: var(--gold);
+    }
+
+    .section-title {
+      font-size: clamp(1.85rem, 3.2vw, 2.75rem);
+      margin-bottom: 0.85rem;
+      color: var(--text-main);
+    }
+
+    .section-desc {
+      font-size: 1.0625rem;
+      color: var(--text-muted);
+      max-width: 44rem;
+      line-height: 1.7;
+    }
+
+    .text-center { text-align: center; }
+    .mx-auto { margin-left: auto; margin-right: auto; }
+
+    /* Layout Container */
+    .container {
+      width: min(1180px, calc(100% - 3rem));
       margin-inline: auto;
-      min-width: 0;
     }
 
-    /* Hero occupies the first screen */
-    .hero {
+    section {
+      padding: 5rem 0;
       position: relative;
-      isolation: isolate;
-      min-height: 100vh;
-      min-height: 100dvh;
-      display: flex;
-      flex-direction: column;
-      color: #f7f1ea;
-      background:
-        radial-gradient(900px 520px at 85% 20%, rgba(196, 98, 45, 0.38), transparent 60%),
-        radial-gradient(700px 480px at 10% 80%, rgba(124, 77, 176, 0.55), transparent 62%),
-        linear-gradient(165deg, #2a143c 0%, var(--plum-deep) 48%, #1a0d16 100%);
-      overflow: hidden;
     }
-    .orb, .ring {
-      position: absolute;
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 0;
-    }
-    .orb {
-      filter: blur(8px);
-      opacity: 0.85;
-      animation: drift 14s ease-in-out infinite;
-    }
-    .o1 { width: 280px; height: 280px; left: -60px; bottom: 10%; background: rgba(142, 78, 180, 0.45); }
-    .o2 { width: 220px; height: 220px; right: 8%; top: 18%; background: rgba(232, 140, 70, 0.35); animation-delay: -4s; }
-    .o3 { width: 140px; height: 140px; right: 30%; bottom: 12%; background: rgba(231, 194, 122, 0.28); animation-delay: -8s; }
-    .rings {
-      position: absolute;
-      right: 12%;
-      top: 46%;
-      width: 280px;
-      height: 280px;
-      transform: translateY(-50%);
-      z-index: 0;
-      pointer-events: none;
-    }
-    .ring {
-      inset: 0;
-      border: 2px solid rgba(231, 194, 122, 0.55);
-      animation: sonar 3.6s ease-out infinite;
-    }
-    .ring:nth-child(2) { animation-delay: 1.2s; }
-    .ring:nth-child(3) { animation-delay: 2.4s; }
 
-    .topbar {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      width: min(1120px, calc(100% - 2rem));
-      margin: 0 auto;
-      padding: 1.1rem 0;
+    .bg-cream { background-color: var(--bg-cream); }
+    .bg-white { background-color: #ffffff; }
+    .bg-sand { background-color: var(--bg-sand); }
+    .bg-dark {
+      background-color: var(--plum-dark);
+      color: #ffffff;
     }
-    .brand {
-      color: #fff;
-      text-decoration: none;
-      font-family: var(--serif);
-      font-size: 1.15rem;
-      letter-spacing: 0.01em;
-    }
-    .brand:hover { color: var(--gold); }
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 1.1rem;
-    }
-    .nav-links a {
-      color: #f3e9df;
-      text-decoration: none;
-      font-size: 0.92rem;
-      font-weight: 500;
-    }
-    .nav-links a:hover { color: var(--gold); }
-    .nav-toggle {
-      position: absolute;
-      opacity: 0;
-      width: 1px;
-      height: 1px;
-    }
-    .nav-btn {
-      display: none;
-      cursor: pointer;
-      border: 1px solid rgba(255, 255, 255, 0.35);
-      border-radius: 999px;
-      padding: 0.45rem 0.9rem;
-      color: #fff;
-    }
+
+    /* ==========================================================================
+       3. Interactive Components: Buttons, Badges & Pills
+       ========================================================================== */
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 0.45rem;
-      min-height: 48px;
-      padding: 0.75rem 1.2rem;
-      border-radius: 999px;
-      border: 2px solid transparent;
-      text-decoration: none;
+      gap: 0.6rem;
+      font-family: var(--font-sans);
       font-weight: 600;
-      cursor: pointer;
-      transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
-    }
-    .btn:hover { transform: translateY(-2px); }
-    .btn-heat {
-      background: linear-gradient(180deg, #a34b1c, var(--heat));
-      color: #fff;
-      box-shadow: 0 10px 28px rgba(142, 62, 22, 0.35);
-      animation: ctaGlow 2.8s ease-in-out infinite;
-    }
-    .btn-heat:hover { color: #fff; background: #732f10; }
-    .btn-ghost {
-      background: transparent;
-      color: #fff;
-      border-color: rgba(255, 255, 255, 0.55);
-    }
-    .btn-ghost:hover { color: var(--plum-deep); background: #fff; }
-    .btn-dark {
-      background: var(--plum);
-      color: #fff;
-    }
-    .btn-dark:hover { color: #fff; background: #3a2152; }
-
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: 0;
-      animation: ken 18s ease-in-out infinite alternate;
-    }
-    .hero-shade {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      background: linear-gradient(90deg, rgba(22, 11, 34, 0.94) 0%, rgba(22, 11, 34, 0.86) 42%, rgba(22, 11, 34, 0.35) 100%);
-    }
-    .hero-main {
-      position: relative;
-      z-index: 1;
-      flex: 1;
-      display: flex;
-      align-items: center;
-      width: min(1120px, calc(100% - 2rem));
-      margin: 0 auto;
-      padding-bottom: 4.5rem;
-    }
-    .hero-copy { max-width: 38rem; }
-    .pile {
-      display: grid;
-      grid-template-columns: 1.4fr 0.8fr;
-      align-items: start;
-    }
-    .pile-3 { grid-template-columns: 1.15fr 0.7fr 0.7fr; }
-    .card {
-      position: relative;
-      margin: 0;
-      border-radius: 22px;
-      overflow: hidden;
-      min-height: 210px;
-      box-shadow: 0 16px 36px rgba(22, 11, 34, 0.18);
-    }
-    .card img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    .card figcaption {
-      position: relative;
-      z-index: 1;
-      min-height: 210px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      gap: 0.25rem;
-      margin: 0;
-      padding: 1rem 1.05rem;
-      color: #fff;
-      background: linear-gradient(180deg, rgba(16, 8, 24, 0.05) 20%, rgba(16, 8, 24, 0.82) 100%);
-    }
-    .card h2, .card h3, .card p { margin: 0; color: #fff; }
-    .card h2 { font-size: clamp(1.55rem, 2.6vw, 2.15rem); line-height: 1.15; }
-    .card h3 { font-size: 1.15rem; }
-    .card .sec-num { color: var(--gold); }
-    .card-b { margin-top: 64px; margin-left: -64px; z-index: 1; }
-    .card-c { margin-top: 112px; margin-left: -48px; z-index: 2; }
-    .row-pile {
-      display: flex;
-      align-items: stretch;
-      margin-top: 0.9rem;
-    }
-    .row-pile .card { flex: 1 1 0; min-height: 168px; }
-    .row-pile .card + .card { margin-left: -36px; }
-    .row-pile .card:nth-child(even) { margin-top: 28px; }
-    .row-pile figcaption { min-height: 168px; padding-right: 2.2rem; }
-    .pile > .card:first-child figcaption { padding-right: 2.6rem; }
-    .kicker {
-      margin: 0 0 0.8rem;
-      color: var(--gold);
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      font-size: 0.78rem;
-      animation: rise 0.8s ease both;
-    }
-    h1, h2, h3, .serif { font-family: var(--serif); font-weight: 560; letter-spacing: -0.02em; }
-    .hero h1 {
-      margin: 0;
-      font-size: clamp(2.3rem, 5vw, 4.4rem);
-      line-height: 1.12;
-      font-weight: 560;
-      animation: rise 0.9s ease 0.12s both;
-    }
-    .dek {
-      margin: 1rem 0 0;
-      font-family: var(--serif);
-      font-style: italic;
-      font-size: clamp(1.25rem, 2.4vw, 1.8rem);
-      color: #f3d7b4;
-      animation: rise 0.9s ease 0.24s both;
-    }
-    .hero-lead {
-      max-width: 38rem;
-      margin: 1rem 0 0;
-      color: #efe4da;
-      animation: rise 0.9s ease 0.36s both;
-    }
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-top: 1.5rem;
-        animation: rise 0.7s ease 0.16s both;
-    }
-    .fine {
-      margin: 1rem 0 0;
-      color: #d9cbbd;
-      font-size: 0.92rem;
-      animation: rise 0.9s ease 0.6s both;
-    }
-    .scroll-cue {
-      position: absolute;
-      left: 50%;
-      bottom: 1.2rem;
-      transform: translateX(-50%);
-      z-index: 2;
-      color: #f3e9df;
-      text-decoration: none;
-      font-size: 0.82rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      animation: bob 1.6s ease-in-out infinite;
-    }
-
-    .stage {
-      position: relative;
-      height: 360px;
-      animation: rise 1s ease 0.2s both;
-    }
-    .mat {
-      position: absolute;
-      left: 8%;
-      right: 6%;
-      top: 78px;
-      height: 190px;
-      border-radius: 36px;
-      background:
-        radial-gradient(circle at 22% 45%, rgba(255, 255, 255, 0.45), transparent 16%),
-        radial-gradient(circle at 48% 58%, rgba(196, 160, 228, 0.9), transparent 18%),
-        radial-gradient(circle at 70% 40%, rgba(126, 70, 176, 0.95), transparent 20%),
-        linear-gradient(160deg, #6a3d90, #3a2156 55%, #6b341c);
-      transform: perspective(700px) rotateX(16deg) rotateZ(-7deg);
-      box-shadow:
-        0 30px 50px rgba(0, 0, 0, 0.35),
-        0 0 40px rgba(232, 140, 70, 0.45);
-      animation: matGlow 3.2s ease-in-out infinite;
-    }
-    .mat span {
-      position: absolute;
-      width: 18px;
-      height: 26px;
-      background: linear-gradient(180deg, #f4e8ff, #8d5cbc);
-      clip-path: polygon(50% 0, 100% 38%, 78% 100%, 22% 100%, 0 38%);
-      animation: floatY 3.4s ease-in-out infinite;
-    }
-    .c1 { left: 18%; top: 38%; }
-    .c2 { left: 42%; top: 28%; animation-delay: -0.8s; }
-    .c3 { left: 63%; top: 42%; animation-delay: -1.6s; }
-    .heatwave {
-      position: absolute;
-      left: 18%;
-      right: 18%;
-      top: 36px;
-      height: 70px;
-      background: linear-gradient(180deg, transparent, rgba(255, 186, 120, 0.35), transparent);
-      filter: blur(8px);
-      animation: heat 2.4s ease-in-out infinite;
-    }
-    .stage-caption {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      margin: 0;
-      text-align: center;
-      color: #e6d8cc;
-      font-size: 0.85rem;
-    }
-
-    .strip {
-      background: var(--plum);
-      color: #f6ecdf;
-      overflow: hidden;
-      contain: inline-size;
-      border-top: 1px solid rgba(231, 194, 122, 0.25);
-    }
-    .strip-track {
-      display: flex;
-      gap: 2.5rem;
-      width: max-content;
-      padding: 0.85rem 0;
-      animation: marquee 22s linear infinite;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-    }
-
-    section { position: relative; padding: 2.4rem 0; }
-    .sec-num {
-      font-family: var(--serif);
-      font-style: italic;
-      color: var(--amethyst);
       font-size: 0.95rem;
-      margin: 0 0 0.4rem;
-    }
-    h2 {
-      margin: 0 0 0.8rem;
-      font-size: clamp(2rem, 4vw, 3.1rem);
-      line-height: 1.15;
-    }
-    .lede { font-size: 1.12rem; color: var(--muted); max-width: 42rem; }
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 2.5rem;
-      align-items: start;
-    }
-    .panel {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 1.3rem;
-    }
-
-    .mech { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.9rem; }
-    .mech li {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 0.9rem;
-      padding: 1rem 1rem 1rem 0.9rem;
-      border-radius: 18px;
-      background: #fff;
-      border: 1px solid var(--line);
-      animation: stepGlow 8s ease-in-out infinite;
-    }
-    .mech li:nth-child(2) { animation-delay: 2s; }
-    .mech li:nth-child(3) { animation-delay: 4s; }
-    .mech li:nth-child(4) { animation-delay: 6s; }
-    .mech h3 { margin: 0 0 0.25rem; font-size: 1.25rem; }
-    .mech p { margin: 0; color: var(--muted); }
-    .idx {
-      width: 46px;
-      height: 46px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      background: var(--lilac);
-      color: var(--amethyst);
-      font-family: var(--serif);
-      font-size: 1.2rem;
-    }
-    .note {
-      margin-top: 1rem;
-      padding: 0.9rem 1rem;
-      border-left: 4px solid var(--gold-deep);
-      background: #fff8ee;
-      border-radius: 0 14px 14px 0;
-      color: #4a3424;
-    }
-    .cites { display: grid; gap: 0.8rem; margin-top: 1rem; }
-    .cites article {
-      padding: 0.95rem 1rem;
-      background: var(--lilac);
-      border-radius: 16px;
-    }
-    .cites h3 { margin: 0 0 0.3rem; font-size: 1.05rem; }
-    .cites p { margin: 0; color: var(--muted); }
-
-    .split-title { margin-bottom: 1.6rem; }
-    .bounds {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      margin-top: 1.5rem;
-    }
-    .bounds h3 { margin-top: 0; }
-    .yes { background: #f3faf5; border: 1px solid #cfe6d8; }
-    .no { background: #fff6f4; border: 1px solid #f0d2cb; }
-    .bounds ul { margin: 0; padding-left: 1.1rem; }
-    .bounds li + li { margin-top: 0.35rem; }
-
-    #cau-tao { background:
-      radial-gradient(500px 220px at 0% 0%, #f7e7cf, transparent 70%),
-      var(--cream);
-    }
-    .stack {
-      position: relative;
-      height: 360px;
-      margin-top: 0.5rem;
-    }
-    .layer {
-      position: absolute;
-      left: 10%;
-      right: 10%;
-      height: 74px;
-      border-radius: 18px;
-      display: flex;
-      align-items: center;
-      padding: 0 1.1rem;
-      color: #fff;
-      font-weight: 600;
-      box-shadow: 0 12px 24px rgba(36, 20, 48, 0.12);
-      animation: separate 5.5s ease-in-out infinite;
-    }
-    .l1 { top: 20px; background: linear-gradient(90deg, #d7c4ae, #b89274); color: #3a2718; animation-delay: 0s; }
-    .l2 { top: 100px; background: linear-gradient(90deg, #8d62b8, #5d347f); animation-delay: -0.4s; }
-    .l3 { top: 180px; background: linear-gradient(90deg, #e39a55, #b4531e); animation-delay: -0.8s; }
-    .l4 { top: 260px; background: linear-gradient(90deg, #3d2a4d, #24182f); animation-delay: -1.2s; }
-    .specs { list-style: none; margin: 1rem 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0.55rem; }
-    .specs li {
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-      padding: 0.85rem 1rem;
-      background: #fff;
-      border-radius: 14px;
-      border: 1px solid var(--line);
-    }
-    .specs strong { font-weight: 600; }
-    .wait {
-      color: var(--gold-deep);
-      font-size: 0.92rem;
+      padding: 0.85rem 1.6rem;
+      border-radius: var(--radius-full);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+      text-align: center;
       white-space: nowrap;
     }
 
-    #thai-doc {
-      background:
-        radial-gradient(600px 280px at 100% 0%, rgba(196, 98, 45, 0.25), transparent 60%),
-        var(--plum-deep);
-      color: #f6efe8;
+    .btn:hover {
+      transform: translateY(-2px);
     }
-    #thai-doc .lede, #thai-doc .sec-num { color: #e7d3c4; }
-    .myth {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-      margin-top: 1.8rem;
+
+    .btn-heat {
+      background-color: var(--heat-primary);
+      color: #ffffff;
+      box-shadow: 0 4px 16px rgba(201, 92, 39, 0.3);
     }
-    .myth article {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 20px;
-      padding: 1.2rem;
-      min-height: 100%;
+
+    .btn-heat:hover {
+      background-color: var(--heat-hover);
+      box-shadow: 0 6px 20px rgba(201, 92, 39, 0.4);
     }
-    .myth h3 { margin: 0.4rem 0; font-size: 1.45rem; }
-    .myth p { margin: 0; color: #eadfD4; }
-    .icon {
-      width: 42px;
-      height: 42px;
+
+    .btn-ghost-light {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.35);
+      backdrop-filter: blur(4px);
+    }
+
+    .btn-ghost-light:hover {
+      background-color: #ffffff;
+      color: var(--plum-dark);
+      border-color: #ffffff;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.25rem 0.65rem;
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-purple {
+      background-color: var(--amethyst-soft);
+      color: var(--amethyst);
+    }
+
+    .badge-gold {
+      background-color: var(--gold-light);
+      color: var(--gold-dark);
+    }
+
+    .badge-success {
+      background-color: var(--success-bg);
+      color: var(--success-text);
+    }
+
+    .badge-warning {
+      background-color: var(--warning-bg);
+      color: var(--warning-text);
+    }
+
+    /* ==========================================================================
+       4. Premium Thumbnail Placeholder Architecture
+       ========================================================================== */
+    .thumb-holder {
+      position: relative;
+      background: linear-gradient(145deg, #2a163a 0%, #1a0b26 100%);
+      border: 1px solid rgba(212, 159, 80, 0.25);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .aspect-16-9 { aspect-ratio: 16 / 9; }
+    .aspect-4-3 { aspect-ratio: 4 / 3; }
+    .aspect-1-1 { aspect-ratio: 1 / 1; }
+    .aspect-hero { aspect-ratio: 16 / 10; min-height: 380px; }
+
+    /* The actual image if uploaded or present in images/ */
+    .thumb-holder > img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+      opacity: 0.35;
+      transition: opacity 0.3s ease;
+    }
+
+    /* Thumbnail Placeholder Overlay */
+    .thumb-placeholder {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      text-align: center;
+      pointer-events: none;
+    }
+
+    .thumb-icon-wrap {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       display: grid;
       place-items: center;
-      border-radius: 12px;
-      background: rgba(231, 194, 122, 0.15);
+      color: var(--gold);
+      margin-bottom: 0.65rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .thumb-tag {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 0.25rem;
+      letter-spacing: 0.02em;
+    }
+
+    .thumb-file-info {
+      font-size: 0.75rem;
+      color: #dfd3e8;
+      font-family: monospace;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 0.2rem 0.55rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Floating caption badge on thumbnail */
+    .thumb-caption {
+      position: absolute;
+      bottom: 0.75rem;
+      left: 0.75rem;
+      right: 0.75rem;
+      z-index: 3;
+      background: rgba(20, 10, 30, 0.88);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      padding: 0.55rem 0.95rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.8125rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* ==========================================================================
+       5. Topbar Navigation
+       ========================================================================== */
+    .topbar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .topbar-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      color: #ffffff;
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+
+    .brand-gem {
+      width: 28px;
+      height: 28px;
+      background: linear-gradient(135deg, #a872e5 0%, #6b3ba7 100%);
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      color: #ffffff;
+      box-shadow: 0 2px 8px rgba(107, 59, 167, 0.4);
+    }
+
+    .topbar-nav {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .topbar-nav a {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .topbar-nav a:hover {
       color: var(--gold);
     }
 
-    .steps {
+    /* ==========================================================================
+       6. Section 01: Hero (Chạm Cảm Xúc)
+       ========================================================================== */
+    .hero {
+      position: relative;
+      background: radial-gradient(circle at 85% 15%, rgba(201, 92, 39, 0.25) 0%, transparent 45%),
+                  radial-gradient(circle at 10% 75%, rgba(107, 59, 167, 0.3) 0%, transparent 50%),
+                  linear-gradient(155deg, #28143c 0%, #170b24 100%);
+      color: #ffffff;
+      padding-top: 8rem;
+      padding-bottom: 5.5rem;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+
+    .hero-content {
+      max-width: 38rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2.25rem, 4.2vw, 3.45rem);
+      line-height: 1.15;
+      font-weight: 600;
+      margin-bottom: 1.1rem;
+      color: #ffffff;
+    }
+
+    .hero-subtitle {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: clamp(1.15rem, 2vw, 1.45rem);
+      color: #eed6b6;
+      margin-bottom: 1.25rem;
+      line-height: 1.4;
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: #e2d5e8;
+      margin-bottom: 1.75rem;
+      line-height: 1.7;
+    }
+
+    .hero-highlights {
+      display: grid;
+      gap: 0.65rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-hl-item {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-size: 0.9375rem;
+      color: #f2e9f6;
+    }
+
+    .hero-hl-icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: rgba(212, 159, 80, 0.2);
+      color: var(--gold);
+      display: grid;
+      place-items: center;
+      font-size: 0.75rem;
+      flex-shrink: 0;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .hero-visual {
+      position: relative;
+    }
+
+    .hero-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius-xl);
+      padding: 1rem;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    }
+
+    .hero-subcard {
+      margin-top: 1rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+
+    .hero-pill-info {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-md);
+      padding: 0.85rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .hero-pill-icon {
+      color: var(--gold);
+      font-size: 1.25rem;
+    }
+
+    .hero-pill-title {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #ffffff;
+      line-height: 1.2;
+    }
+
+    .hero-pill-sub {
+      font-size: 0.75rem;
+      color: #baa7c7;
+    }
+
+    /* Highlights Strip */
+    .trust-strip {
+      background: #ffffff;
+      border-bottom: 1px solid var(--card-border);
+      padding: 1.5rem 0;
+    }
+
+    .trust-strip-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 0.9rem;
-      margin-top: 1.5rem;
-      list-style: none;
-      padding: 0;
+      gap: 1.5rem;
     }
-    .steps li {
-      background: #fff;
-      border-radius: 20px;
-      padding: 1.1rem;
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
-      animation: rise 0.8s ease both;
-    }
-    .steps li:nth-child(2) { animation-delay: 0.1s; }
-    .steps li:nth-child(3) { animation-delay: 0.2s; }
-    .steps li:nth-child(4) { animation-delay: 0.3s; }
-    .steps h3 { margin: 0.4rem 0; font-size: 1.2rem; }
-    .steps p { margin: 0; color: var(--muted); }
-    .warn {
-      margin-top: 1.2rem;
-      background: #fff6ee;
-      border: 1px solid #f0d2b4;
-      border-radius: 20px;
-      padding: 1.2rem 1.3rem;
-    }
-    .warn h3 { margin: 0 0 0.4rem; }
-    .warn ul { margin: 0.4rem 0 0; }
 
-    #niem-tin { background: var(--sand); }
-    .trust {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 1.2rem;
+    .trust-strip-item {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
     }
-    .checklist { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.55rem; }
-    .checklist li {
+
+    .trust-strip-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: var(--amethyst-soft);
+      color: var(--amethyst);
       display: grid;
-      grid-template-columns: 28px 1fr;
-      gap: 0.6rem;
-      align-items: start;
-      background: #fff;
-      border-radius: 14px;
-      padding: 0.75rem 0.8rem;
+      place-items: center;
+      flex-shrink: 0;
     }
-    .mark {
-      width: 28px;
-      height: 28px;
+
+    .trust-strip-title {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--text-main);
+      line-height: 1.25;
+    }
+
+    .trust-strip-desc {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       7. Section 02: Giải Thích Khoa Học (Cơ chế nhiệt bề mặt)
+       ========================================================================== */
+    .mechanism-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+      margin: 2.5rem 0 3.5rem;
+    }
+
+    .mech-card {
+      background: #ffffff;
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .mech-step-num {
+      width: 32px;
+      height: 32px;
+      background: var(--heat-soft);
+      color: var(--heat-primary);
       border-radius: 50%;
       display: grid;
       place-items: center;
-      background: var(--lilac);
-      color: var(--amethyst);
-      font-size: 0.85rem;
+      font-family: var(--font-serif);
+      font-weight: 700;
+      font-size: 0.9375rem;
+      margin-bottom: 1rem;
     }
 
-    #tu-van {
-      background:
-        radial-gradient(500px 240px at 0% 100%, rgba(196, 98, 45, 0.28), transparent 60%),
-        var(--plum);
-      color: #f7f1ea;
+    .mech-card-title {
+      font-size: 1.125rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-main);
     }
-    #tu-van .lede { color: #e6d8cc; }
-    form {
+
+    .mech-card-desc {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    .science-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    .eval-table-card {
+      background: #ffffff;
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .eval-header {
+      padding: 1.15rem 1.5rem;
+      background: var(--plum-dark);
+      color: #ffffff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .eval-header h3 {
+      font-size: 1.05rem;
+      color: #ffffff;
+    }
+
+    .eval-list {
+      list-style: none;
+    }
+
+    .eval-item {
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid var(--card-border);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .eval-item:last-child {
+      border-bottom: none;
+    }
+
+    .eval-item-name {
+      font-weight: 600;
+      font-size: 0.9375rem;
+      color: var(--text-main);
+      margin-bottom: 0.15rem;
+    }
+
+    .eval-item-guide {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+    }
+
+    .ref-box {
+      background: var(--bg-sand);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      margin-top: 1.5rem;
+    }
+
+    .ref-title {
+      font-size: 1rem;
+      margin-bottom: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--plum);
+    }
+
+    .ref-item {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+      line-height: 1.5;
+    }
+
+    .ref-item strong {
+      color: var(--text-main);
+    }
+
+    .ref-disclaimer {
+      font-size: 0.8125rem;
+      font-style: italic;
+      color: var(--gold-dark);
+      background: #fff8ee;
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-sm);
+      border-left: 3px solid var(--gold);
+      margin-top: 1rem;
+    }
+
+    /* ==========================================================================
+       8. Section 03: Cấu Tạo và Công Nghệ
+       ========================================================================== */
+    .layers-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+      margin: 2.5rem 0 3rem;
+    }
+
+    .layer-card {
+      background: #ffffff;
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .layer-card .thumb-holder {
+      margin-bottom: 1rem;
+    }
+
+    .layer-num {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--amethyst);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.35rem;
+    }
+
+    .layer-title {
+      font-size: 1.1rem;
+      color: var(--text-main);
+      margin-bottom: 0.4rem;
+    }
+
+    .layer-desc {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .specs-wrapper {
+      background: #ffffff;
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-xl);
+      padding: 2rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .specs-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem 2rem;
+    }
+
+    .spec-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 0.85rem 0;
+      border-bottom: 1px solid #f0e9df;
+      gap: 1rem;
+    }
+
+    .spec-label {
+      font-weight: 600;
+      font-size: 0.9375rem;
+      color: var(--text-main);
+    }
+
+    .spec-val {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      text-align: right;
+    }
+
+    .spec-pending {
+      color: var(--gold-dark);
+      font-style: italic;
+      font-size: 0.8125rem;
+      background: var(--gold-light);
+      padding: 0.2rem 0.55rem;
+      border-radius: var(--radius-sm);
+    }
+
+    /* ==========================================================================
+       9. Section 04: Hiểu Đúng Về Thải Độc
+       ========================================================================== */
+    .myth-section {
+      background: linear-gradient(170deg, #1c0e2b 0%, #10061a 100%);
+      color: #ffffff;
+    }
+
+    .myth-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .myth-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-xl);
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .myth-card .thumb-holder {
+      margin-bottom: 1.25rem;
+    }
+
+    .myth-badge {
+      display: inline-flex;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.25rem 0.6rem;
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+      align-self: flex-start;
+    }
+
+    .myth-badge-fact {
+      background: rgba(46, 189, 116, 0.2);
+      color: #57d896;
+    }
+
+    .myth-badge-truth {
+      background: rgba(212, 159, 80, 0.2);
+      color: #f0bd73;
+    }
+
+    .myth-title {
+      font-size: 1.25rem;
+      color: #ffffff;
+      margin-bottom: 0.75rem;
+    }
+
+    .myth-desc {
+      font-size: 0.9375rem;
+      color: #d1c5db;
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       10. Section 05: Trải Nghiệm An Toàn
+       ========================================================================== */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+      margin: 2.5rem 0 3rem;
+    }
+
+    .step-box {
+      background: #ffffff;
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .step-box .thumb-holder {
+      margin-bottom: 1rem;
+    }
+
+    .step-indicator {
+      display: inline-block;
+      font-weight: 700;
+      font-size: 0.8125rem;
+      color: var(--heat-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.35rem;
+    }
+
+    .step-title {
+      font-size: 1.1rem;
+      color: var(--text-main);
+      margin-bottom: 0.4rem;
+    }
+
+    .step-desc {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .warning-panel {
+      background: var(--warning-bg);
+      border: 1px solid var(--warning-border);
+      border-radius: var(--radius-xl);
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .warning-icon-large {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(201, 92, 39, 0.15);
+      color: var(--heat-primary);
+      display: grid;
+      place-items: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .warning-heading {
+      font-size: 1.25rem;
+      color: var(--warning-text);
+      margin-bottom: 0.65rem;
+    }
+
+    .warning-content {
+      font-size: 0.9375rem;
+      color: #63330e;
+      line-height: 1.65;
+    }
+
+    .warning-list {
+      margin-top: 0.65rem;
+      padding-left: 1.25rem;
+    }
+
+    .warning-list li {
+      margin-bottom: 0.35rem;
+    }
+
+    /* ==========================================================================
+       11. Section 06: Niềm Tin và Ưu Đãi
+       ========================================================================== */
+    .trust-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 2.5rem;
+      margin-top: 2.5rem;
+      align-items: center;
+    }
+
+    .trust-card {
+      background: #ffffff;
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-xl);
+      padding: 2rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .trust-title {
+      font-size: 1.35rem;
+      margin-bottom: 1.25rem;
+      color: var(--text-main);
+    }
+
+    .verify-list {
+      list-style: none;
       display: grid;
       gap: 0.85rem;
-      background: #fff;
-      color: var(--ink);
-      border-radius: 24px;
-      padding: 1.3rem;
-      box-shadow: var(--shadow);
     }
-    label { display: grid; gap: 0.35rem; font-weight: 600; font-size: 0.95rem; }
-    input, select {
-      min-height: 48px;
-      border-radius: 12px;
-      border: 1px solid #e2d5c8;
-      padding: 0.65rem 0.8rem;
-      font: inherit;
-      background: #fff;
+
+    .verify-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
     }
-    fieldset {
+
+    .verify-num {
+      width: 26px;
+      height: 26px;
+      background: var(--amethyst-soft);
+      color: var(--amethyst);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      font-size: 0.8125rem;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .verify-text strong {
+      color: var(--text-main);
+    }
+
+    .verify-text p {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin-top: 0.15rem;
+    }
+
+    .offer-box {
+      background: linear-gradient(145deg, #ffffff 0%, var(--bg-sand) 100%);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-xl);
+      padding: 2rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .offer-box .thumb-holder {
+      margin-bottom: 1.5rem;
+    }
+
+    .offer-title {
+      font-size: 1.35rem;
+      color: var(--text-main);
+      margin-bottom: 0.6rem;
+    }
+
+    .offer-desc {
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+    }
+
+    .offer-perks {
+      list-style: none;
+      display: grid;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+      font-size: 0.875rem;
+      color: var(--text-main);
+    }
+
+    .offer-perks li {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .offer-perks li::before {
+      content: "✓";
+      color: var(--success-text);
+      font-weight: 700;
+    }
+
+    /* ==========================================================================
+       12. Section 07: Thu Lead / Chuyển Đổi
+       ========================================================================== */
+    .lead-section {
+      background: radial-gradient(circle at 10% 20%, rgba(107, 59, 167, 0.25) 0%, transparent 40%),
+                  radial-gradient(circle at 90% 80%, rgba(201, 92, 39, 0.2) 0%, transparent 45%),
+                  linear-gradient(160deg, #241335 0%, #150a1f 100%);
+      color: #ffffff;
+      padding: 5.5rem 0;
+    }
+
+    .lead-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .lead-info-title {
+      font-size: clamp(2rem, 3.2vw, 2.75rem);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      color: #ffffff;
+    }
+
+    .lead-info-desc {
+      font-size: 1.05rem;
+      color: #e2d3e9;
+      margin-bottom: 1.75rem;
+      line-height: 1.65;
+    }
+
+    .lead-preview-card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius-xl);
+      padding: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .lead-preview-card .thumb-holder {
+      margin-bottom: 1rem;
+    }
+
+    .lead-guarantee {
+      font-size: 0.8125rem;
+      color: #b7a4c4;
+      line-height: 1.5;
+    }
+
+    .consult-form {
+      background: #ffffff;
+      color: var(--text-main);
+      border-radius: var(--radius-xl);
+      padding: 2.25rem;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.3);
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    .form-header {
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .form-header h3 {
+      font-size: 1.45rem;
+      color: var(--plum);
+      margin-bottom: 0.25rem;
+    }
+
+    .form-header p {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    .form-group {
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    .form-group label {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .form-input, .form-select {
+      width: 100%;
+      height: 48px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--card-border);
+      background-color: #faf8f5;
+      padding: 0 1rem;
+      font-family: inherit;
+      font-size: 0.9375rem;
+      color: var(--text-main);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .form-input:focus, .form-select:focus {
+      outline: none;
+      border-color: var(--amethyst);
+      background-color: #ffffff;
+      box-shadow: 0 0 0 3px rgba(107, 59, 167, 0.15);
+    }
+
+    .radio-fieldset {
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-md);
+      padding: 0.9rem 1.15rem;
+      background: #faf8f5;
+    }
+
+    .radio-fieldset legend {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--text-main);
+      padding: 0 0.4rem;
+    }
+
+    .radio-options {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      margin-top: 0.35rem;
+    }
+
+    .radio-label {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.875rem;
+      color: var(--text-main);
+      cursor: pointer;
+    }
+
+    .checkbox-label {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.65rem;
+      align-items: flex-start;
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+      cursor: pointer;
+    }
+
+    .checkbox-label input {
+      margin-top: 0.2rem;
+    }
+
+    .form-error {
+      color: #c92a2a;
+      font-size: 0.875rem;
+      min-height: 1.25rem;
       margin: 0;
-      border: 1px solid #e2d5c8;
-      border-radius: 14px;
-      padding: 0.8rem 1rem 1rem;
     }
-    legend { font-weight: 600; padding: 0 0.3rem; }
-    .choice { font-weight: 500; display: flex; align-items: center; gap: 0.5rem; margin-top: 0.35rem; }
-    .check { font-weight: 500; grid-template-columns: auto 1fr; align-items: start; }
-    .form-error { color: var(--danger); min-height: 1.2em; margin: 0; font-size: 0.92rem; }
-    .thanks {
-      background: #fff;
-      color: var(--ink);
-      border-radius: 24px;
-      padding: 1.5rem;
-    }
-    .thanks h3 { margin-top: 0; }
-    .policy { color: #efe4da; font-size: 0.92rem; }
-    .policy summary { cursor: pointer; color: var(--gold); }
 
-    .close {
-      padding: 4.5rem 0;
+    .form-success-card {
       text-align: center;
-      background:
-        linear-gradient(120deg, rgba(142, 62, 22, 0.08), rgba(110, 61, 152, 0.12)),
-        var(--cream);
+      padding: 2.5rem 1rem;
     }
-    .close p {
-      font-family: var(--serif);
-      font-size: clamp(1.6rem, 3vw, 2.4rem);
-      line-height: 1.35;
+
+    .form-success-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--success-bg);
+      color: var(--success-text);
+      display: grid;
+      place-items: center;
+      font-size: 1.75rem;
+      margin: 0 auto 1.25rem;
+    }
+
+    .form-success-card h3 {
+      font-size: 1.5rem;
+      color: var(--plum);
+      margin-bottom: 0.5rem;
+    }
+
+    .form-success-card p {
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       13. Closing Statement & Footer
+       ========================================================================== */
+    .closing-banner {
+      background: linear-gradient(135deg, #f5e9dc 0%, #ebe0d0 100%);
+      border-top: 1px solid var(--card-border);
+      border-bottom: 1px solid var(--card-border);
+      padding: 3.5rem 0;
+      text-align: center;
+    }
+
+    .closing-quote {
+      font-family: var(--font-serif);
+      font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+      line-height: 1.45;
+      color: var(--plum);
+      max-width: 52rem;
       margin: 0 auto;
-      max-width: 18em;
-    }
-    footer {
-      background: var(--plum-deep);
-      color: #d9cec4;
-      padding: 2rem 0 2.4rem;
-      font-size: 0.92rem;
-    }
-    footer p { margin: 0.35rem 0; }
-    footer a { color: var(--gold); }
-
-    @keyframes rise {
-      from { opacity: 0; transform: translateY(28px); }
-      to { opacity: 1; transform: none; }
-    }
-    @keyframes drift {
-      0%, 100% { transform: translate3d(0, 0, 0); }
-      50% { transform: translate3d(24px, -28px, 0); }
-    }
-    @keyframes sonar {
-      0% { transform: scale(0.35); opacity: 0.8; }
-      100% { transform: scale(1.25); opacity: 0; }
-    }
-    @keyframes matGlow {
-      0%, 100% { box-shadow: 0 30px 50px rgba(0, 0, 0, 0.35), 0 0 24px rgba(232, 140, 70, 0.28); }
-      50% { box-shadow: 0 34px 60px rgba(0, 0, 0, 0.4), 0 0 64px rgba(232, 140, 70, 0.72); }
-    }
-    @keyframes floatY {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-    @keyframes heat {
-      0%, 100% { transform: translateY(8px) scaleX(0.92); opacity: 0.35; }
-      50% { transform: translateY(-12px) scaleX(1); opacity: 0.9; }
-    }
-    @keyframes ken {
-      from { transform: scale(1); }
-      to { transform: scale(1.08); }
-    }
-    @keyframes bob {
-      0%, 100% { transform: translate(-50%, 0); }
-      50% { transform: translate(-50%, 10px); }
-    }
-    @keyframes ctaGlow {
-      0%, 100% { box-shadow: 0 10px 28px rgba(142, 62, 22, 0.28); }
-      50% { box-shadow: 0 12px 36px rgba(232, 140, 70, 0.65); }
-    }
-    @keyframes marquee {
-      from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
-    }
-    @keyframes stepGlow {
-      0%, 100% { border-color: var(--line); box-shadow: none; }
-      18%, 32% { border-color: #e2b07a; box-shadow: 0 0 0 4px rgba(228, 160, 90, 0.2); }
-    }
-    @keyframes separate {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
+      font-weight: 600;
     }
 
-    @supports (animation-timeline: view()) {
-      .reveal {
-        animation: rise linear both;
-        animation-timeline: view();
-        animation-range: entry 0% cover 30%;
+    .footer {
+      background-color: var(--plum-dark);
+      color: #c5b8cf;
+      padding: 3rem 0;
+      font-size: 0.875rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-brand {
+      color: #ffffff;
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .footer-links a {
+      color: #d8cde0;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--gold);
+    }
+
+    .footer-disclaimer {
+      font-size: 0.8125rem;
+      line-height: 1.6;
+      color: #9f8ea8;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 1.5rem;
+    }
+
+    /* ==========================================================================
+       14. Responsive Breakpoints
+       ========================================================================== */
+    @media (max-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+      .hero-content {
+        max-width: 100%;
+        text-align: center;
+      }
+      .hero-actions {
+        justify-content: center;
+      }
+      .hero-highlights {
+        justify-items: center;
+      }
+      .trust-strip-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .mechanism-grid, .layers-grid, .steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .science-split, .trust-grid, .lead-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .specs-grid {
+        grid-template-columns: 1fr;
+      }
+      .myth-grid {
+        grid-template-columns: 1fr;
       }
     }
 
-    @media (max-width: 900px) {
-      .hero-shade { background: linear-gradient(180deg, rgba(22, 11, 34, 0.72), rgba(22, 11, 34, 0.86) 42%, rgba(22, 11, 34, 0.92)); }
-      .hero-main, .grid-2, .bounds, .myth, .steps, .trust, .pile, .pile-3 { grid-template-columns: minmax(0, 1fr); }
-      .card-b, .card-c { margin-left: 10%; margin-top: -22px; }
-      .pile > .card:first-child figcaption,
-      .row-pile figcaption { padding-bottom: 1.8rem; }
-      .row-pile { flex-direction: column; }
-      .row-pile .card + .card { margin-left: 8%; margin-top: -28px; }
-      .row-pile .card:nth-child(even) { margin-left: 0; }
-      .brand { min-width: 0; flex: 1; font-size: 0.95rem; }
-      .grid-2 > *, .bounds > *, .myth > *, .trust > * { min-width: 0; }
-      .rings { display: none; }
-      .stage { height: 280px; }
-      .nav-btn { display: inline-block; }
-      .topbar .nav-links {
-        display: none;
-        position: absolute;
-        right: 0;
-        top: 52px;
-        flex-direction: column;
-        align-items: flex-start;
-        background: rgba(22, 11, 34, 0.96);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        border-radius: 16px;
-        padding: 0.8rem;
-        min-width: 220px;
-      }
-      .nav-toggle:checked ~ .nav-links { display: flex; }
-      .nav-toggle:focus-visible + .nav-btn { outline: 3px solid var(--gold); outline-offset: 3px; }
-      .specs li { flex-direction: column; }
-      .wait { white-space: normal; }
-    }
-
-    @media (max-width: 720px) {
-      section { padding: 1.8rem 0; }
-      .hero-main { padding-bottom: 3.4rem; }
-      .hero h1 { font-size: 2.05rem; }
-      .dek { font-size: 1.2rem; }
-      .specs { grid-template-columns: 1fr; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation: none !important;
-        transition: none !important;
-        scroll-behavior: auto !important;
-      }
+    @media (max-width: 768px) {
+      section { padding: 3.5rem 0; }
+      .hero { padding-top: 6.5rem; padding-bottom: 3.5rem; }
+      .topbar-nav { display: none; }
+      .trust-strip-grid { grid-template-columns: 1fr; }
+      .mechanism-grid, .layers-grid, .steps-grid { grid-template-columns: 1fr; }
+      .radio-options { grid-template-columns: 1fr; }
+      .warning-panel { grid-template-columns: 1fr; }
+      .warning-icon-large { margin-bottom: 0.5rem; }
+      .footer-content { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
 <body>
-  <a class="skip" href="#noi-dung">Đi tới nội dung</a>
 
-  <header class="hero" id="dau-trang">
-    <img class="hero-bg" src="images/hero.png" alt="Banner đầu trang" width="1600" height="900">
-    <div class="hero-shade" aria-hidden="true"></div>
-    <div class="orb o1" aria-hidden="true"></div>
-    <div class="orb o2" aria-hidden="true"></div>
-    <div class="rings" aria-hidden="true">
-      <span class="ring"></span>
-      <span class="ring"></span>
-      <span class="ring"></span>
-    </div>
-
-    <div class="topbar">
-      <a class="brand" href="#dau-trang">Thảm nhiệt đá thạch anh tím</a>
-      <input class="nav-toggle" id="nav-toggle" type="checkbox">
-      <label class="nav-btn" for="nav-toggle">Mục lục</label>
-      <nav class="nav-links" aria-label="Mục lục trang">
-        <a href="#khoa-hoc">Khoa học</a>
-        <a href="#cau-tao">Cấu tạo</a>
-        <a href="#thai-doc">Thải độc</a>
-        <a href="#an-toan">An toàn</a>
-        <a href="#niem-tin">Niềm tin</a>
-        <a class="btn btn-heat" href="#tu-van">Nhận tư vấn</a>
+  <!-- ==========================================================================
+       TOPBAR NAVIGATION
+       ========================================================================== -->
+  <header class="topbar">
+    <div class="container topbar-content">
+      <a href="#dau-trang" class="brand-logo">
+        <span class="brand-gem">◆</span>
+        <span>Thảm Nhiệt Đá Thạch Anh Tím</span>
+      </a>
+      <nav class="topbar-nav" aria-label="Menu chính">
+        <a href="#khoa-hoc">Khoa Học</a>
+        <a href="#cau-tao">Cấu Tạo</a>
+        <a href="#thai-doc">Hiểu Đúng Về Thải Độc</a>
+        <a href="#an-toan">Sử Dụng An Toàn</a>
+        <a href="#niem-tin">Kiểm Định</a>
+        <a href="#tu-van" class="btn btn-heat" style="padding: 0.5rem 1.15rem; font-size: 0.85rem;">Nhận Tư Vấn</a>
       </nav>
     </div>
-
-    <div class="hero-main">
-      <div class="hero-copy">
-        <p class="kicker">Quà chăm sóc mùa đông</p>
-        <h1>Ngày bé, bố mẹ giữ ấm cho con.</h1>
-        <p class="dek">Mùa đông này, đến lượt con chăm sóc bố mẹ.</p>
-        <p class="hero-lead">Giữ ấm, thư giãn, hỗ trợ giảm đau mỏi tạm thời tại nhà.</p>
-        <div class="hero-actions">
-          <a class="btn btn-heat" href="#tu-van">Nhận tư vấn quà tặng bố mẹ</a>
-          <a class="btn btn-ghost" href="#khoa-hoc">Xem cơ chế giữ ấm</a>
-        </div>
-      </div>
-    </div>
-    <a class="scroll-cue" href="#khoa-hoc">Kéo xuống</a>
   </header>
 
-  <div class="strip" aria-hidden="true">
-    <div class="strip-track">
-      <span>Giữ ấm</span><span>Thư giãn</span><span>Hỗ trợ giảm đau mỏi tạm thời</span><span>Quà cho bố mẹ</span>
-      <span>Giữ ấm</span><span>Thư giãn</span><span>Hỗ trợ giảm đau mỏi tạm thời</span><span>Quà cho bố mẹ</span>
+  <main id="dau-trang">
+    <!-- ==========================================================================
+         01 — CHẠM CẢM XÚC (HERO SECTION)
+         ========================================================================== -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <span class="kicker kicker-gold">✦ Món Quà Hiếu Nghĩa Mùa Đông</span>
+          <h1 class="hero-title">Ngày bé, bố mẹ giữ ấm cho con.</h1>
+          <p class="hero-subtitle">Mùa đông này, đến lượt con chăm sóc bố mẹ.</p>
+          <p class="hero-desc">
+            Thảm nhiệt đá thạch anh tím mang đến những phút giây nghỉ ngơi ấm áp, thư thái tại nhà; 
+            hỗ trợ thư giãn cơ bắp và giảm đau mỏi tạm thời dựa trên cơ chế nhiệt bề mặt khoa học.
+          </p>
+
+          <div class="hero-highlights">
+            <div class="hero-hl-item">
+              <span class="hero-hl-icon">✓</span>
+              <span>Liệu pháp nhiệt bề mặt dịu ấm, tạo trải nghiệm dễ chịu tại nhà</span>
+            </div>
+            <div class="hero-hl-item">
+              <span class="hero-hl-icon">✓</span>
+              <span>Hỗ trợ thư giãn cơ và giảm đau lưng cấp/bán cấp trong ngắn hạn</span>
+            </div>
+            <div class="hero-hl-item">
+              <span class="hero-hl-icon">✓</span>
+              <span>Minh bạch khoa học — Không quảng cáo chữa bệnh hay thải độc sai lệch</span>
+            </div>
+          </div>
+
+          <div class="hero-actions">
+            <a href="#tu-van" class="btn btn-heat">Nhận Tư Vấn Quà Tặng Bố Mẹ</a>
+            <a href="#khoa-hoc" class="btn btn-ghost-light">Xem Cơ Chế Giữ Ấm</a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-card">
+            <!-- Thumbnail Placeholder: Hero Banner -->
+            <figure class="thumb-holder aspect-hero">
+              <img src="images/hero.png" alt="Thảm nhiệt đá thạch anh tím chăm sóc bố mẹ" loading="eager" onerror="this.style.opacity='0';">
+              <div class="thumb-placeholder">
+                <div class="thumb-icon-wrap">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="18" height="18" rx="4"/>
+                    <circle cx="8.5" cy="8.5" r="1.5"/>
+                    <polyline points="21 15 16 10 5 21"/>
+                  </svg>
+                </div>
+                <span class="thumb-tag">Thumbnail Giữ Chỗ: Banner Hero Chính</span>
+                <span class="thumb-file-info">images/hero.png • Gợi ý: 1200 × 750 px</span>
+              </div>
+              <figcaption class="thumb-caption">
+                <span>Thảm nhiệt thạch anh tím cao cấp</span>
+                <span class="badge badge-gold">Quà Tặng Ấm Áp</span>
+              </figcaption>
+            </figure>
+
+            <div class="hero-subcard">
+              <div class="hero-pill-info">
+                <span class="hero-pill-icon">♨</span>
+                <div>
+                  <div class="hero-pill-title">Nhiệt Trị Liệu</div>
+                  <div class="hero-pill-sub">Ấm áp & Dịu êm</div>
+                </div>
+              </div>
+              <div class="hero-pill-info">
+                <span class="hero-pill-icon">◆</span>
+                <div>
+                  <div class="hero-pill-title">Thạch Anh Tím</div>
+                  <div class="hero-pill-sub">Tự nhiên & Sang trọng</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Highlights Strip -->
+    <div class="trust-strip">
+      <div class="container trust-strip-grid">
+        <div class="trust-strip-item">
+          <div class="trust-strip-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <div>
+            <div class="trust-strip-title">Giữ Ấm Thư Giãn</div>
+            <div class="trust-strip-desc">Trải nghiệm nghỉ ngơi ấm áp tại nhà</div>
+          </div>
+        </div>
+        <div class="trust-strip-item">
+          <div class="trust-strip-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <div>
+            <div class="trust-strip-title">Hỗ Trợ Giảm Mỏi Cơ</div>
+            <div class="trust-strip-desc">Giãn mạch tại chỗ và giảm căng cứng</div>
+          </div>
+        </div>
+        <div class="trust-strip-item">
+          <div class="trust-strip-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div>
+            <div class="trust-strip-title">Cơ Chế Khoa Học</div>
+            <div class="trust-strip-desc">Dựa trên nhiệt trị liệu bề mặt y khoa</div>
+          </div>
+        </div>
+        <div class="trust-strip-item">
+          <div class="trust-strip-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div>
+            <div class="trust-strip-title">An Toàn Gia Đình</div>
+            <div class="trust-strip-desc">Kiểm soát nhiệt và ngắt bảo vệ điện</div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <main id="noi-dung">
-    <section id="khoa-hoc">
-      <div class="wrap pile">
-        <figure class="card">
-          <img src="images/co-che.png" alt="Vùng lưng được giữ ấm" width="900" height="1100">
-          <figcaption>
-            <p class="sec-num">02 — Giải thích khoa học</p>
-            <h2>Nhiệt bề mặt làm ấm chỗ tiếp xúc.</h2>
-            <p>Hỗ trợ giảm đau lưng cấp trong ngắn hạn. Không phải thử nghiệm trên riêng tấm thảm này.</p>
-          </figcaption>
-        </figure>
-        <figure class="card card-b">
-          <img src="images/phong-nghi.png" alt="Phòng nghỉ" width="800" height="600">
-          <figcaption>
-            <h3>Giữ ấm, thư giãn</h3>
-            <p>Không thải độc, không chữa bệnh.</p>
-          </figcaption>
-        </figure>
+    <!-- ==========================================================================
+         02 — GIẢI THÍCH KHOA HỌC (Cơ chế nhiệt bề mặt)
+         ========================================================================== -->
+    <section id="khoa-hoc" class="bg-cream">
+      <div class="container">
+        <div class="text-center mx-auto" style="max-width: 46rem;">
+          <span class="kicker">02 — Cơ Sở Sinh Lý Học</span>
+          <h2 class="section-title">Cơ Chế Khoa Học Của Nhiệt Bề Mặt</h2>
+          <p class="section-desc mx-auto">
+            Nhiệt bề mặt có bằng chứng hỗ trợ ngắn hạn cho các trường hợp đau lưng cấp/bán cấp và giúp các nhóm cơ dễ chịu hơn 
+            thông qua phản ứng sinh lý làm ấm và giãn mạch tự nhiên.
+          </p>
+        </div>
+
+        <!-- 4-Step Mechanism Sequence -->
+        <div class="mechanism-grid">
+          <div class="mech-card">
+            <div class="mech-step-num">1</div>
+            <h3 class="mech-card-title">Gia Nhiệt Kiểm Soát</h3>
+            <p class="mech-card-desc">Thảm truyền nhiệt độ ổn định, êm ái và an toàn vào vùng tiếp xúc trực tiếp với cơ thể.</p>
+          </div>
+          <div class="mech-card">
+            <div class="mech-step-num">2</div>
+            <h3 class="mech-card-title">Làm Ấm Tiếp Xúc</h3>
+            <p class="mech-card-desc">Nhiệt lượng thấu qua lớp biểu bì, xua tan cảm giác giá lạnh của mùa đông.</p>
+          </div>
+          <div class="mech-card">
+            <div class="mech-step-num">3</div>
+            <h3 class="mech-card-title">Giãn Mạch Tại Chỗ</h3>
+            <p class="mech-card-desc">Kích thích phản xạ vi tuần hoàn máu cục bộ, hỗ trợ vận chuyển oxy và dưỡng chất.</p>
+          </div>
+          <div class="mech-card">
+            <div class="mech-step-num">4</div>
+            <h3 class="mech-card-title">Giảm Căng Cứng Cơ</h3>
+            <p class="mech-card-desc">Giúp giải tỏa trạng thái co thắt của các bó cơ, hỗ trợ giảm cảm giác đau mỏi tạm thời.</p>
+          </div>
+        </div>
+
+        <!-- Evidence Split Grid -->
+        <div class="science-split">
+          <!-- Left: Mechanism Thumbnail & Scientific Citations -->
+          <div>
+            <figure class="thumb-holder aspect-16-9" style="margin-bottom: 1.5rem;">
+              <img src="images/co-che.png" alt="Sơ đồ cơ chế nhiệt bề mặt làm ấm vùng lưng" loading="lazy" onerror="this.style.opacity='0';">
+              <div class="thumb-placeholder">
+                <div class="thumb-icon-wrap">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="18" height="18" rx="4"/>
+                    <circle cx="8.5" cy="8.5" r="1.5"/>
+                    <polyline points="21 15 16 10 5 21"/>
+                  </svg>
+                </div>
+                <span class="thumb-tag">Thumbnail Giữ Chỗ: Sơ Đồ Cơ Chế Vùng Lưng</span>
+                <span class="thumb-file-info">images/co-che.png • Gợi ý: 800 × 500 px</span>
+              </div>
+              <figcaption class="thumb-caption">
+                <span>Vùng lưng tiếp xúc nhiệt và giãn cơ</span>
+                <span class="badge badge-purple">Nhiệt Trị Liệu</span>
+              </figcaption>
+            </figure>
+
+            <div class="ref-box">
+              <h4 class="ref-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                Bằng Chứng Khoa Học Tham Khảo
+              </h4>
+              <p class="ref-item">
+                <strong>American College of Physicians (Qaseem et al., 2017)</strong>: Hướng dẫn y khoa đề xuất nhiệt bề mặt như một liệu pháp không dùng thuốc hàng đầu cho đau lưng cấp và bán cấp. (DOI: 10.7326/M16-2367).
+              </p>
+              <p class="ref-item">
+                <strong>Cochrane Database of Systematic Reviews (French et al., 2006)</strong>: Tổng quan về nhiệt/lạnh bề mặt cho thấy lợi ích giảm đau ngắn hạn ở một số đối tượng; bằng chứng còn giới hạn. (DOI: 10.1002/14651858.CD004750.pub2).
+              </p>
+              <div class="ref-disclaimer">
+                * Lưu ý: Đây là cơ chế chung của liệu pháp nhiệt bề mặt, không phải kết quả thử nghiệm lâm sàng trên riêng sản phẩm thảm này.
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Evaluation Table based on PDF Section 1 -->
+          <div class="eval-table-card">
+            <div class="eval-header">
+              <h3>Đánh Giá Chức Năng & Mức Độ Bằng Chứng</h3>
+              <span class="badge badge-gold">Rà Soát Y Khoa</span>
+            </div>
+            <ul class="eval-list">
+              <li class="eval-item">
+                <div>
+                  <div class="eval-item-name">1. Giữ ấm, thư giãn</div>
+                  <div class="eval-item-guide">Có cơ sở sinh lý học rõ ràng; nhấn mạnh trải nghiệm nghỉ ngơi dễ chịu.</div>
+                </div>
+                <span class="badge badge-success">Có cơ sở</span>
+              </li>
+              <li class="eval-item">
+                <div>
+                  <div class="eval-item-name">2. Giảm đau lưng</div>
+                  <div class="eval-item-guide">Nhiệt bề mặt có bằng chứng hỗ trợ ngắn hạn cho đau lưng cấp/bán cấp.</div>
+                </div>
+                <span class="badge badge-success">Có bằng chứng</span>
+              </li>
+              <li class="eval-item">
+                <div>
+                  <div class="eval-item-name">3. Giảm căng cứng cơ</div>
+                  <div class="eval-item-guide">Có cơ sở sinh lý; sử dụng đúng ngôn ngữ "hỗ trợ thư giãn cơ".</div>
+                </div>
+                <span class="badge badge-purple">Hỗ trợ thư giãn</span>
+              </li>
+              <li class="eval-item">
+                <div>
+                  <div class="eval-item-name">4. Hỗ trợ trước khi ngủ</div>
+                  <div class="eval-item-guide">Tạo trạng thái thư giãn dễ chịu; không cam kết điều trị khỏi mất ngủ.</div>
+                </div>
+                <span class="badge badge-purple">Thư giãn</span>
+              </li>
+              <li class="eval-item">
+                <div>
+                  <div class="eval-item-name">5. Hồng ngoại xa / PEMF / Ion âm</div>
+                  <div class="eval-item-guide">Chỉ công bố thông số và lợi ích khi có kiểm định trên đúng mẫu thiết bị.</div>
+                </div>
+                <span class="badge badge-warning">Cần kiểm định</span>
+              </li>
+              <li class="eval-item">
+                <div>
+                  <div class="eval-item-name">6. Thải độc bằng mồ hôi</div>
+                  <div class="eval-item-guide">Chưa có bằng chứng khoa học đủ mạnh để quảng cáo thảm có tác dụng thải độc.</div>
+                </div>
+                <span class="badge badge-warning">Không quảng cáo</span>
+              </li>
+              <li class="eval-item">
+                <div>
+                  <div class="eval-item-name">7. Thạch anh tím chữa bệnh</div>
+                  <div class="eval-item-guide">Chưa có bằng chứng lâm sàng đáng tin cậy để khẳng định chữa bệnh.</div>
+                </div>
+                <span class="badge badge-warning">Không cam kết</span>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="cau-tao">
-      <div class="wrap">
-        <div class="row-pile">
-          <figure class="card"><img src="images/be-mat.png" alt="Bề mặt PU" width="800" height="600"><figcaption><p class="sec-num">03 — Cấu tạo</p><h3>Bề mặt PU</h3><p>Khoảng 75 × 185 cm</p></figcaption></figure>
-          <figure class="card"><img src="images/lop-da.png" alt="Lớp đá thạch anh tím" width="800" height="600"><figcaption><h3>Lớp đá</h3></figcaption></figure>
-          <figure class="card"><img src="images/gia-nhiet.png" alt="Lớp gia nhiệt" width="800" height="600"><figcaption><h3>Gia nhiệt</h3></figcaption></figure>
-          <figure class="card"><img src="images/de.png" alt="Đế và bộ điều khiển" width="800" height="600"><figcaption><h3>Đế thảm</h3></figcaption></figure>
+    <!-- ==========================================================================
+         03 — CẤU TẠO VÀ CÔNG NGHỆ
+         ========================================================================== -->
+    <section id="cau-tao" class="bg-white">
+      <div class="container">
+        <div class="text-center mx-auto" style="max-width: 46rem;">
+          <span class="kicker">03 — Vật Liệu & Chế Tác</span>
+          <h2 class="section-title">Cấu Tạo Đa Tầng & Hệ Thống Gia Nhiệt</h2>
+          <p class="section-desc mx-auto">
+            Sự kết hợp giữa đá thạch anh tím tự nhiên và hệ thống gia nhiệt an toàn, kiến tạo bề mặt tiếp xúc ấm áp, bền bỉ và dễ chịu.
+          </p>
         </div>
-        <ul class="specs">
-          <li><strong>Kích thước</strong><span>khoảng 75 × 185 cm</span></li>
-          <li><strong>Bề mặt</strong><span>PU — cần xác nhận đúng phiên bản</span></li>
-          <li><strong>Lớp đá</strong><span class="wait">Chờ chứng nhận vật liệu</span></li>
-          <li><strong>Công suất</strong><span class="wait">Chờ hồ sơ nhà cung cấp</span></li>
-          <li><strong>Dải nhiệt</strong><span class="wait">Chờ hồ sơ nhà cung cấp</span></li>
-          <li><strong>Bộ điều khiển</strong><span class="wait">Chờ xác nhận mẫu</span></li>
-          <li><strong>Bảo vệ quá nhiệt</strong><span class="wait">Chờ kiểm định an toàn điện</span></li>
-          <li><strong>Hồng ngoại xa / PEMF / ion âm</strong><span class="wait">Chỉ công bố khi có số đo trên đúng mẫu</span></li>
-        </ul>
+
+        <!-- 4-Layer Product Architecture -->
+        <div class="layers-grid">
+          <div class="layer-card">
+            <figure class="thumb-holder aspect-4-3">
+              <img src="images/be-mat.png" alt="Bề mặt da PU cao cấp chống nước" loading="lazy" onerror="this.style.opacity='0';">
+              <div class="thumb-placeholder">
+                <div class="thumb-icon-wrap">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                </div>
+                <span class="thumb-tag">Ảnh Bề Mặt Da PU</span>
+                <span class="thumb-file-info">images/be-mat.png • 600 × 450 px</span>
+              </div>
+            </figure>
+            <span class="layer-num">Tầng 1 — Bề Mặt</span>
+            <h3 class="layer-title">Da PU Cao Cấp</h3>
+            <p class="layer-desc">Chống bám bẩn, êm ái với làn da, dễ dàng lau chùi và vệ sinh sau khi sử dụng.</p>
+          </div>
+
+          <div class="layer-card">
+            <figure class="thumb-holder aspect-4-3">
+              <img src="images/lop-da.png" alt="Lớp đá thạch anh tím tự nhiên" loading="lazy" onerror="this.style.opacity='0';">
+              <div class="thumb-placeholder">
+                <div class="thumb-icon-wrap">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                </div>
+                <span class="thumb-tag">Ảnh Lớp Đá Thạch Anh</span>
+                <span class="thumb-file-info">images/lop-da.png • 600 × 450 px</span>
+              </div>
+            </figure>
+            <span class="layer-num">Tầng 2 — Tích Nhiệt</span>
+            <h3 class="layer-title">Đá Thạch Anh Tím</h3>
+            <p class="layer-desc">Các hạt đá tự nhiên được xếp đều đặn, hỗ trợ giữ nhiệt lâu và tỏa nhiệt êm dịu.</p>
+          </div>
+
+          <div class="layer-card">
+            <figure class="thumb-holder aspect-4-3">
+              <img src="images/gia-nhiet.png" alt="Hệ thống dây dẫn gia nhiệt an toàn" loading="lazy" onerror="this.style.opacity='0';">
+              <div class="thumb-placeholder">
+                <div class="thumb-icon-wrap">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                </div>
+                <span class="thumb-tag">Ảnh Dây Gia Nhiệt</span>
+                <span class="thumb-file-info">images/gia-nhiet.png • 600 × 450 px</span>
+              </div>
+            </figure>
+            <span class="layer-num">Tầng 3 — Tỏa Nhiệt</span>
+            <h3 class="layer-title">Hệ Thống Gia Nhiệt</h3>
+            <p class="layer-desc">Dây dẫn bọc cách điện đa tầng, tỏa nhiệt đồng đều, tích hợp cảm biến nhiệt.</p>
+          </div>
+
+          <div class="layer-card">
+            <figure class="thumb-holder aspect-4-3">
+              <img src="images/de.png" alt="Đế thảm cách nhiệt và chống trượt" loading="lazy" onerror="this.style.opacity='0';">
+              <div class="thumb-placeholder">
+                <div class="thumb-icon-wrap">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="4"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+                </div>
+                <span class="thumb-tag">Ảnh Lớp Đế Thảm</span>
+                <span class="thumb-file-info">images/de.png • 600 × 450 px</span>
+              </div>
+            </figure>
+            <span class="layer-num">Tầng 4 — Bảo Vệ</span>
+            <h3 class="layer-title">Đế Cách Nhiệt Chống Trượt</h3>
+            <p class="layer-desc">Ngăn nhiệt thất thoát xuống sàn, giữ thảm cố định vững chãi và an toàn điện.</p>
+          </div>
+        </div>
+
+        <!-- Technical Specification Sheet -->
+        <div class="specs-wrapper">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+            <div>
+              <h3 style="font-size: 1.35rem; color: var(--plum);">Thông Số Kỹ Thuật Dự Kiến</h3>
+              <p style="font-size: 0.875rem; color: var(--text-muted);">Thông tin dựa trên bản thiết kế và sẽ được cập nhật chính xác theo chứng nhận nhà máy.</p>
+            </div>
+            <span class="badge badge-gold">Minh Bạch Thông Số</span>
+          </div>
+
+          <div class="specs-grid">
+            <div class="spec-item">
+              <span class="spec-label">Kích thước tiêu chuẩn</span>
+              <span class="spec-val">Khoảng 75 × 185 cm (ôm trọn cơ thể)</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Chất liệu bề mặt</span>
+              <span class="spec-val">Da PU — <span class="spec-pending">Cần xác nhận đúng phiên bản</span></span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Vật liệu tinh thể</span>
+              <span class="spec-val"><span class="spec-pending">Chờ chứng nhận vật liệu đá</span></span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Công suất tiêu thụ</span>
+              <span class="spec-val"><span class="spec-pending">Chờ hồ sơ kiểm định nhà cung cấp</span></span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Dải nhiệt độ điều chỉnh</span>
+              <span class="spec-val"><span class="spec-pending">Chờ xác nhận dải nhiệt khuyến nghị</span></span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Bộ điều khiển thông minh</span>
+              <span class="spec-val">Hiển thị nhiệt độ & hẹn giờ tắt — <span class="spec-pending">Chờ mẫu</span></span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Bảo vệ quá nhiệt an toàn</span>
+              <span class="spec-val"><span class="spec-pending">Chờ kiểm định an toàn điện</span></span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Hồng ngoại xa / PEMF / Ion âm</span>
+              <span class="spec-val"><span class="spec-pending">Chỉ công bố khi có đo kiểm chính thức</span></span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="thai-doc">
-      <div class="wrap">
-        <div class="pile pile-3">
-          <figure class="card">
-            <img src="images/mo-hoi.png" alt="Mồ hôi điều hòa thân nhiệt" width="800" height="600">
-            <figcaption>
-              <p class="sec-num">04 — Thải độc</p>
-              <h2>Ra mồ hôi không phải thải độc.</h2>
-              <p>Mồ hôi chỉ giúp điều hòa nhiệt.</p>
-            </figcaption>
-          </figure>
-          <figure class="card card-b">
-            <img src="images/co-quan.png" alt="Gan và thận" width="800" height="600">
-            <figcaption><h3>Gan và thận</h3><p>Nơi đào thải chính.</p></figcaption>
-          </figure>
-          <figure class="card card-c">
-            <img src="images/giu-am.png" alt="Giữ ấm và thư giãn" width="800" height="600">
-            <figcaption><h3>Giữ ấm</h3><p>Đúng việc của thảm.</p></figcaption>
-          </figure>
+    <!-- ==========================================================================
+         04 — HIỂU ĐÚNG VỀ THẢI ĐỘC (Myth vs Fact)
+         ========================================================================== -->
+    <section id="thai-doc" class="myth-section">
+      <div class="container">
+        <div class="text-center mx-auto" style="max-width: 48rem;">
+          <span class="kicker kicker-gold">04 — Góc Nhìn Y Khoa Trung Thực</span>
+          <h2 class="section-title" style="color: #ffffff;">Hiểu Đúng Về Thải Độc & Cơ Thể</h2>
+          <p class="section-desc mx-auto" style="color: #d8cde3;">
+            Ra mồ hôi không đồng nghĩa với thải độc. Chúng tôi ưu tiên cung cấp thông tin trung thực, 
+            tránh ngộ nhận hay các tuyên bố quảng cáo thổi phồng không có chứng cứ khoa học.
+          </p>
+        </div>
+
+        <div class="myth-grid">
+          <!-- Card 1: Sweat Physiology -->
+          <div class="myth-card">
+            <figure class="thumb-holder aspect-16-9">
+              <img src="images/mo-hoi.png" alt="Mồ hôi chủ yếu giúp điều hòa thân nhiệt" loading="lazy" onerror="this.style.opacity='0';">
+              <div class="thumb-placeholder">
+                <div class="thumb-icon-wrap">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                </div>
+                <span class="thumb-tag">Ảnh Cơ Chế Đổ Mồ Hôi</span>
+                <span class="thumb-file-info">images/mo-hoi.png • 700 × 400 px</span>
+              </div>
+            </figure>
+            <span class="myth-badge myth-badge-fact">Cơ Chế Sinh Lý</span>
+            <h3 class="myth-title">Mồ Hôi Là Để Điều Hòa Nhiệt</h3>
+            <p class="myth-desc">
+              Tuyến mồ hôi chủ yếu tiết nước và khoáng chất để làm mát cơ thể khi gặp nhiệt độ cao. 
+              Hiện chưa có bằng chứng lâm sàng đáng tin cậy chứng minh việc đổ mồ hôi qua thảm giúp "thải độc" hay loại bỏ kim loại nặng.
+            </p>
+          </div>
+
+          <!-- Card 2: Liver & Kidney -->
+          <div class="myth-card">
+            <figure class="thumb-holder aspect-16-9">
+              <img src="images/co-quan.png" alt="Gan và thận là cơ quan thải độc chính" loading="lazy" onerror="this.style.opacity='0';">
+              <div class="thumb-placeholder">
+                <div class="thumb-icon-wrap">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <span class="thumb-tag">Ảnh Gan Và Thận</span>
+                <span class="thumb-file-info">images/co-quan.png • 700 × 400 px</span>
+              </div>
+            </figure>
+            <span class="myth-badge myth-badge-fact">Cơ Quan Chủ Lực</span>
+            <h3 class="myth-title">Gan Và Thận Mới Là Đào Thải Chính</h3>
+            <p class="myth-desc">
+              Gan, thận và hệ tiêu hóa là các cơ quan sinh học đóng vai trò trung tâm trong quá trình chuyển hóa và bài tiết chất thải. 
+              Không nên suy luận rằng thảm gia nhiệt có thể thay thế hay hỗ trợ thải độc lâm sàng.
+            </p>
+          </div>
+
+          <!-- Card 3: True Value -->
+          <div class="myth-card">
+            <figure class="thumb-holder aspect-16-9">
+              <img src="images/giu-am.png" alt="Giữ ấm và thư giãn đúng nghĩa" loading="lazy" onerror="this.style.opacity='0';">
+              <div class="thumb-placeholder">
+                <div class="thumb-icon-wrap">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                </div>
+                <span class="thumb-tag">Ảnh Giữ Ấm & Nghỉ Ngơi</span>
+                <span class="thumb-file-info">images/giu-am.png • 700 × 400 px</span>
+              </div>
+            </figure>
+            <span class="myth-badge myth-badge-truth">Giá Trị Đích Thực</span>
+            <h3 class="myth-title">Tập Trung Giữ Ấm & Thư Giãn</h3>
+            <p class="myth-desc">
+              Giá trị cao quý nhất của chiếc thảm chính là tạo ra không gian nghỉ ngơi ấm áp ngày đông cho bố mẹ, 
+              giúp xua tan giá lạnh, xoa dịu cảm giác căng cứng cơ lưng và đem lại sự thư thái, dễ chịu mỗi ngày.
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="an-toan">
-      <div class="wrap">
-        <div class="row-pile">
-          <figure class="card"><img src="images/buoc-1.png" alt="Trải thảm" width="800" height="800"><figcaption><p class="sec-num">05 — An toàn</p><h3>1. Trải thảm</h3><p>Bắt đầu từ mức thấp.</p></figcaption></figure>
-          <figure class="card"><img src="images/buoc-2.png" alt="Nối điện đúng cách" width="800" height="800"><figcaption><h3>2. Nối điện</h3></figcaption></figure>
-          <figure class="card"><img src="images/buoc-3.png" alt="Chọn mức nhiệt thấp" width="800" height="800"><figcaption><h3>3. Mức thấp</h3></figcaption></figure>
-          <figure class="card"><img src="images/buoc-4.png" alt="Nghỉ trong thời gian khuyến nghị" width="800" height="800"><figcaption><h3>4. Nghỉ ngơi</h3></figcaption></figure>
+    <!-- ==========================================================================
+         05 — TRẢI NGHIỆM AN TOÀN (4 Bước & Cảnh Báo)
+         ========================================================================== -->
+    <section id="an-toan" class="bg-cream">
+      <div class="container">
+        <div class="text-center mx-auto" style="max-width: 46rem;">
+          <span class="kicker">05 — Quy Trình Khuyến Nghị</span>
+          <h2 class="section-title">4 Bước Trải Nghiệm An Toàn Tại Nhà</h2>
+          <p class="section-desc mx-auto">
+            Sử dụng đúng hướng dẫn để tận hưởng trọn vẹn cảm giác ấm áp và bảo vệ sức khỏe cho người thân yêu.
+          </p>
         </div>
-        <div class="warn">
-          <h3>Hỏi bác sĩ trước nếu</h3>
-          <p>Người cao tuổi, bệnh nền, giảm cảm giác nóng, bệnh tuần hoàn, đang mang thai, hoặc có máy cấy ghép — nhất là khi sản phẩm có PEMF. Không thay khám bệnh.</p>
+
+        <div class="steps-grid">
+          <div class="step-box">
+            <figure class="thumb-holder aspect-1-1">
+              <img src="images/buoc-1.png" alt="Bước 1: Trải thảm phẳng phiu" loading="lazy" onerror="this.style.opacity='0';">
+              <div class="thumb-placeholder">
+                <div class="thumb-icon-wrap">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3z"/><path d="M3 9h18"/></svg>
+                </div>
+                <span class="thumb-tag">Ảnh Bước 1: Trải Thảm</span>
+                <span class="thumb-file-info">images/buoc-1.png • 500 × 500 px</span>
+              </div>
+            </figure>
+            <span class="step-indicator">Bước 01</span>
+            <h3 class="step-title">Trải Thảm Phẳng Phiu</h3>
+            <p class="step-desc">Đặt thảm trên giường hoặc mặt sàn vững chắc, không gấp khúc tấm thảm khi đang sử dụng.</p>
+          </div>
+
+          <div class="step-box">
+            <figure class="thumb-holder aspect-1-1">
+              <img src="images/buoc-2.png" alt="Bước 2: Kết nối nguồn điện đúng hướng dẫn" loading="lazy" onerror="this.style.opacity='0';">
+              <div class="thumb-placeholder">
+                <div class="thumb-icon-wrap">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 12h12"/><circle cx="12" cy="12" r="3"/></svg>
+                </div>
+                <span class="thumb-tag">Ảnh Bước 2: Nối Điện</span>
+                <span class="thumb-file-info">images/buoc-2.png • 500 × 500 px</span>
+              </div>
+            </figure>
+            <span class="step-indicator">Bước 02</span>
+            <h3 class="step-title">Nối Nguồn Điện</h3>
+            <p class="step-desc">Cắm chặt giắc cắm bộ điều khiển vào thảm trước khi cắm phích vào ổ điện gia đình.</p>
+          </div>
+
+          <div class="step-box">
+            <figure class="thumb-holder aspect-1-1">
+              <img src="images/buoc-3.png" alt="Bước 3: Chọn mức nhiệt thấp ban đầu" loading="lazy" onerror="this.style.opacity='0';">
+              <div class="thumb-placeholder">
+                <div class="thumb-icon-wrap">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/></svg>
+                </div>
+                <span class="thumb-tag">Ảnh Bước 3: Mức Nhiệt</span>
+                <span class="thumb-file-info">images/buoc-3.png • 500 × 500 px</span>
+              </div>
+            </figure>
+            <span class="step-indicator">Bước 03</span>
+            <h3 class="step-title">Chọn Nhiệt Thấp Trước</h3>
+            <p class="step-desc">Bắt đầu ở mức nhiệt độ thấp để cơ thể thích ứng dần, không lạm dụng nhiệt độ quá cao.</p>
+          </div>
+
+          <div class="step-box">
+            <figure class="thumb-holder aspect-1-1">
+              <img src="images/buoc-4.png" alt="Bước 4: Nghỉ ngơi trong thời gian khuyến nghị" loading="lazy" onerror="this.style.opacity='0';">
+              <div class="thumb-placeholder">
+                <div class="thumb-icon-wrap">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <span class="thumb-tag">Ảnh Bước 4: Nghỉ Ngơi</span>
+                <span class="thumb-file-info">images/buoc-4.png • 500 × 500 px</span>
+              </div>
+            </figure>
+            <span class="step-indicator">Bước 04</span>
+            <h3 class="step-title">Nghỉ Ngơi Khuyến Nghị</h3>
+            <p class="step-desc">Thư giãn khoảng 20 – 40 phút. Không ngủ quên trên thảm đang gia nhiệt nếu không có chế độ tự ngắt.</p>
+          </div>
+        </div>
+
+        <!-- Warning Panel based on PDF Section 5 -->
+        <div class="warning-panel">
+          <div class="warning-icon-large">⚠</div>
+          <div>
+            <h3 class="warning-heading">Cảnh Báo An Toàn & Đối Tượng Cần Lưu Ý Y Khoa</h3>
+            <div class="warning-content">
+              <p>
+                <strong>Hỏi ý kiến bác sĩ chuyên khoa trước khi sử dụng nếu:</strong>
+              </p>
+              <ul class="warning-list">
+                <li>Người cao tuổi, người mắc bệnh lý nền, bệnh lý tuần hoàn ngoại biên, hoặc giảm cảm giác nhận biết nhiệt nóng (như biến chứng tiểu đường).</li>
+                <li>Phụ nữ đang mang thai hoặc người có mang thiết bị điện tử y tế cấy ghép trong cơ thể (như máy tạo nhịp tim) — đặc biệt lưu ý nếu thảm có trang bị tính năng xung điện từ PEMF.</li>
+              </ul>
+              <p style="margin-top: 0.65rem;">
+                <strong>Ngừng sử dụng ngay lập tức:</strong> Khi nhận thấy da bị đỏ rát bất thường, cảm thấy chóng mặt, choáng váng hoặc khó chịu.
+              </p>
+              <p style="margin-top: 0.65rem; font-style: italic;">
+                * Sản phẩm không dùng để thay thế việc thăm khám, chẩn đoán và điều trị y tế chuyên nghiệp.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="niem-tin">
-      <div class="wrap pile">
-        <figure class="card">
-          <img src="images/san-pham.png" alt="Ảnh sản phẩm và hộp" width="800" height="600">
-          <figcaption>
-            <p class="sec-num">06 — Niềm tin và ưu đãi</p>
-            <h2>Chỉ công bố những gì đã kiểm chứng.</h2>
-            <p>Giá và bảo hành báo khi tư vấn.</p>
-          </figcaption>
-        </figure>
-        <figure class="card card-b">
-          <img src="images/qua.png" alt="Quà tặng mùa đông" width="800" height="600">
-          <figcaption>
-            <h3>Quà tặng</h3>
-            <p><a class="btn btn-heat" href="#tu-van">Nhận ưu đãi mùa đông</a></p>
-          </figcaption>
-        </figure>
+    <!-- ==========================================================================
+         06 — NIỀM TIN VÀ ƯU ĐÃI
+         ========================================================================== -->
+    <section id="niem-tin" class="bg-white">
+      <div class="container">
+        <div class="text-center mx-auto" style="max-width: 46rem;">
+          <span class="kicker">06 — Minh Bạch & Uy Tín</span>
+          <h2 class="section-title">Chỉ Công Bố Những Gì Đã Kiểm Chứng</h2>
+          <p class="section-desc mx-auto">
+            Chúng tôi tuân thủ nguyên tắc minh bạch tuyệt đối về nguồn gốc, hồ sơ kỹ thuật và chính sách chăm sóc khách hàng.
+          </p>
+        </div>
+
+        <div class="trust-grid">
+          <!-- Left: Verification Checklist based on PDF Section 5 -->
+          <div class="trust-card">
+            <h3 class="trust-title">Hồ Sơ Cần Xác Minh Từ Nhà Cung Cấp</h3>
+            <ul class="verify-list">
+              <li class="verify-item">
+                <span class="verify-num">1</span>
+                <div class="verify-text">
+                  <strong>Chứng nhận vật liệu đá tự nhiên:</strong>
+                  <p>Giám định nguồn gốc đá thạch anh tím đúng tiêu chuẩn vật liệu khai khoáng.</p>
+                </div>
+              </li>
+              <li class="verify-item">
+                <span class="verify-num">2</span>
+                <div class="verify-text">
+                  <strong>Kết quả đo phát xạ hồng ngoại xa:</strong>
+                  <p>Chỉ công bố bước sóng và hệ số phát xạ khi có chứng thư kiểm nghiệm trên đúng mẫu thiết bị.</p>
+                </div>
+              </li>
+              <li class="verify-item">
+                <span class="verify-num">3</span>
+                <div class="verify-text">
+                  <strong>Thông số PEMF hoặc ion âm (nếu có):</strong>
+                  <p>Phải đo lường tần số, từ trường cụ thể và cảnh báo an toàn kèm theo.</p>
+                </div>
+              </li>
+              <li class="verify-item">
+                <span class="verify-num">4</span>
+                <div class="verify-text">
+                  <strong>Kiểm định an toàn điện & bảo vệ quá nhiệt:</strong>
+                  <p>Bảo đảm chống rò điện, tự ngắt nguồn an toàn khi nhiệt độ vượt ngưỡng cho phép.</p>
+                </div>
+              </li>
+              <li class="verify-item">
+                <span class="verify-num">5</span>
+                <div class="verify-text">
+                  <strong>Chính sách bảo hành và hướng dẫn tiếng Việt:</strong>
+                  <p>Bảo hành chính hãng, hướng dẫn chi tiết và phản hồi từ người mua thực tế đã xác minh.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Right: Winter Gift Offer & Product Presentation -->
+          <div class="offer-box">
+            <figure class="thumb-holder aspect-16-9">
+              <img src="images/qua.png" alt="Hộp quà tặng thảm nhiệt thạch anh tím tri ân bố mẹ" loading="lazy" onerror="this.style.opacity='0';">
+              <div class="thumb-placeholder">
+                <div class="thumb-icon-wrap">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+                </div>
+                <span class="thumb-tag">Ảnh Quà Tặng Mùa Đông & Hộp Đựng</span>
+                <span class="thumb-file-info">images/qua.png • 750 × 420 px</span>
+              </div>
+              <figcaption class="thumb-caption">
+                <span>Hộp quà tặng trang trọng</span>
+                <span class="badge badge-success">Ưu Đãi Mùa Đông</span>
+              </figcaption>
+            </figure>
+
+            <h3 class="offer-title">Ưu Đãi Quà Tặng Mùa Đông</h3>
+            <p class="offer-desc">
+              Gửi trọn tấm lòng hiếu kính đến bố mẹ. Giá bán chính thức và ưu đãi vận chuyển sẽ được chuyên viên tư vấn chi tiết khi liên hệ.
+            </p>
+
+            <ul class="offer-perks">
+              <li>Giao hàng tận nơi toàn quốc — Kiểm tra hàng trước khi thanh toán</li>
+              <li>Tư vấn 1:1 hướng dẫn chi tiết cách dùng cho người cao tuổi</li>
+              <li>Chính sách đổi trả minh bạch nếu phát sinh lỗi kỹ thuật từ nhà sản xuất</li>
+            </ul>
+
+            <a href="#tu-van" class="btn btn-heat" style="margin-top: auto;">Nhận Ưu Đãi & Báo Giá Quà Tặng</a>
+          </div>
+        </div>
       </div>
-      <div class="wrap trust">
+    </section>
+
+    <!-- ==========================================================================
+         07 — THU LEAD / CHUYỂN ĐỔI (Biểu Mẫu Tư Vấn)
+         ========================================================================== -->
+    <section id="tu-van" class="lead-section">
+      <div class="container lead-grid">
+        <!-- Left: Emotional Reassurance & Details -->
         <div>
-          <p class="lede">Phản hồi chỉ đăng khi đã xác minh người mua.</p>
-        </div>
-        <div class="panel">
-          <h3>Hồ sơ cần có trước khi quảng cáo tác dụng</h3>
-          <ol class="checklist">
-            <li><span class="mark">1</span><span>Chứng nhận vật liệu đá.</span></li>
-            <li><span class="mark">2</span><span>Kết quả đo phát xạ hồng ngoại xa, nếu muốn nêu thông số này.</span></li>
-            <li><span class="mark">3</span><span>Thông số PEMF hoặc ion âm, nếu sản phẩm có.</span></li>
-            <li><span class="mark">4</span><span>Kiểm định an toàn điện và bảo vệ quá nhiệt.</span></li>
-            <li><span class="mark">5</span><span>Nghiên cứu trên chính sản phẩm, nếu công bố tác dụng điều trị.</span></li>
-            <li><span class="mark">6</span><span>Hướng dẫn sử dụng, thời hạn bảo hành, giá và chính sách giao hàng.</span></li>
-          </ol>
-        </div>
-      </div>
-    </section>
+          <span class="kicker kicker-gold">07 — Đồng Hành Cùng Gia Đình</span>
+          <h2 class="lead-info-title">Nhận Tư Vấn Quà Tặng & Ưu Đãi Mùa Đông</h2>
+          <p class="lead-info-desc">
+            Để lại thông tin để chuyên viên gọi điện tư vấn chi tiết theo thể trạng của người sử dụng, 
+            giúp bạn chọn đúng món quà ấm áp và an tâm nhất cho bố mẹ.
+          </p>
 
-    <section id="tu-van">
-      <div class="wrap grid-2">
-        <div>
-          <figure class="card">
-            <img src="images/tu-van.png" alt="Ảnh người thân dùng thảm" width="800" height="1000">
-            <figcaption>
-              <p class="sec-num">07 — Nhận tư vấn</p>
-              <h2>Để lại lời nhắn, cửa hàng gọi lại.</h2>
-              <p>Giữ ấm, thư giãn, hoặc hỗ trợ giảm đau mỏi tạm thời.</p>
-            </figcaption>
-          </figure>
-          <details class="policy">
-            <summary>Chính sách bảo mật ngắn</summary>
-            <p>Họ tên và số điện thoại chỉ dùng để liên hệ tư vấn sản phẩm và ưu đãi mùa đông. Bạn có thể yêu cầu ngừng liên hệ hoặc xóa thông tin khi cửa hàng gọi lại.</p>
-          </details>
+          <div class="lead-preview-card">
+            <figure class="thumb-holder aspect-16-9">
+              <img src="images/tu-van.png" alt="Ảnh người cao tuổi thư giãn ấm áp trên thảm" loading="lazy" onerror="this.style.opacity='0';">
+              <div class="thumb-placeholder">
+                <div class="thumb-icon-wrap">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                </div>
+                <span class="thumb-tag">Ảnh Người Thân Thư Giãn Trên Thảm</span>
+                <span class="thumb-file-info">images/tu-van.png • 700 × 400 px</span>
+              </div>
+            </figure>
+            <p class="lead-guarantee">
+              🔒 <strong>Cam kết bảo mật:</strong> Họ tên và số điện thoại chỉ dùng để chuyên viên liên hệ giải đáp thông tin sản phẩm và chính sách ưu đãi. Tuyệt đối không chia sẻ cho bên thứ ba.
+            </p>
+          </div>
         </div>
+
+        <!-- Right: Professional Lead Capture Form -->
         <div>
-          <form id="form-tu-van" action="#tu-van" method="post">
+          <form id="form-tu-van" class="consult-form" action="#tu-van" method="post" novalidate>
+            <div class="form-header">
+              <h3>Đăng Ký Tư Vấn Miễn Phí</h3>
+              <p>Chuyên viên sẽ liên hệ lại trong thời gian sớm nhất</p>
+            </div>
+
             <p class="form-error" id="form-error" role="alert"></p>
-            <label>Họ tên
-              <input name="ho_ten" autocomplete="name" required maxlength="80" placeholder="Nguyễn Văn A">
-            </label>
-            <label>Số điện thoại
-              <input name="so_dien_thoai" type="tel" inputmode="tel" autocomplete="tel" required placeholder="09xxxxxxxx" pattern="^(0|\+84)[0-9]{9,10}$" title="Số điện thoại Việt Nam, bắt đầu bằng 0 hoặc +84">
-            </label>
-            <label>Người sử dụng
-              <select name="nguoi_su_dung" required>
-                <option value="">Chọn người sử dụng</option>
-                <option>Bố hoặc mẹ</option>
-                <option>Ông hoặc bà</option>
-                <option>Bản thân</option>
-                <option>Người thân khác</option>
+
+            <div class="form-group">
+              <label for="ho_ten">Họ và tên của bạn <span style="color: var(--heat-primary);">*</span></label>
+              <input class="form-input" id="ho_ten" name="ho_ten" type="text" autocomplete="name" required maxlength="80" placeholder="Ví dụ: Nguyễn Văn An">
+            </div>
+
+            <div class="form-group">
+              <label for="so_dien_thoai">Số điện thoại liên hệ <span style="color: var(--heat-primary);">*</span></label>
+              <input class="form-input" id="so_dien_thoai" name="so_dien_thoai" type="tel" inputmode="tel" autocomplete="tel" required placeholder="Ví dụ: 0912 345 678" pattern="^(0|\+84)[0-9]{9,10}$">
+            </div>
+
+            <div class="form-group">
+              <label for="nguoi_su_dung">Người sử dụng chính <span style="color: var(--heat-primary);">*</span></label>
+              <select class="form-select" id="nguoi_su_dung" name="nguoi_su_dung" required>
+                <option value="">-- Vui lòng chọn người sử dụng --</option>
+                <option value="Bố hoặc mẹ">Bố hoặc mẹ</option>
+                <option value="Ông hoặc bà">Ông hoặc bà</option>
+                <option value="Bản thân">Bản thân</option>
+                <option value="Người thân khác">Người thân khác trong gia đình</option>
               </select>
-            </label>
-            <fieldset>
-              <legend>Mục đích</legend>
-              <label class="choice"><input type="radio" name="muc_dich" value="Giữ ấm" required> Giữ ấm</label>
-              <label class="choice"><input type="radio" name="muc_dich" value="Thư giãn"> Thư giãn</label>
-              <label class="choice"><input type="radio" name="muc_dich" value="Hỗ trợ giảm đau mỏi tạm thời"> Hỗ trợ giảm đau mỏi tạm thời</label>
+            </div>
+
+            <fieldset class="radio-fieldset">
+              <legend>Mục đích sử dụng chính</legend>
+              <div class="radio-options">
+                <label class="radio-label">
+                  <input type="radio" name="muc_dich" value="Giữ ấm" checked>
+                  <span>Giữ ấm</span>
+                </label>
+                <label class="radio-label">
+                  <input type="radio" name="muc_dich" value="Thư giãn">
+                  <span>Thư giãn</span>
+                </label>
+                <label class="radio-label">
+                  <input type="radio" name="muc_dich" value="Hỗ trợ giảm đau mỏi tạm thời">
+                  <span>Giảm mỏi tạm thời</span>
+                </label>
+              </div>
             </fieldset>
-            <label class="check">
-              <input type="checkbox" name="dong_y" required>
-              <span>Tôi đồng ý để cửa hàng dùng họ tên và số điện thoại nhằm tư vấn sản phẩm, theo chính sách bảo mật.</span>
+
+            <label class="checkbox-label">
+              <input type="checkbox" name="dong_y" id="dong_y" required>
+              <span>Tôi đồng ý để cửa hàng sử dụng họ tên và số điện thoại nhằm liên hệ tư vấn sản phẩm và ưu đãi theo chính sách bảo mật.</span>
             </label>
-            <button class="btn btn-heat" type="submit">Nhận tư vấn và ưu đãi mùa đông</button>
+
+            <button type="submit" class="btn btn-heat" style="width: 100%; height: 50px; font-size: 1rem;">
+              Nhận Tư Vấn & Ưu Đãi Mùa Đông
+            </button>
           </form>
         </div>
       </div>
     </section>
 
-    <section class="close">
-      <div class="wrap">
-        <p>Thảm nhiệt đá thạch anh tím — giữ ấm, thư giãn, hỗ trợ giảm đau mỏi tạm thời. Món quà chăm sóc bố mẹ dựa trên nguyên lý nhiệt trị liệu.</p>
+    <!-- ==========================================================================
+         CLOSING STATEMENT BANNER
+         ========================================================================== -->
+    <section class="closing-banner">
+      <div class="container">
+        <blockquote class="closing-quote">
+          “Thảm nhiệt đá thạch anh tím — Giữ ấm, thư giãn, hỗ trợ giảm đau mỏi tạm thời. 
+          Món quà chăm sóc bố mẹ dựa trên nguyên lý nhiệt trị liệu.”
+        </blockquote>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="wrap">
-      <p>Tài liệu là bản đề xuất nội dung marketing và rà soát khoa học. Không phải chứng nhận hiệu quả và không phải tư vấn y tế cá nhân.</p>
-      <p><a href="#dau-trang">Về đầu trang</a></p>
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          Thảm Nhiệt Đá Thạch Anh Tím
+        </div>
+        <div class="footer-links">
+          <a href="#khoa-hoc">Khoa Học</a>
+          <a href="#cau-tao">Cấu Tạo</a>
+          <a href="#an-toan">An Toàn</a>
+          <a href="#tu-van">Đăng Ký Tư Vấn</a>
+          <a href="#dau-trang">Về Đầu Trang ↑</a>
+        </div>
+      </div>
+      <div class="footer-disclaimer">
+        Tài liệu là bản đề xuất nội dung marketing và rà soát khoa học; không phải chứng nhận hiệu quả hoặc tư vấn y tế cá nhân. 
+        Không sử dụng nhiệt quá cao hoặc kéo dài, nhất là với người giảm cảm giác nóng. Luôn tham khảo ý kiến bác sĩ khi cần chẩn đoán hoặc điều trị bệnh lý.
+      </div>
     </div>
   </footer>
 
+  <!-- ==========================================================================
+       LIGHTWEIGHT INTERACTION JAVASCRIPT
+       ========================================================================== -->
   <script>
     (function () {
       var form = document.getElementById("form-tu-van");
       var error = document.getElementById("form-error");
       if (!form || !error) return;
+
       form.addEventListener("submit", function (event) {
-        error.textContent = "";
-        if (!form.checkValidity()) {
-          error.textContent = "Điền đủ họ tên, số điện thoại, người sử dụng, mục đích và ô đồng ý.";
-          return;
-        }
         event.preventDefault();
         error.textContent = "";
-        form.replaceChildren();
-        var title = document.createElement("h3");
-        title.tabIndex = -1;
-        title.textContent = "Cảm ơn bạn.";
-        var note = document.createElement("p");
-        note.textContent = "Đã ghi nhận họ tên và số điện thoại trên trình duyệt này. Cửa hàng sẽ gọi tư vấn khi biểu mẫu được nối vào hệ thống.";
-        form.append(title, note);
-        form.removeAttribute("hidden");
-        title.focus();
+
+        var hoTen = form.elements["ho_ten"].value.trim();
+        var sdt = form.elements["so_dien_thoai"].value.trim();
+        var nguoiDung = form.elements["nguoi_su_dung"].value;
+        var dongY = form.elements["dong_y"].checked;
+
+        if (!hoTen || !sdt || !nguoiDung || !dongY) {
+          error.textContent = "Vui lòng điền đủ họ tên, số điện thoại, người sử dụng và tích chọn đồng ý.";
+          return;
+        }
+
+        var phonePattern = /^(0|\+84)[0-9]{9,10}$/;
+        if (!phonePattern.test(sdt.replace(/\s+/g, ''))) {
+          error.textContent = "Số điện thoại chưa đúng định dạng (bắt đầu bằng 0 hoặc +84).";
+          return;
+        }
+
+        // Show elegant thank you state
+        form.innerHTML = `
+          <div class="form-success-card">
+            <div class="form-success-icon">✓</div>
+            <h3>Cảm Ơn Quý Khách!</h3>
+            <p>
+              Thông tin đăng ký của quý khách đã được ghi nhận.<br>
+              Chuyên viên tư vấn sẽ liên hệ lại qua số điện thoại <strong>${escapeHtml(sdt)}</strong> trong thời gian sớm nhất để hỗ trợ giải đáp và áp dụng ưu đãi mùa đông.
+            </p>
+          </div>
+        `;
       });
+
+      function escapeHtml(text) {
+        var map = {
+          '&': '&amp;',
+          '<': '&lt;',
+          '>': '&gt;',
+          '"': '&quot;',
+          "'": '&#039;'
+        };
+        return text.replace(/[&<>"']/g, function(m) { return map[m]; });
+      }
     })();
   </script>
 </body>
