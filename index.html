@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Thảm nhiệt đá thạch anh tím | Giữ ấm, thư giãn, hỗ trợ giảm đau mỏi tạm thời</title>
+  <meta name="description" content="Thảm nhiệt đá thạch anh tím — món quà chăm sóc bố mẹ dựa trên nguyên lý nhiệt trị liệu: giữ ấm, thư giãn, hỗ trợ giảm đau mỏi tạm thời tại nhà.">
+  <meta name="theme-color" content="#160B22">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect fill='%23160B22' width='32' height='32' rx='8'/%3E%3Cpath fill='%23C4A0E4' d='M16 5l4 7h-8z'/%3E%3Cpath fill='%23E7C27A' d='M10 14h12l-2 12H12z'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Lora:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #1c1424;
+      --muted: #5c4e66;
+      --plum: #241430;
+      --plum-deep: #160b22;
+      --amethyst: #6e3d98;
+      --lilac: #f4eaf8;
+      --cream: #fbf6f0;
+      --sand: #f3e6d6;
+      --card: #fffdfb;
+      --line: #eadfce;
+      --heat: #8e3e16;
+      --heat-hot: #c4622d;
+      --gold: #e7c27a;
+      --gold-deep: #8a6230;
+      --ok: #1d5c3d;
+      --danger: #8d2340;
+      --serif: "Lora", "Palatino Linotype", Palatino, serif;
+      --sans: "Be Vietnam Pro", "Segoe UI", sans-serif;
+      --shadow: 0 18px 50px rgba(36, 20, 48, 0.08);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--cream);
+      font-family: var(--sans);
+      font-size: 1.05rem;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+    img, svg { max-width: 100%; }
+    a { color: var(--heat); overflow-wrap: anywhere; }
+    a:hover { color: var(--plum); }
+    p, li, h1, h2, h3 { overflow-wrap: break-word; }
+    :focus-visible {
+      outline: 3px solid var(--gold);
+      outline-offset: 3px;
+    }
+    ::selection { background: #e7d4f5; color: var(--plum-deep); }
+
+    .skip {
+      position: absolute;
+      left: 1rem;
+      top: -4rem;
+      z-index: 20;
+      background: #fff;
+      color: var(--ink);
+      padding: 0.6rem 1rem;
+      border-radius: 999px;
+    }
+    .skip:focus { top: 1rem; }
+
+    .wrap {
+      width: min(1120px, calc(100% - 2rem));
+      margin-inline: auto;
+      min-width: 0;
+    }
+
+    /* Hero occupies the first screen */
+    .hero {
+      position: relative;
+      isolation: isolate;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      color: #f7f1ea;
+      background:
+        radial-gradient(900px 520px at 85% 20%, rgba(196, 98, 45, 0.38), transparent 60%),
+        radial-gradient(700px 480px at 10% 80%, rgba(124, 77, 176, 0.55), transparent 62%),
+        linear-gradient(165deg, #2a143c 0%, var(--plum-deep) 48%, #1a0d16 100%);
+      overflow: hidden;
+    }
+    .orb, .ring {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .orb {
+      filter: blur(8px);
+      opacity: 0.85;
+      animation: drift 14s ease-in-out infinite;
+    }
+    .o1 { width: 280px; height: 280px; left: -60px; bottom: 10%; background: rgba(142, 78, 180, 0.45); }
+    .o2 { width: 220px; height: 220px; right: 8%; top: 18%; background: rgba(232, 140, 70, 0.35); animation-delay: -4s; }
+    .o3 { width: 140px; height: 140px; right: 30%; bottom: 12%; background: rgba(231, 194, 122, 0.28); animation-delay: -8s; }
+    .rings {
+      position: absolute;
+      right: 12%;
+      top: 46%;
+      width: 280px;
+      height: 280px;
+      transform: translateY(-50%);
+      z-index: 0;
+      pointer-events: none;
+    }
+    .ring {
+      inset: 0;
+      border: 2px solid rgba(231, 194, 122, 0.55);
+      animation: sonar 3.6s ease-out infinite;
+    }
+    .ring:nth-child(2) { animation-delay: 1.2s; }
+    .ring:nth-child(3) { animation-delay: 2.4s; }
+
+    .topbar {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      width: min(1120px, calc(100% - 2rem));
+      margin: 0 auto;
+      padding: 1.1rem 0;
+    }
+    .brand {
+      color: #fff;
+      text-decoration: none;
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      letter-spacing: 0.01em;
+    }
+    .brand:hover { color: var(--gold); }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.1rem;
+    }
+    .nav-links a {
+      color: #f3e9df;
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 500;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-toggle {
+      position: absolute;
+      opacity: 0;
+      width: 1px;
+      height: 1px;
+    }
+    .nav-btn {
+      display: none;
+      cursor: pointer;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 999px;
+      padding: 0.45rem 0.9rem;
+      color: #fff;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      min-height: 48px;
+      padding: 0.75rem 1.2rem;
+      border-radius: 999px;
+      border: 2px solid transparent;
+      text-decoration: none;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-heat {
+      background: linear-gradient(180deg, #a34b1c, var(--heat));
+      color: #fff;
+      box-shadow: 0 10px 28px rgba(142, 62, 22, 0.35);
+      animation: ctaGlow 2.8s ease-in-out infinite;
+    }
+    .btn-heat:hover { color: #fff; background: #732f10; }
+    .btn-ghost {
+      background: transparent;
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.55);
+    }
+    .btn-ghost:hover { color: var(--plum-deep); background: #fff; }
+    .btn-dark {
+      background: var(--plum);
+      color: #fff;
+    }
+    .btn-dark:hover { color: #fff; background: #3a2152; }
+
+    .hero-main {
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+      gap: 2rem;
+      align-items: center;
+      width: min(1120px, calc(100% - 2rem));
+      margin: 0 auto;
+      padding-bottom: 4.5rem;
+    }
+    .kicker {
+      margin: 0 0 0.8rem;
+      color: var(--gold);
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      animation: rise 0.8s ease both;
+    }
+    h1, h2, h3, .serif { font-family: var(--serif); font-weight: 560; letter-spacing: -0.02em; }
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(2.3rem, 5vw, 4.4rem);
+      line-height: 1.12;
+      font-weight: 560;
+      animation: rise 0.9s ease 0.12s both;
+    }
+    .dek {
+      margin: 1rem 0 0;
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: clamp(1.25rem, 2.4vw, 1.8rem);
+      color: #f3d7b4;
+      animation: rise 0.9s ease 0.24s both;
+    }
+    .hero-lead {
+      max-width: 38rem;
+      margin: 1rem 0 0;
+      color: #efe4da;
+      animation: rise 0.9s ease 0.36s both;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+      animation: rise 0.9s ease 0.48s both;
+    }
+    .fine {
+      margin: 1rem 0 0;
+      color: #d9cbbd;
+      font-size: 0.92rem;
+      animation: rise 0.9s ease 0.6s both;
+    }
+    .scroll-cue {
+      position: absolute;
+      left: 50%;
+      bottom: 1.2rem;
+      transform: translateX(-50%);
+      z-index: 2;
+      color: #f3e9df;
+      text-decoration: none;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      animation: bob 1.6s ease-in-out infinite;
+    }
+
+    .stage {
+      position: relative;
+      height: 360px;
+      animation: rise 1s ease 0.2s both;
+    }
+    .mat {
+      position: absolute;
+      left: 8%;
+      right: 6%;
+      top: 78px;
+      height: 190px;
+      border-radius: 36px;
+      background:
+        radial-gradient(circle at 22% 45%, rgba(255, 255, 255, 0.45), transparent 16%),
+        radial-gradient(circle at 48% 58%, rgba(196, 160, 228, 0.9), transparent 18%),
+        radial-gradient(circle at 70% 40%, rgba(126, 70, 176, 0.95), transparent 20%),
+        linear-gradient(160deg, #6a3d90, #3a2156 55%, #6b341c);
+      transform: perspective(700px) rotateX(16deg) rotateZ(-7deg);
+      box-shadow:
+        0 30px 50px rgba(0, 0, 0, 0.35),
+        0 0 40px rgba(232, 140, 70, 0.45);
+      animation: matGlow 3.2s ease-in-out infinite;
+    }
+    .mat span {
+      position: absolute;
+      width: 18px;
+      height: 26px;
+      background: linear-gradient(180deg, #f4e8ff, #8d5cbc);
+      clip-path: polygon(50% 0, 100% 38%, 78% 100%, 22% 100%, 0 38%);
+      animation: floatY 3.4s ease-in-out infinite;
+    }
+    .c1 { left: 18%; top: 38%; }
+    .c2 { left: 42%; top: 28%; animation-delay: -0.8s; }
+    .c3 { left: 63%; top: 42%; animation-delay: -1.6s; }
+    .heatwave {
+      position: absolute;
+      left: 18%;
+      right: 18%;
+      top: 36px;
+      height: 70px;
+      background: linear-gradient(180deg, transparent, rgba(255, 186, 120, 0.35), transparent);
+      filter: blur(8px);
+      animation: heat 2.4s ease-in-out infinite;
+    }
+    .stage-caption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: 0;
+      text-align: center;
+      color: #e6d8cc;
+      font-size: 0.85rem;
+    }
+
+    .strip {
+      background: var(--plum);
+      color: #f6ecdf;
+      overflow: hidden;
+      contain: inline-size;
+      border-top: 1px solid rgba(231, 194, 122, 0.25);
+    }
+    .strip-track {
+      display: flex;
+      gap: 2.5rem;
+      width: max-content;
+      padding: 0.85rem 0;
+      animation: marquee 22s linear infinite;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    section { position: relative; padding: 5.5rem 0; }
+    .sec-num {
+      font-family: var(--serif);
+      font-style: italic;
+      color: var(--amethyst);
+      font-size: 0.95rem;
+      margin: 0 0 0.4rem;
+    }
+    h2 {
+      margin: 0 0 0.8rem;
+      font-size: clamp(2rem, 4vw, 3.1rem);
+      line-height: 1.15;
+    }
+    .lede { font-size: 1.12rem; color: var(--muted); max-width: 42rem; }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+    .panel {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.3rem;
+    }
+
+    .mech { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.9rem; }
+    .mech li {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.9rem;
+      padding: 1rem 1rem 1rem 0.9rem;
+      border-radius: 18px;
+      background: #fff;
+      border: 1px solid var(--line);
+      animation: stepGlow 8s ease-in-out infinite;
+    }
+    .mech li:nth-child(2) { animation-delay: 2s; }
+    .mech li:nth-child(3) { animation-delay: 4s; }
+    .mech li:nth-child(4) { animation-delay: 6s; }
+    .mech h3 { margin: 0 0 0.25rem; font-size: 1.25rem; }
+    .mech p { margin: 0; color: var(--muted); }
+    .idx {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--lilac);
+      color: var(--amethyst);
+      font-family: var(--serif);
+      font-size: 1.2rem;
+    }
+    .note {
+      margin-top: 1rem;
+      padding: 0.9rem 1rem;
+      border-left: 4px solid var(--gold-deep);
+      background: #fff8ee;
+      border-radius: 0 14px 14px 0;
+      color: #4a3424;
+    }
+    .cites { display: grid; gap: 0.8rem; margin-top: 1rem; }
+    .cites article {
+      padding: 0.95rem 1rem;
+      background: var(--lilac);
+      border-radius: 16px;
+    }
+    .cites h3 { margin: 0 0 0.3rem; font-size: 1.05rem; }
+    .cites p { margin: 0; color: var(--muted); }
+
+    .split-title { margin-bottom: 1.6rem; }
+    .bounds {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .bounds h3 { margin-top: 0; }
+    .yes { background: #f3faf5; border: 1px solid #cfe6d8; }
+    .no { background: #fff6f4; border: 1px solid #f0d2cb; }
+    .bounds ul { margin: 0; padding-left: 1.1rem; }
+    .bounds li + li { margin-top: 0.35rem; }
+
+    #cau-tao { background:
+      radial-gradient(500px 220px at 0% 0%, #f7e7cf, transparent 70%),
+      var(--cream);
+    }
+    .stack {
+      position: relative;
+      height: 360px;
+      margin-top: 0.5rem;
+    }
+    .layer {
+      position: absolute;
+      left: 10%;
+      right: 10%;
+      height: 74px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      padding: 0 1.1rem;
+      color: #fff;
+      font-weight: 600;
+      box-shadow: 0 12px 24px rgba(36, 20, 48, 0.12);
+      animation: separate 5.5s ease-in-out infinite;
+    }
+    .l1 { top: 20px; background: linear-gradient(90deg, #d7c4ae, #b89274); color: #3a2718; animation-delay: 0s; }
+    .l2 { top: 100px; background: linear-gradient(90deg, #8d62b8, #5d347f); animation-delay: -0.4s; }
+    .l3 { top: 180px; background: linear-gradient(90deg, #e39a55, #b4531e); animation-delay: -0.8s; }
+    .l4 { top: 260px; background: linear-gradient(90deg, #3d2a4d, #24182f); animation-delay: -1.2s; }
+    .specs { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.7rem; }
+    .specs li {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.85rem 1rem;
+      background: #fff;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+    }
+    .specs strong { font-weight: 600; }
+    .wait {
+      color: var(--gold-deep);
+      font-size: 0.92rem;
+      white-space: nowrap;
+    }
+
+    #thai-doc {
+      background:
+        radial-gradient(600px 280px at 100% 0%, rgba(196, 98, 45, 0.25), transparent 60%),
+        var(--plum-deep);
+      color: #f6efe8;
+    }
+    #thai-doc .lede, #thai-doc .sec-num { color: #e7d3c4; }
+    .myth {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 1.8rem;
+    }
+    .myth article {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 20px;
+      padding: 1.2rem;
+      min-height: 100%;
+    }
+    .myth h3 { margin: 0.4rem 0; font-size: 1.45rem; }
+    .myth p { margin: 0; color: #eadfD4; }
+    .icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: rgba(231, 194, 122, 0.15);
+      color: var(--gold);
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.9rem;
+      margin-top: 1.5rem;
+      list-style: none;
+      padding: 0;
+    }
+    .steps li {
+      background: #fff;
+      border-radius: 20px;
+      padding: 1.1rem;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      animation: rise 0.8s ease both;
+    }
+    .steps li:nth-child(2) { animation-delay: 0.1s; }
+    .steps li:nth-child(3) { animation-delay: 0.2s; }
+    .steps li:nth-child(4) { animation-delay: 0.3s; }
+    .steps h3 { margin: 0.4rem 0; font-size: 1.2rem; }
+    .steps p { margin: 0; color: var(--muted); }
+    .warn {
+      margin-top: 1.2rem;
+      background: #fff6ee;
+      border: 1px solid #f0d2b4;
+      border-radius: 20px;
+      padding: 1.2rem 1.3rem;
+    }
+    .warn h3 { margin: 0 0 0.4rem; }
+    .warn ul { margin: 0.4rem 0 0; }
+
+    #niem-tin { background: var(--sand); }
+    .trust {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 1.2rem;
+    }
+    .checklist { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.55rem; }
+    .checklist li {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 0.6rem;
+      align-items: start;
+      background: #fff;
+      border-radius: 14px;
+      padding: 0.75rem 0.8rem;
+    }
+    .mark {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--lilac);
+      color: var(--amethyst);
+      font-size: 0.85rem;
+    }
+
+    #tu-van {
+      background:
+        radial-gradient(500px 240px at 0% 100%, rgba(196, 98, 45, 0.28), transparent 60%),
+        var(--plum);
+      color: #f7f1ea;
+    }
+    #tu-van .lede { color: #e6d8cc; }
+    form {
+      display: grid;
+      gap: 0.85rem;
+      background: #fff;
+      color: var(--ink);
+      border-radius: 24px;
+      padding: 1.3rem;
+      box-shadow: var(--shadow);
+    }
+    label { display: grid; gap: 0.35rem; font-weight: 600; font-size: 0.95rem; }
+    input, select {
+      min-height: 48px;
+      border-radius: 12px;
+      border: 1px solid #e2d5c8;
+      padding: 0.65rem 0.8rem;
+      font: inherit;
+      background: #fff;
+    }
+    fieldset {
+      margin: 0;
+      border: 1px solid #e2d5c8;
+      border-radius: 14px;
+      padding: 0.8rem 1rem 1rem;
+    }
+    legend { font-weight: 600; padding: 0 0.3rem; }
+    .choice { font-weight: 500; display: flex; align-items: center; gap: 0.5rem; margin-top: 0.35rem; }
+    .check { font-weight: 500; grid-template-columns: auto 1fr; align-items: start; }
+    .form-error { color: var(--danger); min-height: 1.2em; margin: 0; font-size: 0.92rem; }
+    .thanks {
+      background: #fff;
+      color: var(--ink);
+      border-radius: 24px;
+      padding: 1.5rem;
+    }
+    .thanks h3 { margin-top: 0; }
+    .policy { color: #efe4da; font-size: 0.92rem; }
+    .policy summary { cursor: pointer; color: var(--gold); }
+
+    .close {
+      padding: 4.5rem 0;
+      text-align: center;
+      background:
+        linear-gradient(120deg, rgba(142, 62, 22, 0.08), rgba(110, 61, 152, 0.12)),
+        var(--cream);
+    }
+    .close p {
+      font-family: var(--serif);
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      line-height: 1.35;
+      margin: 0 auto;
+      max-width: 18em;
+    }
+    footer {
+      background: var(--plum-deep);
+      color: #d9cec4;
+      padding: 2rem 0 2.4rem;
+      font-size: 0.92rem;
+    }
+    footer p { margin: 0.35rem 0; }
+    footer a { color: var(--gold); }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(28px); }
+      to { opacity: 1; transform: none; }
+    }
+    @keyframes drift {
+      0%, 100% { transform: translate3d(0, 0, 0); }
+      50% { transform: translate3d(24px, -28px, 0); }
+    }
+    @keyframes sonar {
+      0% { transform: scale(0.35); opacity: 0.8; }
+      100% { transform: scale(1.25); opacity: 0; }
+    }
+    @keyframes matGlow {
+      0%, 100% { box-shadow: 0 30px 50px rgba(0, 0, 0, 0.35), 0 0 24px rgba(232, 140, 70, 0.28); }
+      50% { box-shadow: 0 34px 60px rgba(0, 0, 0, 0.4), 0 0 64px rgba(232, 140, 70, 0.72); }
+    }
+    @keyframes floatY {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    @keyframes heat {
+      0%, 100% { transform: translateY(8px) scaleX(0.92); opacity: 0.35; }
+      50% { transform: translateY(-12px) scaleX(1); opacity: 0.9; }
+    }
+    @keyframes bob {
+      0%, 100% { transform: translate(-50%, 0); }
+      50% { transform: translate(-50%, 10px); }
+    }
+    @keyframes ctaGlow {
+      0%, 100% { box-shadow: 0 10px 28px rgba(142, 62, 22, 0.28); }
+      50% { box-shadow: 0 12px 36px rgba(232, 140, 70, 0.65); }
+    }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+    @keyframes stepGlow {
+      0%, 100% { border-color: var(--line); box-shadow: none; }
+      18%, 32% { border-color: #e2b07a; box-shadow: 0 0 0 4px rgba(228, 160, 90, 0.2); }
+    }
+    @keyframes separate {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    @supports (animation-timeline: view()) {
+      .reveal {
+        animation: rise linear both;
+        animation-timeline: view();
+        animation-range: entry 0% cover 30%;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .hero-main, .grid-2, .bounds, .myth, .steps, .trust { grid-template-columns: minmax(0, 1fr); }
+      .brand { min-width: 0; flex: 1; font-size: 0.95rem; }
+      .grid-2 > *, .bounds > *, .myth > *, .trust > * { min-width: 0; }
+      .rings { display: none; }
+      .stage { height: 280px; }
+      .nav-btn { display: inline-block; }
+      .topbar .nav-links {
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 52px;
+        flex-direction: column;
+        align-items: flex-start;
+        background: rgba(22, 11, 34, 0.96);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 16px;
+        padding: 0.8rem;
+        min-width: 220px;
+      }
+      .nav-toggle:checked ~ .nav-links { display: flex; }
+      .nav-toggle:focus-visible + .nav-btn { outline: 3px solid var(--gold); outline-offset: 3px; }
+      .specs li { flex-direction: column; }
+      .wait { white-space: normal; }
+    }
+
+    @media (max-width: 720px) {
+      section { padding: 3.6rem 0; }
+      .hero-main { padding-bottom: 3.4rem; }
+      .hero h1 { font-size: 2.05rem; }
+      .dek { font-size: 1.2rem; }
+      .steps { grid-template-columns: 1fr; }
+      .stage { height: 220px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#noi-dung">Đi tới nội dung</a>
+
+  <header class="hero" id="dau-trang">
+    <div class="orb o1" aria-hidden="true"></div>
+    <div class="orb o2" aria-hidden="true"></div>
+    <div class="orb o3" aria-hidden="true"></div>
+    <div class="rings" aria-hidden="true">
+      <span class="ring"></span>
+      <span class="ring"></span>
+      <span class="ring"></span>
+    </div>
+
+    <div class="topbar">
+      <a class="brand" href="#dau-trang">Thảm nhiệt đá thạch anh tím</a>
+      <input class="nav-toggle" id="nav-toggle" type="checkbox">
+      <label class="nav-btn" for="nav-toggle">Mục lục</label>
+      <nav class="nav-links" aria-label="Mục lục trang">
+        <a href="#khoa-hoc">Khoa học</a>
+        <a href="#cau-tao">Cấu tạo</a>
+        <a href="#thai-doc">Thải độc</a>
+        <a href="#an-toan">An toàn</a>
+        <a href="#niem-tin">Niềm tin</a>
+        <a class="btn btn-heat" href="#tu-van">Nhận tư vấn</a>
+      </nav>
+    </div>
+
+    <div class="hero-main">
+      <div>
+        <p class="kicker">Quà chăm sóc mùa đông</p>
+        <h1>Ngày bé, bố mẹ giữ ấm cho con.</h1>
+        <p class="dek">Mùa đông này, đến lượt con chăm sóc bố mẹ.</p>
+        <p class="hero-lead">Thảm nhiệt mang đến những phút giây nghỉ ngơi ấm áp tại nhà. Giữ ấm, thư giãn và hỗ trợ giảm đau mỏi tạm thời — dựa trên nguyên lý nhiệt trị liệu, không phải lời hứa chữa bệnh.</p>
+        <div class="hero-actions">
+          <a class="btn btn-heat" href="#tu-van">Nhận tư vấn quà tặng bố mẹ</a>
+          <a class="btn btn-ghost" href="#khoa-hoc">Xem cơ chế giữ ấm</a>
+        </div>
+        <p class="fine">Không quảng cáo như thiết bị chữa bệnh hoặc thảm thải độc.</p>
+      </div>
+      <div class="stage" aria-hidden="true">
+        <div class="heatwave"></div>
+        <div class="mat">
+          <span class="c1"></span>
+          <span class="c2"></span>
+          <span class="c3"></span>
+        </div>
+        <p class="stage-caption">Hình minh họa lớp đá và hơi ấm. Không phải ảnh sản phẩm thương mại.</p>
+      </div>
+    </div>
+    <a class="scroll-cue" href="#khoa-hoc">Kéo xuống</a>
+  </header>
+
+  <div class="strip" aria-hidden="true">
+    <div class="strip-track">
+      <span>Giữ ấm</span><span>Thư giãn</span><span>Hỗ trợ giảm đau mỏi tạm thời</span><span>Quà cho bố mẹ</span>
+      <span>Giữ ấm</span><span>Thư giãn</span><span>Hỗ trợ giảm đau mỏi tạm thời</span><span>Quà cho bố mẹ</span>
+    </div>
+  </div>
+
+  <main id="noi-dung">
+    <section id="khoa-hoc">
+      <div class="wrap grid-2">
+        <div class="reveal">
+          <p class="sec-num">02 — Giải thích khoa học</p>
+          <h2>Nhiệt bề mặt làm ấm vùng tiếp xúc.</h2>
+          <p class="lede">Nhiệt bề mặt có thể hỗ trợ giảm đau lưng cấp hoặc bán cấp trong ngắn hạn, và giúp cơ bắp dễ chịu hơn. Đây là cơ chế chung của liệu pháp nhiệt, không phải kết quả thử nghiệm lâm sàng trên đúng tấm thảm thạch anh tím này.</p>
+          <div class="cites">
+            <article>
+              <h3>Đau lưng cấp và bán cấp</h3>
+              <p>Qaseem và cộng sự (2017), Annals of Internal Medicine: hướng dẫn của American College of Physicians đề xuất nhiệt bề mặt như một lựa chọn không dùng thuốc. <a href="https://doi.org/10.7326/M16-2367" target="_blank" rel="noopener">DOI 10.7326/M16-2367</a>.</p>
+            </article>
+            <article>
+              <h3>Lợi ích ngắn hạn, bằng chứng còn giới hạn</h3>
+              <p>French và cộng sự (2006), Cochrane: nhiệt hoặc lạnh bề mặt có thể giảm đau ngắn hạn ở một số người. <a href="https://doi.org/10.1002/14651858.CD004750.pub2" target="_blank" rel="noopener">DOI 10.1002/14651858.CD004750.pub2</a>.</p>
+            </article>
+          </div>
+        </div>
+        <div>
+          <ol class="mech">
+            <li>
+              <span class="idx">1</span>
+              <div>
+                <h3>Gia nhiệt có kiểm soát</h3>
+                <p>Chọn mức nhiệt thấp trước, theo đúng hướng dẫn của phiên bản đang dùng.</p>
+              </div>
+            </li>
+            <li>
+              <span class="idx">2</span>
+              <div>
+                <h3>Làm ấm vùng tiếp xúc</h3>
+                <p>Hơi ấm nằm trên bề mặt da, không phải tác dụng riêng của viên đá.</p>
+              </div>
+            </li>
+            <li>
+              <span class="idx">3</span>
+              <div>
+                <h3>Giãn mạch, bớt cảm giác căng</h3>
+                <p>Nhiệt tại chỗ có cơ sở sinh lý để hỗ trợ thư giãn cơ.</p>
+              </div>
+            </li>
+            <li>
+              <span class="idx">4</span>
+              <div>
+                <h3>Nghỉ ngơi dễ chịu hơn</h3>
+                <p>Hỗ trợ giảm đau mỏi tạm thời. Không dùng thay khám và điều trị.</p>
+              </div>
+            </li>
+          </ol>
+          <p class="note">Không sử dụng nhiệt quá cao hoặc quá lâu, nhất là với người giảm cảm giác nóng. Có thể dùng để thư giãn trước giờ ngủ; không cam kết điều trị mất ngủ.</p>
+        </div>
+      </div>
+      <div class="wrap bounds">
+        <article class="panel yes reveal">
+          <h3>Sản phẩm hướng tới</h3>
+          <ul>
+            <li>Giữ ấm và thư giãn, nhấn trải nghiệm dễ chịu tại nhà.</li>
+            <li>Hỗ trợ giảm đau lưng cấp hoặc bán cấp trong ngắn hạn nhờ nhiệt bề mặt — không suy ra hiệu quả riêng của thảm.</li>
+            <li>Hỗ trợ thư giãn cơ khi vai gáy hoặc lưng cảm thấy căng cứng.</li>
+            <li>Hồng ngoại xa, PEMF hoặc ion âm: chỉ nêu thông số đã đo trên đúng mẫu thiết bị.</li>
+          </ul>
+        </article>
+        <article class="panel no reveal">
+          <h3>Ngoài phạm vi của thảm</h3>
+          <ul>
+            <li>Thảm thải độc, hoặc mồ hôi loại bỏ kim loại nặng.</li>
+            <li>Đá thạch anh tím chữa bệnh.</li>
+            <li>Chữa mất ngủ hoặc thay thế thuốc, bác sĩ.</li>
+            <li>Công bố tác dụng điều trị khi chưa có nghiên cứu trên chính sản phẩm.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="cau-tao">
+      <div class="wrap grid-2">
+        <div class="reveal">
+          <p class="sec-num">03 — Cấu tạo và công nghệ</p>
+          <h2>Đá thạch anh tím và hệ thống gia nhiệt.</h2>
+          <p class="lede">Tấm thảm kết hợp lớp đá với bộ gia nhiệt có kiểm soát. Kích thước và chất liệu bề mặt dưới đây là mức đề xuất; công suất, dải nhiệt và chứng nhận chỉ được in khi nhà cung cấp đã xác nhận đúng phiên bản.</p>
+          <div class="stack" aria-hidden="true">
+            <div class="layer l1">Bề mặt PU</div>
+            <div class="layer l2">Đá thạch anh tím</div>
+            <div class="layer l3">Lớp gia nhiệt</div>
+            <div class="layer l4">Đế và bộ điều khiển</div>
+          </div>
+        </div>
+        <ul class="specs">
+          <li><strong>Kích thước</strong><span>khoảng 75 × 185 cm</span></li>
+          <li><strong>Bề mặt</strong><span>PU — cần xác nhận đúng phiên bản</span></li>
+          <li><strong>Lớp đá</strong><span class="wait">Chờ chứng nhận vật liệu</span></li>
+          <li><strong>Công suất</strong><span class="wait">Chờ hồ sơ nhà cung cấp</span></li>
+          <li><strong>Dải nhiệt</strong><span class="wait">Chờ hồ sơ nhà cung cấp</span></li>
+          <li><strong>Bộ điều khiển</strong><span class="wait">Chờ xác nhận mẫu</span></li>
+          <li><strong>Bảo vệ quá nhiệt</strong><span class="wait">Chờ kiểm định an toàn điện</span></li>
+          <li><strong>Hồng ngoại xa / PEMF / ion âm</strong><span class="wait">Chỉ công bố khi có số đo trên đúng mẫu</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="thai-doc">
+      <div class="wrap">
+        <p class="sec-num">04 — Hiểu đúng về thải độc</p>
+        <h2>Ra mồ hôi không có nghĩa là thải độc.</h2>
+        <p class="lede">Nhiệt có thể làm cơ thể đổ mồ hôi. Điều đó không chứng minh thảm loại bỏ độc tố hay kim loại nặng. Thông điệp của sản phẩm là giữ ấm và thư giãn.</p>
+        <div class="myth">
+          <article class="reveal">
+            <div class="icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3c2 3 2 5 0 8 3 0 6 2 6 6a6 6 0 1 1-12 0c0-4 3-6 6-6-2-3-2-5 0-8z"/></svg>
+            </div>
+            <h3>Mồ hôi</h3>
+            <p>Chủ yếu giúp điều hòa thân nhiệt khi da được làm ấm.</p>
+          </article>
+          <article class="reveal">
+            <div class="icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M6 7h12M8 17h8"/></svg>
+            </div>
+            <h3>Cơ quan đào thải</h3>
+            <p>Gan, thận và hệ tiêu hóa mới là nơi chuyển hóa và đào thải nhiều chất.</p>
+          </article>
+          <article class="reveal">
+            <div class="icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21a8 8 0 1 0-8-8"/><path d="M8 13l3 3 5-6"/></svg>
+            </div>
+            <h3>Lời nên nhớ</h3>
+            <p>Ưu tiên cảm giác ấm, dễ chịu. Không mua thảm để “thải độc”.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="an-toan">
+      <div class="wrap">
+        <p class="sec-num">05 — Trải nghiệm an toàn</p>
+        <h2>Bắt đầu từ mức nhiệt thấp.</h2>
+        <p class="lede">Dùng như một lớp giữ ấm có kiểm soát. Dừng ngay nếu da đỏ rát, chóng mặt hoặc khó chịu.</p>
+        <ol class="steps">
+          <li>
+            <span class="idx">1</span>
+            <h3>Trải thảm</h3>
+            <p>Đặt phẳng trên giường hoặc ghế, đúng mặt tiếp xúc theo hướng dẫn.</p>
+          </li>
+          <li>
+            <span class="idx">2</span>
+            <h3>Nối điện đúng cách</h3>
+            <p>Cắm đúng chiều và đúng ổ, không dùng dây nối nếu sách hướng dẫn cấm.</p>
+          </li>
+          <li>
+            <span class="idx">3</span>
+            <h3>Chọn mức thấp</h3>
+            <p>Làm quen với nhiệt trước khi tăng. Người giảm cảm giác nóng cần người khác theo dõi.</p>
+          </li>
+          <li>
+            <span class="idx">4</span>
+            <h3>Nghỉ đúng thời gian</h3>
+            <p>Ở trong khoảng thời gian khuyến nghị. Không ngủ quên trên thảm đang gia nhiệt nếu hướng dẫn không cho phép.</p>
+          </li>
+        </ol>
+        <div class="warn">
+          <h3>Nên hỏi bác sĩ trước khi dùng</h3>
+          <p>Người cao tuổi, người mắc bệnh nền, người giảm cảm giác nóng, bệnh lý tuần hoàn, người đang mang thai, hoặc người có thiết bị điện tử cấy ghép — đặc biệt nếu sản phẩm có PEMF.</p>
+          <ul>
+            <li>Ngừng dùng khi da đỏ rát, chóng mặt hoặc khó chịu.</li>
+            <li>Không dùng để thay thế khám và điều trị y tế.</li>
+            <li>Không tự ý dùng nhiệt cao, thời gian dài.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="niem-tin">
+      <div class="wrap trust">
+        <div>
+          <p class="sec-num">06 — Niềm tin và ưu đãi</p>
+          <h2>Chỉ công bố những gì đã kiểm chứng.</h2>
+          <p class="lede">Giá, bảo hành và giao hàng được báo khi tư vấn, theo đúng phiên bản đang bán. Phản hồi khách hàng chỉ đăng sau khi xác minh người mua.</p>
+          <p><a class="btn btn-dark" href="#tu-van">Nhận giá và ưu đãi mùa đông</a></p>
+        </div>
+        <div class="panel">
+          <h3>Hồ sơ cần có trước khi quảng cáo tác dụng</h3>
+          <ol class="checklist">
+            <li><span class="mark">1</span><span>Chứng nhận vật liệu đá.</span></li>
+            <li><span class="mark">2</span><span>Kết quả đo phát xạ hồng ngoại xa, nếu muốn nêu thông số này.</span></li>
+            <li><span class="mark">3</span><span>Thông số PEMF hoặc ion âm, nếu sản phẩm có.</span></li>
+            <li><span class="mark">4</span><span>Kiểm định an toàn điện và bảo vệ quá nhiệt.</span></li>
+            <li><span class="mark">5</span><span>Nghiên cứu trên chính sản phẩm, nếu công bố tác dụng điều trị.</span></li>
+            <li><span class="mark">6</span><span>Hướng dẫn sử dụng, thời hạn bảo hành, giá và chính sách giao hàng.</span></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section id="tu-van">
+      <div class="wrap grid-2">
+        <div>
+          <p class="sec-num">07 — Nhận tư vấn</p>
+          <h2>Để lại lời nhắn, cửa hàng gọi lại.</h2>
+          <p class="lede">Điền họ tên, số điện thoại, người sẽ sử dụng và mục đích. Chỉ các mục đích: giữ ấm, thư giãn, hoặc hỗ trợ giảm đau mỏi tạm thời.</p>
+          <details class="policy">
+            <summary>Chính sách bảo mật ngắn</summary>
+            <p>Họ tên và số điện thoại chỉ dùng để liên hệ tư vấn sản phẩm và ưu đãi mùa đông. Bạn có thể yêu cầu ngừng liên hệ hoặc xóa thông tin khi cửa hàng gọi lại.</p>
+          </details>
+        </div>
+        <div>
+          <form id="form-tu-van" action="#tu-van" method="post">
+            <p class="form-error" id="form-error" role="alert"></p>
+            <label>Họ tên
+              <input name="ho_ten" autocomplete="name" required maxlength="80" placeholder="Nguyễn Văn A">
+            </label>
+            <label>Số điện thoại
+              <input name="so_dien_thoai" type="tel" inputmode="tel" autocomplete="tel" required placeholder="09xxxxxxxx" pattern="^(0|\+84)[0-9]{9,10}$" title="Số điện thoại Việt Nam, bắt đầu bằng 0 hoặc +84">
+            </label>
+            <label>Người sử dụng
+              <select name="nguoi_su_dung" required>
+                <option value="">Chọn người sử dụng</option>
+                <option>Bố hoặc mẹ</option>
+                <option>Ông hoặc bà</option>
+                <option>Bản thân</option>
+                <option>Người thân khác</option>
+              </select>
+            </label>
+            <fieldset>
+              <legend>Mục đích</legend>
+              <label class="choice"><input type="radio" name="muc_dich" value="Giữ ấm" required> Giữ ấm</label>
+              <label class="choice"><input type="radio" name="muc_dich" value="Thư giãn"> Thư giãn</label>
+              <label class="choice"><input type="radio" name="muc_dich" value="Hỗ trợ giảm đau mỏi tạm thời"> Hỗ trợ giảm đau mỏi tạm thời</label>
+            </fieldset>
+            <label class="check">
+              <input type="checkbox" name="dong_y" required>
+              <span>Tôi đồng ý để cửa hàng dùng họ tên và số điện thoại nhằm tư vấn sản phẩm, theo chính sách bảo mật.</span>
+            </label>
+            <button class="btn btn-heat" type="submit">Nhận tư vấn và ưu đãi mùa đông</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="close">
+      <div class="wrap">
+        <p>Thảm nhiệt đá thạch anh tím — giữ ấm, thư giãn, hỗ trợ giảm đau mỏi tạm thời. Món quà chăm sóc bố mẹ dựa trên nguyên lý nhiệt trị liệu.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>Tài liệu là bản đề xuất nội dung marketing và rà soát khoa học. Không phải chứng nhận hiệu quả và không phải tư vấn y tế cá nhân.</p>
+      <p><a href="#dau-trang">Về đầu trang</a></p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var form = document.getElementById("form-tu-van");
+      var error = document.getElementById("form-error");
+      if (!form || !error) return;
+      form.addEventListener("submit", function (event) {
+        error.textContent = "";
+        if (!form.checkValidity()) {
+          error.textContent = "Điền đủ họ tên, số điện thoại, người sử dụng, mục đích và ô đồng ý.";
+          return;
+        }
+        event.preventDefault();
+        error.textContent = "";
+        form.replaceChildren();
+        var title = document.createElement("h3");
+        title.tabIndex = -1;
+        title.textContent = "Cảm ơn bạn.";
+        var note = document.createElement("p");
+        note.textContent = "Đã ghi nhận họ tên và số điện thoại trên trình duyệt này. Cửa hàng sẽ gọi tư vấn khi biểu mẫu được nối vào hệ thống.";
+        form.append(title, note);
+        form.removeAttribute("hidden");
+        title.focus();
+      });
+    })();
+  </script>
+</body>
+</html>
