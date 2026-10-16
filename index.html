@@ -4,9 +4,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Thảm Nhiệt Đá Thạch Anh Tím | Giữ Ấm, Thư Giãn, Hỗ Trợ Giảm Đau Mỏi Tạm Thời</title>
+  <title>Trao Hơi Ấm – Gửi Yêu Thương | Thảm Nhiệt Đá Thạch Anh Tím Chăm Sóc Bố Mẹ</title>
   <meta name="description"
-    content="Thảm nhiệt đá thạch anh tím — Món quà chăm sóc bố mẹ dựa trên nguyên lý nhiệt trị liệu: Giữ ấm, thư giãn và hỗ trợ giảm đau mỏi tạm thời tại nhà.">
+    content="Thảm nhiệt đá thạch anh tím — Món quà hiếu nghĩa ấm áp dành tặng bố mẹ. Liệu pháp nhiệt bề mặt khoa học hỗ trợ thư giãn cơ, giữ ấm mùa đông và xua tan mệt mỏi tại nhà.">
   <meta name="theme-color" content="#241335">
   <link rel="icon"
     href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect fill='%23241335' width='32' height='32' rx='8'/%3E%3Cpath fill='%23C4A0E4' d='M16 5l5 8h-10z'/%3E%3Cpath fill='%23E5A754' d='M9 15h14l-2 11H11z'/%3E%3C/svg%3E">
@@ -23,23 +23,25 @@
        1. Design Tokens & CSS Variables
        ========================================================================== */
     :root {
-      /* Brand Palette */
-      --plum-dark: #1a0d26;
+      /* Brand Palette (Amethyst & Royal Plum) */
+      --plum-dark: #160a22;
       --plum: #28143c;
       --plum-light: #3e2059;
       --amethyst: #6b3ba7;
-      --amethyst-soft: #f4ecf9;
       --amethyst-subtle: #8e62c4;
+      --amethyst-soft: #f4ecf9;
+      --amethyst-gradient: linear-gradient(135deg, #2b1341 0%, #150921 100%);
 
       /* Heat & Warm Accents */
       --heat-primary: #c95c27;
-      --heat-hover: #ab4715;
-      --heat-soft: #fbf0ea;
+      --heat-hover: #b04b19;
+      --heat-soft: #fdf2ec;
+      --heat-gradient: linear-gradient(135deg, #d3652f 0%, #aa4414 100%);
       --gold: #d49f50;
       --gold-dark: #8c6328;
       --gold-light: #fbf5eb;
 
-      /* Neutrals & Surfaces */
+      /* Surfaces & Neutrals */
       --bg-cream: #faf7f2;
       --bg-sand: #f5efe6;
       --card-bg: #ffffff;
@@ -48,7 +50,7 @@
       --text-muted: #5e5268;
       --text-soft: #857991;
 
-      /* Feedback Colors */
+      /* Feedback & Status */
       --success-bg: #eef8f2;
       --success-text: #1d6a3f;
       --success-border: #bde4ce;
@@ -60,15 +62,16 @@
       --font-serif: "Lora", "Palatino Linotype", Georgia, serif;
       --font-sans: "Be Vietnam Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
-      /* Geometry & Elevation */
+      /* Geometry & Shadows */
       --radius-sm: 8px;
       --radius-md: 14px;
       --radius-lg: 20px;
       --radius-xl: 28px;
       --radius-full: 9999px;
-      --shadow-sm: 0 2px 8px rgba(26, 13, 38, 0.04);
+      --shadow-sm: 0 2px 10px rgba(26, 13, 38, 0.04);
       --shadow-md: 0 8px 24px -4px rgba(26, 13, 38, 0.08);
       --shadow-lg: 0 16px 40px -8px rgba(26, 13, 38, 0.12);
+      --shadow-heat: 0 8px 24px rgba(201, 92, 39, 0.3);
     }
 
     /* ==========================================================================
@@ -115,38 +118,18 @@
     .serif {
       font-family: var(--font-serif);
       font-weight: 600;
-      line-height: 1.25;
+      line-height: 1.3;
       color: inherit;
     }
 
-    .kicker {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-family: var(--font-sans);
-      font-size: 0.8125rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--amethyst);
-      margin-bottom: 0.75rem;
+    .container {
+      width: min(1180px, calc(100% - 2.5rem));
+      margin-inline: auto;
     }
 
-    .kicker.kicker-gold {
-      color: var(--gold);
-    }
-
-    .section-title {
-      font-size: clamp(1.85rem, 3.2vw, 2.75rem);
-      margin-bottom: 0.85rem;
-      color: var(--text-main);
-    }
-
-    .section-desc {
-      font-size: 1.0625rem;
-      color: var(--text-muted);
-      max-width: 44rem;
-      line-height: 1.7;
+    section {
+      padding: 5.5rem 0;
+      position: relative;
     }
 
     .text-center {
@@ -158,51 +141,90 @@
       margin-right: auto;
     }
 
-    /* Layout Container */
-    .container {
-      width: min(1180px, calc(100% - 3rem));
-      margin-inline: auto;
+    /* Module Identification Badge (Đồng bộ theo tài liệu kịch bản) */
+    .modun-header {
+      margin-bottom: 2rem;
     }
 
-    section {
-      padding: 5rem 0;
-      position: relative;
+    .modun-badge-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      background: var(--amethyst-soft);
+      border: 1px solid rgba(107, 59, 167, 0.2);
+      padding: 0.35rem 0.9rem;
+      border-radius: var(--radius-full);
+      margin-bottom: 1rem;
     }
 
-    .bg-cream {
-      background-color: var(--bg-cream);
+    .modun-tag {
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--amethyst);
     }
 
-    .bg-white {
-      background-color: #ffffff;
+    .modun-divider {
+      color: #baa3d6;
+      font-size: 0.75rem;
     }
 
-    .bg-sand {
-      background-color: var(--bg-sand);
+    .modun-goal {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #553970;
+      font-style: italic;
     }
 
-    .bg-dark {
-      background-color: var(--plum-dark);
-      color: #ffffff;
+    .modun-badge-wrap.light-theme {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.25);
     }
 
-    /* ==========================================================================
-       3. Interactive Components: Buttons, Badges & Pills
-       ========================================================================== */
+    .modun-badge-wrap.light-theme .modun-tag {
+      color: var(--gold);
+    }
+
+    .modun-badge-wrap.light-theme .modun-divider {
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    .modun-badge-wrap.light-theme .modun-goal {
+      color: #e5dbf0;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 3.4vw, 2.85rem);
+      color: var(--text-main);
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+
+    .section-desc {
+      font-size: 1.0625rem;
+      color: var(--text-muted);
+      max-width: 48rem;
+      line-height: 1.75;
+    }
+
+    /* Buttons & Interactive Elements */
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 0.6rem;
+      gap: 0.65rem;
       font-family: var(--font-sans);
       font-weight: 600;
       font-size: 0.95rem;
-      padding: 0.85rem 1.6rem;
+      padding: 0.85rem 1.75rem;
       border-radius: var(--radius-full);
       border: 1px solid transparent;
       cursor: pointer;
-      transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+      transition: all 0.25s ease;
       text-align: center;
+      text-decoration: none;
       white-space: nowrap;
     }
 
@@ -211,33 +233,44 @@
     }
 
     .btn-heat {
-      background-color: var(--heat-primary);
+      background: var(--heat-gradient);
       color: #ffffff;
-      box-shadow: 0 4px 16px rgba(201, 92, 39, 0.3);
+      box-shadow: var(--shadow-heat);
     }
 
     .btn-heat:hover {
-      background-color: var(--heat-hover);
-      box-shadow: 0 6px 20px rgba(201, 92, 39, 0.4);
+      background: linear-gradient(135deg, #e06d33 0%, #993b0f 100%);
+      box-shadow: 0 10px 28px rgba(201, 92, 39, 0.4);
+      color: #ffffff;
     }
 
     .btn-ghost-light {
-      background-color: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.1);
       color: #ffffff;
       border-color: rgba(255, 255, 255, 0.35);
       backdrop-filter: blur(4px);
     }
 
     .btn-ghost-light:hover {
-      background-color: #ffffff;
+      background: #ffffff;
       color: var(--plum-dark);
       border-color: #ffffff;
+    }
+
+    .btn-outline-amethyst {
+      background: transparent;
+      color: var(--amethyst);
+      border-color: var(--amethyst);
+    }
+
+    .btn-outline-amethyst:hover {
+      background: var(--amethyst);
+      color: #ffffff;
     }
 
     .badge {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
       gap: 0.35rem;
       font-size: 0.72rem;
       font-weight: 700;
@@ -246,8 +279,6 @@
       text-transform: uppercase;
       letter-spacing: 0.04em;
       white-space: nowrap;
-      flex-shrink: 0;
-      line-height: 1.25;
     }
 
     .badge-purple {
@@ -271,16 +302,21 @@
     }
 
     /* ==========================================================================
-       4. Premium Image Frame Architecture (Sắc Nét, Tỉ Lệ Chuẩn, Đẹp Khi Crop)
+       Premium Image Frame Architecture (Sắc nét, vừa hết khung, không để viền trống)
        ========================================================================== */
     .thumb-holder {
       position: relative;
       background: linear-gradient(145deg, #2a163a 0%, #1a0b26 100%);
-      border: 1px solid rgba(212, 159, 80, 0.25);
+      border: 1px solid rgba(212, 159, 80, 0.28);
       border-radius: var(--radius-lg);
       overflow: hidden;
       display: block;
       box-shadow: var(--shadow-sm);
+    }
+
+    .aspect-hero {
+      aspect-ratio: 16 / 10;
+      min-height: 380px;
     }
 
     .aspect-16-9 {
@@ -295,13 +331,9 @@
       aspect-ratio: 1 / 1;
     }
 
-    .aspect-hero {
-      aspect-ratio: 16 / 10;
-      min-height: 380px;
-    }
-
-    /* The actual image: hiển thị trực tiếp 100% rõ nét, crop chuẩn ở tâm */
-    .thumb-holder>img {
+    /* Ảnh lấp đầy toàn bộ khung hình, hiển thị chuẩn tâm, không có viền thừa */
+    .thumb-holder>img,
+    .thumb-holder img {
       position: absolute;
       inset: 0;
       width: 100%;
@@ -310,25 +342,27 @@
       object-position: center center;
       display: block;
       image-rendering: -webkit-optimize-contrast;
+      image-rendering: auto;
       transition: transform 0.4s ease;
     }
 
-    .thumb-holder:hover>img {
+    .thumb-holder:hover img {
       transform: scale(1.025);
     }
 
-    /* Floating caption badge on thumbnail */
+    /* Floating caption badge tinh tế, nổi ở đáy khung hình */
     .thumb-caption {
       position: absolute;
-      bottom: 0.75rem;
-      left: 0.75rem;
-      right: 0.75rem;
+      bottom: 0.65rem;
+      left: 0.65rem;
+      right: 0.65rem;
       z-index: 2;
-      background: rgba(18, 9, 28, 0.9);
+      background: rgba(18, 9, 28, 0.88);
       backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       border: 1px solid rgba(255, 255, 255, 0.15);
       color: #ffffff;
-      padding: 0.5rem 0.75rem;
+      padding: 0.45rem 0.75rem;
       border-radius: var(--radius-md);
       font-size: 0.8125rem;
       display: flex;
@@ -339,40 +373,30 @@
       pointer-events: none;
     }
 
-    .thumb-caption-title {
-      font-weight: 600;
-      line-height: 1.35;
-      color: #ffffff;
-      flex: 1 1 auto;
-      min-width: 0;
-    }
-
-    .thumb-caption .badge {
-      margin-left: auto;
-      flex-shrink: 0;
-      white-space: nowrap;
-      font-size: 0.68rem;
-      padding: 0.2rem 0.55rem;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    /* Tùy chọn nếu muốn ảnh nào hiển thị trọn vẹn dạng contain */
+    .thumb-holder.thumb-contain img {
+      object-fit: contain;
+      padding: 10px;
     }
 
     /* ==========================================================================
-       5. Topbar Navigation
+       3. Header & Navigation (7 Môđun Anchor Bar)
        ========================================================================== */
     .topbar {
-      position: absolute;
+      position: sticky;
       top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      padding: 1.25rem 0;
+      z-index: 999;
+      background-color: rgba(22, 10, 34, 0.95);
+      backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
     }
 
     .topbar-content {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      height: 72px;
       gap: 1.5rem;
     }
 
@@ -380,55 +404,99 @@
       display: flex;
       align-items: center;
       gap: 0.65rem;
-      color: #ffffff;
       font-family: var(--font-serif);
       font-size: 1.15rem;
       font-weight: 600;
-      letter-spacing: 0.01em;
+      color: #ffffff;
     }
 
     .brand-gem {
-      width: 28px;
-      height: 28px;
-      background: linear-gradient(135deg, #a872e5 0%, #6b3ba7 100%);
-      border-radius: 8px;
-      display: grid;
-      place-items: center;
-      color: #ffffff;
-      box-shadow: 0 2px 8px rgba(107, 59, 167, 0.4);
+      color: var(--gold);
+      font-size: 1.25rem;
+      filter: drop-shadow(0 0 6px rgba(212, 159, 80, 0.6));
+    }
+
+    .topbar-subtext {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      color: #b7a5c8;
+      display: block;
+      font-weight: 400;
     }
 
     .topbar-nav {
       display: flex;
       align-items: center;
-      gap: 1.5rem;
+      gap: 1.25rem;
     }
 
-    .topbar-nav a {
-      color: rgba(255, 255, 255, 0.85);
+    .topbar-nav a:not(.btn) {
       font-size: 0.875rem;
-      font-weight: 500;
+      color: #dfd6e8;
       transition: color 0.2s ease;
+      font-weight: 500;
     }
 
-    .topbar-nav a:hover {
+    .topbar-nav a:not(.btn):hover {
       color: var(--gold);
     }
 
-    /* ==========================================================================
-       6. Section 01: Hero (Chạm Cảm Xúc)
-       ========================================================================== */
-    .hero {
-      position: relative;
-      background: radial-gradient(circle at 85% 15%, rgba(201, 92, 39, 0.25) 0%, transparent 45%),
-        radial-gradient(circle at 10% 75%, rgba(107, 59, 167, 0.3) 0%, transparent 50%),
-        linear-gradient(155deg, #28143c 0%, #170b24 100%);
-      color: #ffffff;
-      padding-top: 8rem;
-      padding-bottom: 5.5rem;
-      min-height: 100vh;
+    /* Journey Strip (Hành Trình Khách Hàng) */
+    .journey-strip {
+      background: #ffffff;
+      border-bottom: 1px solid var(--card-border);
+      padding: 0.85rem 0;
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+    }
+
+    .journey-flow {
       display: flex;
       align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+    }
+
+    .journey-target {
+      font-weight: 700;
+      color: var(--plum);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .journey-steps {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .journey-step-item {
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    .journey-step-item.active {
+      color: var(--heat-primary);
+      font-weight: 700;
+    }
+
+    .journey-arrow {
+      color: #c7b9ce;
+    }
+
+    /* ==========================================================================
+       4. MÔĐUN 01 | CHẠM NỖI ĐAU (Hero)
+       ========================================================================== */
+    .section-modun-1 {
+      background: radial-gradient(circle at 85% 15%, rgba(107, 59, 167, 0.35) 0%, transparent 50%),
+        radial-gradient(circle at 10% 85%, rgba(201, 92, 39, 0.25) 0%, transparent 45%),
+        var(--amethyst-gradient);
+      color: #ffffff;
+      padding: 5rem 0 6rem;
+      position: relative;
     }
 
     .hero-grid {
@@ -438,77 +506,53 @@
       align-items: center;
     }
 
-    .hero-content {
-      max-width: 38rem;
+    .hero-quote-box {
+      border-left: 4px solid var(--gold);
+      padding-left: 1.25rem;
+      margin-bottom: 1.5rem;
     }
 
-    .hero-title {
-      font-size: clamp(2.25rem, 4.2vw, 3.45rem);
-      line-height: 1.15;
-      font-weight: 600;
-      margin-bottom: 1.1rem;
+    .hero-h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.35rem, 4.2vw, 3.5rem);
+      line-height: 1.2;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-h1 span {
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    .hero-lead-text {
+      font-size: 1.15rem;
+      color: #f0e6f7;
+      line-height: 1.75;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-lead-text p {
+      margin-bottom: 0.85rem;
+    }
+
+    .hero-lead-text strong {
       color: #ffffff;
     }
 
-    .hero-subtitle {
-      font-family: var(--font-serif);
-      font-style: italic;
-      font-size: clamp(1.15rem, 2vw, 1.45rem);
-      color: #eed6b6;
-      margin-bottom: 1.25rem;
-      line-height: 1.4;
-    }
-
-    .hero-desc {
-      font-size: 1.05rem;
-      color: #e2d5e8;
-      margin-bottom: 1.75rem;
-      line-height: 1.7;
-    }
-
-    .hero-highlights {
-      display: grid;
-      gap: 0.65rem;
-      margin-bottom: 2rem;
-    }
-
-    .hero-hl-item {
+    .hero-action-group {
       display: flex;
-      align-items: center;
-      gap: 0.65rem;
-      font-size: 0.9375rem;
-      color: #f2e9f6;
-    }
-
-    .hero-hl-icon {
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background: rgba(212, 159, 80, 0.2);
-      color: var(--gold);
-      display: grid;
-      place-items: center;
-      font-size: 0.75rem;
-      flex-shrink: 0;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
       gap: 1rem;
-      align-items: center;
-    }
-
-    .hero-visual {
-      position: relative;
+      flex-wrap: wrap;
+      margin-top: 2rem;
     }
 
     .hero-card {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.16);
       border-radius: var(--radius-xl);
-      padding: 1rem;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+      padding: 1.25rem;
+      box-shadow: 0 25px 55px rgba(0, 0, 0, 0.4);
     }
 
     .hero-subcard {
@@ -518,130 +562,295 @@
       gap: 0.75rem;
     }
 
-    .hero-pill-info {
+    .hero-pill {
       background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: var(--radius-md);
-      padding: 0.85rem 1rem;
+      padding: 0.85rem;
       display: flex;
       align-items: center;
       gap: 0.75rem;
     }
 
     .hero-pill-icon {
-      color: var(--gold);
       font-size: 1.25rem;
+      color: var(--gold);
     }
 
     .hero-pill-title {
       font-size: 0.875rem;
       font-weight: 600;
       color: #ffffff;
-      line-height: 1.2;
     }
 
-    .hero-pill-sub {
+    .hero-pill-desc {
       font-size: 0.75rem;
-      color: #baa7c7;
-    }
-
-    /* Highlights Strip */
-    .trust-strip {
-      background: #ffffff;
-      border-bottom: 1px solid var(--card-border);
-      padding: 1.5rem 0;
-    }
-
-    .trust-strip-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
-    }
-
-    .trust-strip-item {
-      display: flex;
-      align-items: center;
-      gap: 0.85rem;
-    }
-
-    .trust-strip-icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
-      background: var(--amethyst-soft);
-      color: var(--amethyst);
-      display: grid;
-      place-items: center;
-      flex-shrink: 0;
-    }
-
-    .trust-strip-title {
-      font-size: 0.9375rem;
-      font-weight: 600;
-      color: var(--text-main);
-      line-height: 1.25;
-    }
-
-    .trust-strip-desc {
-      font-size: 0.8125rem;
-      color: var(--text-muted);
+      color: #bfa7cd;
     }
 
     /* ==========================================================================
-       7. Section 02: Giải Thích Khoa Học (Cơ chế nhiệt bề mặt)
+       5. MÔĐUN 02 | KHƠI GỢI NHU CẦU (Nhận diện vấn đề hàng ngày)
        ========================================================================== */
-    .mechanism-grid {
+    .section-modun-2 {
+      background-color: var(--bg-cream);
+    }
+
+    .need-points-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.25rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
       margin: 2.5rem 0 3.5rem;
     }
 
-    .mech-card {
+    .need-card {
       background: #ffffff;
       border: 1px solid var(--card-border);
       border-radius: var(--radius-lg);
-      padding: 1.5rem;
+      padding: 1.75rem;
       box-shadow: var(--shadow-sm);
       display: flex;
       flex-direction: column;
       position: relative;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
-    .mech-step-num {
-      width: 32px;
-      height: 32px;
-      background: var(--heat-soft);
-      color: var(--heat-primary);
-      border-radius: 50%;
+    .need-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .need-icon-box {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: var(--amethyst-soft);
+      color: var(--amethyst);
       display: grid;
       place-items: center;
-      font-family: var(--font-serif);
-      font-weight: 700;
-      font-size: 0.9375rem;
-      margin-bottom: 1rem;
+      font-size: 1.35rem;
+      margin-bottom: 1.25rem;
     }
 
-    .mech-card-title {
-      font-size: 1.125rem;
-      margin-bottom: 0.5rem;
+    .need-card-title {
+      font-size: 1.15rem;
+      color: var(--plum);
+      margin-bottom: 0.65rem;
+      line-height: 1.4;
+    }
+
+    .need-card-desc {
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* 4 Cảnh nhỏ theo kịch bản: xoa lưng, quàng chăn, nghỉ ngơi, con gọi điện hỏi thăm */
+    .scenes-showcase {
+      background: #ffffff;
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-xl);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .scenes-title {
+      font-size: 1.25rem;
+      color: var(--plum);
+      margin-bottom: 1.75rem;
+      text-align: center;
+    }
+
+    .scenes-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+    }
+
+    .scene-item {
+      background: var(--bg-sand);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--card-border);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .scene-thumb {
+      aspect-ratio: 4 / 3;
+      position: relative;
+      background: var(--plum-dark);
+      overflow: hidden;
+      display: block;
+    }
+
+    .scene-thumb img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      transition: transform 0.3s ease;
+    }
+
+    .scene-content {
+      padding: 1rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .scene-num {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--heat-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.25rem;
+    }
+
+    .scene-name {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 0.35rem;
+    }
+
+    .scene-desc {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    /* ==========================================================================
+       6. MÔĐUN 03 | MỞ VIỄN CẢNH (Mỗi tối, một khoảng thời gian ấm áp)
+       ========================================================================== */
+    .section-modun-3 {
+      background: linear-gradient(175deg, #1f0f2f 0%, #100618 100%);
+      color: #ffffff;
+      overflow: hidden;
+    }
+
+    .vision-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+
+    .vision-quote-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-xl);
+      padding: 2.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .vision-quote-text {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      line-height: 1.7;
+      color: #f7effd;
+      font-style: italic;
+      margin-bottom: 1.25rem;
+    }
+
+    .vision-quote-author {
+      font-size: 0.875rem;
+      color: var(--gold);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .vision-bullets {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .vision-bullet-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+    }
+
+    .vision-bullet-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(212, 159, 80, 0.18);
+      color: var(--gold);
+      display: grid;
+      place-items: center;
+      font-size: 0.95rem;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .vision-bullet-text {
+      font-size: 0.95rem;
+      color: #d8cae4;
+      line-height: 1.6;
+    }
+
+    .vision-bullet-text strong {
+      color: #ffffff;
+    }
+
+    /* ==========================================================================
+       7. MÔĐUN 04 | ĐƯA GIẢI PHÁP (Thảm Nhiệt Đá Thạch Anh Tím)
+       ========================================================================== */
+    .section-modun-4 {
+      background-color: #ffffff;
+    }
+
+    .solution-intro {
+      max-width: 52rem;
+      margin: 0 auto 3.5rem;
+      text-align: center;
+    }
+
+    .solution-core-box {
+      background: var(--bg-sand);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem 2rem;
+      margin: 1.75rem auto;
+      text-align: left;
+    }
+
+    .solution-core-list {
+      list-style: none;
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .solution-core-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      font-size: 1rem;
       color: var(--text-main);
     }
 
-    .mech-card-desc {
-      font-size: 0.875rem;
-      color: var(--text-muted);
-      line-height: 1.55;
+    .solution-core-item::before {
+      content: "•";
+      color: var(--heat-primary);
+      font-weight: 700;
+      font-size: 1.25rem;
+      line-height: 1.2;
     }
 
-    .science-split {
+    /* Showcase 4 Hình Ảnh Giải Pháp: Thảm thật, cận cảnh đá, bộ điều khiển, video */
+    .solution-gallery {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2.5rem;
-      align-items: start;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 3.5rem;
     }
 
-    .eval-table-card {
+    .gallery-item {
       background: #ffffff;
       border: 1px solid var(--card-border);
       border-radius: var(--radius-lg);
@@ -649,507 +858,539 @@
       box-shadow: var(--shadow-sm);
     }
 
-    .eval-header {
-      padding: 1.15rem 1.5rem;
-      background: var(--plum-dark);
-      color: #ffffff;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    .gallery-thumb {
+      aspect-ratio: 4 / 3;
+      position: relative;
     }
 
-    .eval-header h3 {
-      font-size: 1.05rem;
-      color: #ffffff;
-    }
-
-    .eval-list {
-      list-style: none;
-    }
-
-    .eval-item {
-      padding: 1rem 1.5rem;
-      border-bottom: 1px solid var(--card-border);
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 1rem;
-      align-items: center;
-    }
-
-    .eval-item:last-child {
-      border-bottom: none;
-    }
-
-    .eval-item-name {
-      font-weight: 600;
-      font-size: 0.9375rem;
-      color: var(--text-main);
-      margin-bottom: 0.15rem;
-    }
-
-    .eval-item-guide {
-      font-size: 0.8125rem;
-      color: var(--text-muted);
-    }
-
-    .ref-box {
-      background: var(--bg-sand);
-      border: 1px solid var(--card-border);
-      border-radius: var(--radius-lg);
-      padding: 1.75rem;
-      margin-top: 1.5rem;
-    }
-
-    .ref-title {
-      font-size: 1rem;
-      margin-bottom: 0.85rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: var(--plum);
-    }
-
-    .ref-item {
-      font-size: 0.875rem;
-      color: var(--text-muted);
-      margin-bottom: 0.75rem;
-      line-height: 1.5;
-    }
-
-    .ref-item strong {
-      color: var(--text-main);
-    }
-
-    .ref-disclaimer {
-      font-size: 0.8125rem;
-      font-style: italic;
-      color: var(--gold-dark);
-      background: #fff8ee;
-      padding: 0.75rem 1rem;
-      border-radius: var(--radius-sm);
-      border-left: 3px solid var(--gold);
-      margin-top: 1rem;
-    }
-
-    /* ==========================================================================
-       8. Section 03: Cấu Tạo và Công Nghệ
-       ========================================================================== */
-    .layers-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.25rem;
-      margin: 2.5rem 0 3rem;
-    }
-
-    .layer-card {
+    .gallery-caption {
+      padding: 0.85rem 1rem;
       background: #ffffff;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--plum);
+      text-align: center;
+      border-top: 1px solid var(--card-border);
+    }
+
+    /* Cấu tạo đa tầng & Bảng thông số (CẦN ĐIỀN) */
+    .solution-details-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    .layers-mini-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .layer-mini-card {
+      background: var(--bg-cream);
       border: 1px solid var(--card-border);
-      border-radius: var(--radius-lg);
-      padding: 1.25rem;
-      box-shadow: var(--shadow-sm);
-      display: flex;
-      flex-direction: column;
+      border-radius: var(--radius-md);
+      padding: 1.15rem;
     }
 
-    .layer-card .thumb-holder {
-      margin-bottom: 1rem;
-    }
-
-    .layer-num {
-      font-size: 0.75rem;
-      font-weight: 700;
+    .layer-mini-num {
+      font-size: 0.7rem;
+      font-weight: 800;
       color: var(--amethyst);
       text-transform: uppercase;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.25rem;
+    }
+
+    .layer-mini-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-main);
       margin-bottom: 0.35rem;
     }
 
-    .layer-title {
-      font-size: 1.1rem;
-      color: var(--text-main);
-      margin-bottom: 0.4rem;
-    }
-
-    .layer-desc {
-      font-size: 0.875rem;
+    .layer-mini-desc {
+      font-size: 0.8125rem;
       color: var(--text-muted);
-      line-height: 1.5;
+      line-height: 1.45;
     }
 
-    .specs-wrapper {
-      background: #ffffff;
+    /* Bảng thông số kỹ thuật chuẩn hóa (Theo yêu cầu CẦN ĐIỀN) */
+    .specs-card {
+      background: var(--bg-cream);
       border: 1px solid var(--card-border);
       border-radius: var(--radius-xl);
       padding: 2rem;
-      box-shadow: var(--shadow-sm);
     }
 
-    .specs-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem 2rem;
-    }
-
-    .spec-item {
+    .specs-title-row {
       display: flex;
       justify-content: space-between;
-      align-items: baseline;
-      padding: 0.85rem 0;
-      border-bottom: 1px solid #f0e9df;
-      gap: 1rem;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+      gap: 0.75rem;
     }
 
-    .spec-label {
-      font-weight: 600;
-      font-size: 0.9375rem;
-      color: var(--text-main);
-    }
-
-    .spec-val {
+    .specs-table {
+      width: 100%;
+      border-collapse: collapse;
       font-size: 0.875rem;
+    }
+
+    .specs-table tr {
+      border-bottom: 1px solid #ebdcd0;
+    }
+
+    .specs-table tr:last-child {
+      border-bottom: none;
+    }
+
+    .specs-table td {
+      padding: 0.85rem 0.5rem;
+    }
+
+    .specs-table td.label-col {
+      font-weight: 600;
+      color: var(--text-main);
+      width: 42%;
+    }
+
+    .specs-table td.val-col {
       color: var(--text-muted);
       text-align: right;
     }
 
-    .spec-pending {
-      color: var(--gold-dark);
-      font-style: italic;
-      font-size: 0.8125rem;
-      background: var(--gold-light);
-      padding: 0.2rem 0.55rem;
-      border-radius: var(--radius-sm);
+    .spec-badge-fill {
+      color: var(--success-text);
+      font-weight: 600;
     }
 
     /* ==========================================================================
-       9. Section 04: Hiểu Đúng Về Thải Độc
+       8. MÔĐUN 05 | TẠO NIỀM TIN (Bằng chứng khoa học và an toàn)
        ========================================================================== */
-    .myth-section {
-      background: linear-gradient(170deg, #1c0e2b 0%, #10061a 100%);
-      color: #ffffff;
+    .section-modun-5 {
+      background-color: var(--bg-sand);
     }
 
-    .myth-grid {
+    .evidence-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      margin-top: 3rem;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: stretch;
+      margin: 2.5rem 0 3rem;
     }
 
-    .myth-card {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.12);
+    .evidence-card {
+      background: #ffffff;
+      border: 1px solid var(--card-border);
       border-radius: var(--radius-xl);
-      padding: 1.75rem;
+      padding: 2.25rem;
+      box-shadow: var(--shadow-sm);
       display: flex;
       flex-direction: column;
     }
 
-    .myth-card .thumb-holder {
+    .evidence-card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
       margin-bottom: 1.25rem;
     }
 
-    .myth-badge {
-      display: inline-flex;
-      font-size: 0.75rem;
-      font-weight: 700;
-      padding: 0.25rem 0.6rem;
-      border-radius: var(--radius-full);
-      text-transform: uppercase;
-      margin-bottom: 0.75rem;
-      align-self: flex-start;
-    }
-
-    .myth-badge-fact {
-      background: rgba(46, 189, 116, 0.2);
-      color: #57d896;
-    }
-
-    .myth-badge-truth {
-      background: rgba(212, 159, 80, 0.2);
-      color: #f0bd73;
-    }
-
-    .myth-title {
-      font-size: 1.25rem;
-      color: #ffffff;
-      margin-bottom: 0.75rem;
-    }
-
-    .myth-desc {
-      font-size: 0.9375rem;
-      color: #d1c5db;
-      line-height: 1.6;
-    }
-
-    /* ==========================================================================
-       10. Section 05: Trải Nghiệm An Toàn
-       ========================================================================== */
-    .steps-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.25rem;
-      margin: 2.5rem 0 3rem;
-    }
-
-    .step-box {
-      background: #ffffff;
-      border: 1px solid var(--card-border);
-      border-radius: var(--radius-lg);
-      padding: 1.25rem;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .step-box .thumb-holder {
-      margin-bottom: 1rem;
-    }
-
-    .step-indicator {
-      display: inline-block;
-      font-weight: 700;
-      font-size: 0.8125rem;
-      color: var(--heat-primary);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 0.35rem;
-    }
-
-    .step-title {
-      font-size: 1.1rem;
-      color: var(--text-main);
-      margin-bottom: 0.4rem;
-    }
-
-    .step-desc {
-      font-size: 0.875rem;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-
-    .warning-panel {
-      background: var(--warning-bg);
-      border: 1px solid var(--warning-border);
-      border-radius: var(--radius-xl);
-      padding: 2rem;
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 1.5rem;
-      align-items: start;
-    }
-
-    .warning-icon-large {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: rgba(201, 92, 39, 0.15);
-      color: var(--heat-primary);
+    .evidence-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--amethyst-soft);
+      color: var(--amethyst);
       display: grid;
       place-items: center;
-      font-size: 1.5rem;
+      font-size: 1.25rem;
       flex-shrink: 0;
     }
 
-    .warning-heading {
-      font-size: 1.25rem;
-      color: var(--warning-text);
-      margin-bottom: 0.65rem;
+    .evidence-cite-box {
+      background: #fbf8f4;
+      border-left: 3px solid var(--amethyst);
+      padding: 1.25rem;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      margin-bottom: 1.25rem;
     }
 
-    .warning-content {
+    .evidence-cite-title {
+      font-weight: 700;
       font-size: 0.9375rem;
-      color: #63330e;
-      line-height: 1.65;
-    }
-
-    .warning-list {
-      margin-top: 0.65rem;
-      padding-left: 1.25rem;
-    }
-
-    .warning-list li {
+      color: var(--plum);
       margin-bottom: 0.35rem;
     }
 
-    /* ==========================================================================
-       11. Section 06: Niềm Tin và Ưu Đãi
-       ========================================================================== */
-    .trust-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 2.5rem;
-      margin-top: 2.5rem;
+    .evidence-cite-content {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .evidence-cite-doi {
+      font-size: 0.75rem;
+      color: var(--amethyst);
+      margin-top: 0.5rem;
+      font-weight: 600;
+    }
+
+    .evidence-truth-box {
+      background: #fff8f5;
+      border: 1px dashed var(--heat-primary);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      margin-top: auto;
+    }
+
+    .evidence-truth-title {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--heat-primary);
+      margin-bottom: 0.35rem;
+      display: flex;
       align-items: center;
+      gap: 0.4rem;
     }
 
-    .trust-card {
-      background: #ffffff;
-      border: 1px solid var(--card-border);
-      border-radius: var(--radius-xl);
-      padding: 2rem;
-      box-shadow: var(--shadow-sm);
+    .evidence-truth-desc {
+      font-size: 0.8125rem;
+      color: #6d4231;
+      line-height: 1.5;
     }
 
-    .trust-title {
-      font-size: 1.35rem;
-      margin-bottom: 1.25rem;
-      color: var(--text-main);
-    }
-
-    .verify-list {
+    /* Kiểm định & An toàn y tế */
+    .safety-checklist {
       list-style: none;
       display: grid;
       gap: 0.85rem;
+      margin-bottom: 1.5rem;
     }
 
-    .verify-item {
+    .safety-item {
       display: flex;
       align-items: flex-start;
-      gap: 0.85rem;
+      gap: 0.75rem;
+      font-size: 0.875rem;
+      color: var(--text-main);
     }
 
-    .verify-num {
-      width: 26px;
-      height: 26px;
-      background: var(--amethyst-soft);
-      color: var(--amethyst);
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      font-weight: 700;
-      font-size: 0.8125rem;
+    .safety-item-icon {
+      color: var(--success-text);
+      font-weight: 800;
       flex-shrink: 0;
       margin-top: 0.1rem;
     }
 
-    .verify-text strong {
+    .medical-warning-box {
+      background: var(--warning-bg);
+      border: 1px solid var(--warning-border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      margin-top: auto;
+    }
+
+    .medical-warning-title {
+      font-size: 0.9375rem;
+      font-weight: 700;
+      color: var(--warning-text);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .medical-warning-desc {
+      font-size: 0.8125rem;
+      color: #6d3910;
+      line-height: 1.55;
+    }
+
+    /* ==========================================================================
+       9. MÔĐUN 06 | XỬ LÝ PHẢN ĐỐI (FAQ & So sánh túi chườm)
+       ========================================================================== */
+    .section-modun-6 {
+      background-color: #ffffff;
+    }
+
+    .faq-container {
+      max-width: 54rem;
+      margin: 2.5rem auto 3rem;
+    }
+
+    .faq-item {
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-md);
+      margin-bottom: 1rem;
+      background: #ffffff;
+      overflow: hidden;
+      transition: box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .faq-item.active {
+      border-color: var(--amethyst);
+      box-shadow: 0 4px 18px rgba(107, 59, 167, 0.08);
+    }
+
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: none;
+      padding: 1.25rem 1.5rem;
+      font-family: var(--font-sans);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--plum);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      gap: 1rem;
+    }
+
+    .faq-q-text {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .faq-q-badge {
+      background: var(--amethyst-soft);
+      color: var(--amethyst);
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 0.2rem 0.55rem;
+      border-radius: var(--radius-sm);
+    }
+
+    .faq-toggle-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--bg-sand);
+      color: var(--plum);
+      display: grid;
+      place-items: center;
+      font-size: 1.1rem;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .faq-item.active .faq-toggle-icon {
+      transform: rotate(45deg);
+      background: var(--amethyst);
+      color: #ffffff;
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 0 1.5rem 1.5rem;
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      border-top: 1px solid #f4ede4;
+      padding-top: 1.25rem;
+    }
+
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+
+    .faq-answer strong {
       color: var(--text-main);
     }
 
-    .verify-text p {
-      font-size: 0.875rem;
-      color: var(--text-muted);
-      margin-top: 0.15rem;
+    /* Bảng So Sánh Đối Chiếu Thảm Nhiệt vs Túi Chườm */
+    .compare-box {
+      margin-top: 1.25rem;
+      background: var(--bg-sand);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--card-border);
     }
 
-    .offer-box {
-      background: linear-gradient(145deg, #ffffff 0%, var(--bg-sand) 100%);
-      border: 1px solid var(--card-border);
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.8125rem;
+    }
+
+    .compare-table th,
+    .compare-table td {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid #e7dcce;
+    }
+
+    .compare-table th {
+      background: #eee4d4;
+      font-weight: 700;
+      color: var(--plum);
+    }
+
+    .compare-table td.col-tham {
+      background: rgba(107, 59, 167, 0.05);
+      font-weight: 600;
+      color: var(--plum);
+    }
+
+    .compare-table td.col-tui {
+      color: #796c85;
+    }
+
+    /* ==========================================================================
+       10. MÔĐUN 07 | CHỐT ĐƠN (Đừng chờ dịp đặc biệt mới quan tâm)
+       ========================================================================== */
+    .section-modun-7 {
+      background: radial-gradient(circle at 15% 20%, rgba(107, 59, 167, 0.35) 0%, transparent 45%),
+        radial-gradient(circle at 85% 80%, rgba(201, 92, 39, 0.3) 0%, transparent 50%),
+        var(--amethyst-gradient);
+      color: #ffffff;
+      padding: 5.5rem 0 6.5rem;
+    }
+
+    .checkout-quote-banner {
+      max-width: 48rem;
+      margin: 0 auto 3.5rem;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.18);
       border-radius: var(--radius-xl);
-      padding: 2rem;
-      box-shadow: var(--shadow-sm);
+      padding: 2rem 2.5rem;
+      backdrop-filter: blur(8px);
+    }
+
+    .checkout-quote {
+      font-family: var(--font-serif);
+      font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+      line-height: 1.5;
+      color: #fff9e6;
+      font-style: italic;
+    }
+
+    .checkout-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: stretch;
+    }
+
+    /* Hộp sản phẩm chính thức & Bảng giá thật */
+    .product-offer-card {
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: var(--radius-xl);
+      padding: 2.25rem;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.3);
+    }
+
+    .product-offer-title {
+      font-size: 1.5rem;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+    }
+
+    .product-price-box {
+      margin: 1.25rem 0;
+      padding: 1.25rem;
+      background: rgba(0, 0, 0, 0.25);
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(212, 159, 80, 0.3);
+    }
+
+    .price-original {
+      font-size: 0.95rem;
+      color: #b7a4c4;
+      text-decoration: line-through;
+    }
+
+    .price-current {
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: var(--gold);
+      line-height: 1.1;
+      margin: 0.25rem 0;
+    }
+
+    .price-badge-save {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #ffffff;
+      background: var(--heat-primary);
+      padding: 0.25rem 0.65rem;
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+    }
+
+    .product-offer-specs {
+      list-style: none;
+      display: grid;
+      gap: 0.85rem;
+      margin-bottom: 1.75rem;
+      font-size: 0.9375rem;
+    }
+
+    .product-offer-specs li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      color: #e6dbef;
+    }
+
+    .product-offer-specs li strong {
+      color: #ffffff;
+    }
+
+    .hotline-callout {
+      margin-top: auto;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-md);
+      padding: 1.15rem;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .hotline-number {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--gold);
+      letter-spacing: 0.05em;
+      display: block;
+      margin-top: 0.25rem;
+    }
+
+    /* Biểu Mẫu Chốt Đơn */
+    .checkout-form-card {
+      background: #ffffff;
+      color: var(--text-main);
+      border-radius: var(--radius-xl);
+      padding: 2.5rem;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
       display: flex;
       flex-direction: column;
     }
 
-    .offer-box .thumb-holder {
-      margin-bottom: 1.5rem;
-    }
-
-    .offer-title {
-      font-size: 1.35rem;
-      color: var(--text-main);
-      margin-bottom: 0.6rem;
-    }
-
-    .offer-desc {
-      font-size: 0.9375rem;
-      color: var(--text-muted);
-      margin-bottom: 1.25rem;
-    }
-
-    .offer-perks {
-      list-style: none;
-      display: grid;
-      gap: 0.5rem;
-      margin-bottom: 1.5rem;
-      font-size: 0.875rem;
-      color: var(--text-main);
-    }
-
-    .offer-perks li {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .offer-perks li::before {
-      content: "✓";
-      color: var(--success-text);
-      font-weight: 700;
-    }
-
-    /* ==========================================================================
-       12. Section 07: Thu Lead / Chuyển Đổi
-       ========================================================================== */
-    .lead-section {
-      background: radial-gradient(circle at 10% 20%, rgba(107, 59, 167, 0.25) 0%, transparent 40%),
-        radial-gradient(circle at 90% 80%, rgba(201, 92, 39, 0.2) 0%, transparent 45%),
-        linear-gradient(160deg, #241335 0%, #150a1f 100%);
-      color: #ffffff;
-      padding: 5.5rem 0;
-    }
-
-    .lead-grid {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 3rem;
-      align-items: center;
-    }
-
-    .lead-info-title {
-      font-size: clamp(2rem, 3.2vw, 2.75rem);
-      line-height: 1.2;
-      margin-bottom: 1rem;
-      color: #ffffff;
-    }
-
-    .lead-info-desc {
-      font-size: 1.05rem;
-      color: #e2d3e9;
-      margin-bottom: 1.75rem;
-      line-height: 1.65;
-    }
-
-    .lead-preview-card {
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: var(--radius-xl);
-      padding: 1.25rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .lead-preview-card .thumb-holder {
-      margin-bottom: 1rem;
-    }
-
-    .lead-guarantee {
-      font-size: 0.8125rem;
-      color: #b7a4c4;
-      line-height: 1.5;
-    }
-
-    .consult-form {
-      background: #ffffff;
-      color: var(--text-main);
-      border-radius: var(--radius-xl);
-      padding: 2.25rem;
-      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.3);
-      display: grid;
-      gap: 1.25rem;
-    }
-
-    .form-header {
+    .checkout-form-header {
       border-bottom: 1px solid var(--card-border);
       padding-bottom: 1rem;
-      margin-bottom: 0.25rem;
+      margin-bottom: 1.5rem;
     }
 
-    .form-header h3 {
-      font-size: 1.45rem;
+    .checkout-form-title {
+      font-size: 1.5rem;
       color: var(--plum);
       margin-bottom: 0.25rem;
     }
 
-    .form-header p {
+    .checkout-form-desc {
       font-size: 0.875rem;
       color: var(--text-muted);
     }
@@ -1157,18 +1398,19 @@
     .form-group {
       display: grid;
       gap: 0.45rem;
+      margin-bottom: 1.15rem;
     }
 
     .form-group label {
-      font-size: 0.9375rem;
+      font-size: 0.875rem;
       font-weight: 600;
       color: var(--text-main);
     }
 
     .form-input,
-    .form-select {
+    .form-select,
+    .form-textarea {
       width: 100%;
-      height: 48px;
       border-radius: var(--radius-md);
       border: 1px solid var(--card-border);
       background-color: #faf8f5;
@@ -1176,48 +1418,31 @@
       font-family: inherit;
       font-size: 0.9375rem;
       color: var(--text-main);
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      transition: all 0.2s ease;
+    }
+
+    .form-input,
+    .form-select {
+      height: 48px;
+    }
+
+    .form-textarea {
+      padding-top: 0.75rem;
+      padding-bottom: 0.75rem;
+      height: 72px;
+      resize: vertical;
     }
 
     .form-input:focus,
-    .form-select:focus {
+    .form-select:focus,
+    .form-textarea:focus {
       outline: none;
       border-color: var(--amethyst);
       background-color: #ffffff;
       box-shadow: 0 0 0 3px rgba(107, 59, 167, 0.15);
     }
 
-    .radio-fieldset {
-      border: 1px solid var(--card-border);
-      border-radius: var(--radius-md);
-      padding: 0.9rem 1.15rem;
-      background: #faf8f5;
-    }
-
-    .radio-fieldset legend {
-      font-size: 0.875rem;
-      font-weight: 600;
-      color: var(--text-main);
-      padding: 0 0.4rem;
-    }
-
-    .radio-options {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0.75rem;
-      margin-top: 0.35rem;
-    }
-
-    .radio-label {
-      display: flex;
-      align-items: center;
-      gap: 0.45rem;
-      font-size: 0.875rem;
-      color: var(--text-main);
-      cursor: pointer;
-    }
-
-    .checkbox-label {
+    .form-checkbox-label {
       display: grid;
       grid-template-columns: auto 1fr;
       gap: 0.65rem;
@@ -1226,201 +1451,248 @@
       color: var(--text-muted);
       line-height: 1.45;
       cursor: pointer;
+      margin-bottom: 1.25rem;
     }
 
-    .checkbox-label input {
+    .form-checkbox-label input {
       margin-top: 0.2rem;
+    }
+
+    .btn-submit-order {
+      width: 100%;
+      height: 54px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
     }
 
     .form-error {
       color: #c92a2a;
-      font-size: 0.875rem;
-      min-height: 1.25rem;
-      margin: 0;
+      font-size: 0.8125rem;
+      margin-bottom: 0.75rem;
+      min-height: 1rem;
     }
 
-    .form-success-card {
+    .form-success-box {
       text-align: center;
-      padding: 2.5rem 1rem;
+      padding: 3rem 1rem;
     }
 
     .form-success-icon {
-      width: 56px;
-      height: 56px;
+      width: 64px;
+      height: 64px;
       border-radius: 50%;
       background: var(--success-bg);
       color: var(--success-text);
       display: grid;
       place-items: center;
-      font-size: 1.75rem;
-      margin: 0 auto 1.25rem;
-    }
-
-    .form-success-card h3 {
-      font-size: 1.5rem;
-      color: var(--plum);
-      margin-bottom: 0.5rem;
-    }
-
-    .form-success-card p {
-      font-size: 0.9375rem;
-      color: var(--text-muted);
-      line-height: 1.6;
+      font-size: 2rem;
+      margin: 0 auto 1.5rem;
     }
 
     /* ==========================================================================
-       13. Closing Statement & Footer
+       11. Hướng Dẫn Kỹ Thuật (Content - Design - Dev) & Footer
        ========================================================================== */
-    .closing-banner {
-      background: linear-gradient(135deg, #f5e9dc 0%, #ebe0d0 100%);
-      border-top: 1px solid var(--card-border);
-      border-bottom: 1px solid var(--card-border);
-      padding: 3.5rem 0;
-      text-align: center;
+    .dev-guide-strip {
+      background: #100619;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 1.75rem 0;
+      color: #baa3cc;
+      font-size: 0.8125rem;
     }
 
-    .closing-quote {
-      font-family: var(--font-serif);
-      font-size: clamp(1.35rem, 2.5vw, 1.85rem);
-      line-height: 1.45;
-      color: var(--plum);
-      max-width: 52rem;
-      margin: 0 auto;
-      font-weight: 600;
+    .dev-guide-title {
+      font-weight: 700;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.35rem;
     }
 
-    .footer {
-      background-color: var(--plum-dark);
-      color: #c5b8cf;
+    .dev-guide-flow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .dev-guide-item strong {
+      color: #ffffff;
+    }
+
+    .dev-guide-note {
+      font-style: italic;
+      color: #927e9f;
+    }
+
+    .site-footer {
+      background: var(--plum-dark);
+      color: #9f8fa9;
       padding: 3rem 0;
-      font-size: 0.875rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 0.8125rem;
+      line-height: 1.6;
     }
 
-    .footer-content {
+    .footer-top {
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
       gap: 1.5rem;
       margin-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 1.5rem;
     }
 
     .footer-brand {
       color: #ffffff;
       font-family: var(--font-serif);
-      font-size: 1.1rem;
+      font-size: 1.15rem;
     }
 
-    .footer-links {
+    .footer-nav {
       display: flex;
       gap: 1.5rem;
+      flex-wrap: wrap;
     }
 
-    .footer-links a {
-      color: #d8cde0;
-      transition: color 0.2s;
-    }
-
-    .footer-links a:hover {
+    .footer-nav a:hover {
       color: var(--gold);
     }
 
-    .footer-disclaimer {
-      font-size: 0.8125rem;
-      line-height: 1.6;
-      color: #9f8ea8;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      padding-top: 1.5rem;
+    .footer-medical-ref {
+      background: rgba(255, 255, 255, 0.04);
+      padding: 1rem 1.25rem;
+      border-radius: var(--radius-sm);
+      margin-bottom: 1rem;
+      border-left: 2px solid var(--gold);
+    }
+
+    .footer-medical-ref strong {
+      color: #ffffff;
+    }
+
+    /* Floating Contact Widget */
+    .floating-contact {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 990;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .btn-floating {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      padding: 0.75rem 1.25rem;
+      border-radius: var(--radius-full);
+      font-size: 0.875rem;
+      font-weight: 700;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s ease;
+    }
+
+    .btn-floating:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-floating-hotline {
+      background: var(--heat-gradient);
+      color: #ffffff;
+    }
+
+    .btn-floating-zalo {
+      background: #0068ff;
+      color: #ffffff;
+    }
+
+    .floating-icon-circle {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.22);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .floating-icon-circle.zalo-circle {
+      background: #ffffff;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+    }
+
+    .floating-text {
+      display: inline-block;
     }
 
     /* ==========================================================================
-       14. Responsive Breakpoints
+       12. Responsive Breakpoints
        ========================================================================== */
     @media (max-width: 1024px) {
-      .hero-grid {
+
+      .hero-grid,
+      .vision-grid,
+      .solution-details-grid,
+      .evidence-grid,
+      .checkout-grid {
         grid-template-columns: 1fr;
         gap: 2.5rem;
       }
 
-      .hero-content {
-        max-width: 100%;
-        text-align: center;
+      .need-points-grid {
+        grid-template-columns: 1fr;
       }
 
-      .hero-actions {
-        justify-content: center;
-      }
-
-      .hero-highlights {
-        justify-items: center;
-      }
-
-      .trust-strip-grid {
+      .scenes-grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .mechanism-grid,
-      .layers-grid,
-      .steps-grid {
+      .solution-gallery {
         grid-template-columns: repeat(2, 1fr);
-      }
-
-      .science-split,
-      .trust-grid,
-      .lead-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-
-      .specs-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .myth-grid {
-        grid-template-columns: 1fr;
       }
     }
 
     @media (max-width: 768px) {
       section {
-        padding: 3.5rem 0;
-      }
-
-      .hero {
-        padding-top: 6.5rem;
-        padding-bottom: 3.5rem;
+        padding: 4rem 0;
       }
 
       .topbar-nav {
         display: none;
       }
 
-      .trust-strip-grid {
+      .scenes-grid {
         grid-template-columns: 1fr;
       }
 
-      .mechanism-grid,
-      .layers-grid,
-      .steps-grid {
+      .solution-gallery {
         grid-template-columns: 1fr;
       }
 
-      .radio-options {
+      .layers-mini-grid {
         grid-template-columns: 1fr;
       }
 
-      .warning-panel {
-        grid-template-columns: 1fr;
+      .floating-contact {
+        bottom: 16px;
+        right: 16px;
       }
 
-      .warning-icon-large {
-        margin-bottom: 0.5rem;
+      .btn-floating .floating-text {
+        display: none;
       }
 
-      .footer-content {
-        flex-direction: column;
-        align-items: flex-start;
+      .btn-floating {
+        width: 48px;
+        height: 48px;
+        padding: 0;
+        justify-content: center;
+        border-radius: 50%;
       }
     }
   </style>
@@ -1433,829 +1705,1008 @@
        ========================================================================== -->
   <header class="topbar">
     <div class="container topbar-content">
-      <a href="#dau-trang" class="brand-logo">
+      <a href="#modun-01" class="brand-logo">
         <span class="brand-gem">◆</span>
-        <span>Thảm Nhiệt Đá Thạch Anh Tím</span>
+        <div>
+          <div>TRAO HƠI ẤM – GỬI YÊU THƯƠNG</div>
+          <span class="topbar-subtext">Thảm Nhiệt Đá Thạch Anh Tím Cho Bố Mẹ</span>
+        </div>
       </a>
-      <nav class="topbar-nav" aria-label="Menu chính">
-        <a href="#khoa-hoc">Khoa Học</a>
-        <a href="#cau-tao">Cấu Tạo</a>
-        <a href="#thai-doc">Hiểu Đúng Về Thải Độc</a>
-        <a href="#an-toan">Sử Dụng An Toàn</a>
-        <a href="#niem-tin">Kiểm Định</a>
-        <a href="#tu-van" class="btn btn-heat" style="padding: 0.5rem 1.15rem; font-size: 0.85rem;">Nhận Tư Vấn</a>
+      <nav class="topbar-nav" aria-label="Menu 7 Môđun">
+        <a href="#modun-01">01. Nỗi Đau</a>
+        <a href="#modun-02">02. Nhu Cầu</a>
+        <a href="#modun-03">03. Viễn Cảnh</a>
+        <a href="#modun-04">04. Giải Pháp</a>
+        <a href="#modun-05">05. Niềm Tin</a>
+        <a href="#modun-06">06. An Tâm</a>
+        <a href="#modun-07" class="btn btn-heat" style="padding: 0.45rem 1.15rem; font-size: 0.8125rem;">Đặt Mua Tặng Bố
+          Mẹ</a>
       </nav>
     </div>
   </header>
 
-  <main id="dau-trang">
-    <!-- ==========================================================================
-         01 — CHẠM CẢM XÚC (HERO SECTION)
-         ========================================================================== -->
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-content">
-          <span class="kicker kicker-gold">✦ Món Quà Hiếu Nghĩa Mùa Đông</span>
-          <h1 class="hero-title">Ngày bé, bố mẹ giữ ấm cho con.</h1>
-          <p class="hero-subtitle">Mùa đông này, đến lượt con chăm sóc bố mẹ.</p>
-          <p class="hero-desc">
-            Thảm nhiệt đá thạch anh tím mang đến những phút giây nghỉ ngơi ấm áp, thư thái tại nhà;
-            hỗ trợ thư giãn cơ bắp và giảm đau mỏi tạm thời dựa trên cơ chế nhiệt bề mặt khoa học.
-          </p>
-
-          <div class="hero-highlights">
-            <div class="hero-hl-item">
-              <span class="hero-hl-icon">✓</span>
-              <span>Liệu pháp nhiệt bề mặt dịu ấm, tạo trải nghiệm dễ chịu tại nhà</span>
-            </div>
-            <div class="hero-hl-item">
-              <span class="hero-hl-icon">✓</span>
-              <span>Hỗ trợ thư giãn cơ và giảm đau lưng cấp/bán cấp trong ngắn hạn</span>
-            </div>
-            <div class="hero-hl-item">
-              <span class="hero-hl-icon">✓</span>
-              <span>Minh bạch khoa học — Không quảng cáo chữa bệnh hay thải độc sai lệch</span>
-            </div>
-          </div>
-
-          <div class="hero-actions">
-            <a href="#tu-van" class="btn btn-heat">Nhận Tư Vấn Quà Tặng Bố Mẹ</a>
-            <a href="#khoa-hoc" class="btn btn-ghost-light">Xem Cơ Chế Giữ Ấm</a>
-          </div>
-        </div>
-
-        <div class="hero-visual">
-          <div class="hero-card">
-            <!-- Hero Image Frame -->
-            <figure class="thumb-holder aspect-hero">
-              <img src="images/hero.png" alt="Thảm nhiệt đá thạch anh tím chăm sóc bố mẹ" loading="eager">
-              <figcaption class="thumb-caption">
-                <span>Thảm nhiệt thạch anh tím cao cấp</span>
-                <span class="badge badge-gold">Quà Tặng Ấm Áp</span>
-              </figcaption>
-            </figure>
-
-            <div class="hero-subcard">
-              <div class="hero-pill-info">
-                <span class="hero-pill-icon">♨</span>
-                <div>
-                  <div class="hero-pill-title">Nhiệt Trị Liệu</div>
-                  <div class="hero-pill-sub">Ấm áp & Dịu êm</div>
-                </div>
-              </div>
-              <div class="hero-pill-info">
-                <span class="hero-pill-icon">◆</span>
-                <div>
-                  <div class="hero-pill-title">Thạch Anh Tím</div>
-                  <div class="hero-pill-sub">Tự nhiên & Sang trọng</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Highlights Strip -->
-    <div class="trust-strip">
-      <div class="container trust-strip-grid">
-        <div class="trust-strip-item">
-          <div class="trust-strip-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-            </svg>
-          </div>
-          <div>
-            <div class="trust-strip-title">Giữ Ấm Thư Giãn</div>
-            <div class="trust-strip-desc">Trải nghiệm nghỉ ngơi ấm áp tại nhà</div>
-          </div>
-        </div>
-        <div class="trust-strip-item">
-          <div class="trust-strip-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-            </svg>
-          </div>
-          <div>
-            <div class="trust-strip-title">Hỗ Trợ Giảm Mỏi Cơ</div>
-            <div class="trust-strip-desc">Giãn mạch tại chỗ và giảm căng cứng</div>
-          </div>
-        </div>
-        <div class="trust-strip-item">
-          <div class="trust-strip-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-            </svg>
-          </div>
-          <div>
-            <div class="trust-strip-title">Cơ Chế Khoa Học</div>
-            <div class="trust-strip-desc">Dựa trên nhiệt trị liệu bề mặt y khoa</div>
-          </div>
-        </div>
-        <div class="trust-strip-item">
-          <div class="trust-strip-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="10" />
-              <path d="M12 6v6l4 2" />
-            </svg>
-          </div>
-          <div>
-            <div class="trust-strip-title">An Toàn Gia Đình</div>
-            <div class="trust-strip-desc">Kiểm soát nhiệt và ngắt bảo vệ điện</div>
-          </div>
-        </div>
+  <!-- ==========================================================================
+       HÀNH TRÌNH TÂM LÝ KHÁCH HÀNG (7 Môđun Flow Strip)
+       ========================================================================== -->
+  <div class="journey-strip">
+    <div class="container journey-flow">
+      <span class="journey-target">
+        <span>Khách hàng:</span> Con cái mua quà cho bố mẹ
+      </span>
+      <span class="journey-divider">•</span>
+      <div class="journey-steps">
+        <span>Hành trình:</span>
+        <span class="journey-step-item active">Nỗi đau</span>
+        <span class="journey-arrow">→</span>
+        <span class="journey-step-item">Nhu cầu</span>
+        <span class="journey-arrow">→</span>
+        <span class="journey-step-item">Viễn cảnh</span>
+        <span class="journey-arrow">→</span>
+        <span class="journey-step-item">Giải pháp</span>
+        <span class="journey-arrow">→</span>
+        <span class="journey-step-item">Niềm tin</span>
+        <span class="journey-arrow">→</span>
+        <span class="journey-step-item">An tâm</span>
+        <span class="journey-arrow">→</span>
+        <span class="journey-step-item" style="color: var(--heat-primary); font-weight: 700;">Đặt mua</span>
       </div>
     </div>
+  </div>
 
+  <main>
     <!-- ==========================================================================
-         02 — GIẢI THÍCH KHOA HỌC (Cơ chế nhiệt bề mặt)
+         MÔĐUN 01 | CHẠM NỖI ĐAU
+         MỤC TIÊU TÂM LÝ: Đồng cảm trong 3–5 giây
          ========================================================================== -->
-    <section id="khoa-hoc" class="bg-cream">
+    <section id="modun-01" class="section-modun-1">
       <div class="container">
-        <div class="text-center mx-auto" style="max-width: 46rem;">
-          <span class="kicker">02 — Cơ Sở Sinh Lý Học</span>
-          <h2 class="section-title">Cơ Chế Khoa Học Của Nhiệt Bề Mặt</h2>
-          <p class="section-desc mx-auto">
-            Nhiệt bề mặt có bằng chứng hỗ trợ ngắn hạn cho các trường hợp đau lưng cấp/bán cấp và giúp các nhóm cơ dễ
-            chịu hơn
-            thông qua phản ứng sinh lý làm ấm và giãn mạch tự nhiên.
-          </p>
-        </div>
-
-        <!-- 4-Step Mechanism Sequence -->
-        <div class="mechanism-grid">
-          <div class="mech-card">
-            <div class="mech-step-num">1</div>
-            <h3 class="mech-card-title">Gia Nhiệt Kiểm Soát</h3>
-            <p class="mech-card-desc">Thảm truyền nhiệt độ ổn định, êm ái và an toàn vào vùng tiếp xúc trực tiếp với cơ
-              thể.</p>
-          </div>
-          <div class="mech-card">
-            <div class="mech-step-num">2</div>
-            <h3 class="mech-card-title">Làm Ấm Tiếp Xúc</h3>
-            <p class="mech-card-desc">Nhiệt lượng thấu qua lớp biểu bì, xua tan cảm giác giá lạnh của mùa đông.</p>
-          </div>
-          <div class="mech-card">
-            <div class="mech-step-num">3</div>
-            <h3 class="mech-card-title">Giãn Mạch Tại Chỗ</h3>
-            <p class="mech-card-desc">Kích thích phản xạ vi tuần hoàn máu cục bộ, hỗ trợ vận chuyển oxy và dưỡng chất.
-            </p>
-          </div>
-          <div class="mech-card">
-            <div class="mech-step-num">4</div>
-            <h3 class="mech-card-title">Giảm Căng Cứng Cơ</h3>
-            <p class="mech-card-desc">Giúp giải tỏa trạng thái co thắt của các bó cơ, hỗ trợ giảm cảm giác đau mỏi tạm
-              thời.</p>
+        <div class="modun-header">
+          <div class="modun-badge-wrap light-theme">
+            <span class="modun-tag">MÔĐUN 01 | CHẠM NỖI ĐAU</span>
+            <span class="modun-divider">/</span>
+            <span class="modun-goal">Mục tiêu tâm lý: Đồng cảm trong 3–5 giây</span>
           </div>
         </div>
 
-        <!-- Evidence Split Grid -->
-        <div class="science-split">
-          <!-- Left: Mechanism Image & Scientific Citations -->
-          <div>
-            <figure class="thumb-holder aspect-16-9" style="margin-bottom: 1.5rem;">
-              <img src="images/co-che.png" alt="Sơ đồ cơ chế nhiệt bề mặt làm ấm vùng lưng" loading="lazy">
-              <figcaption class="thumb-caption">
-                <span>Vùng lưng tiếp xúc nhiệt và giãn cơ</span>
-                <span class="badge badge-purple">Nhiệt Trị Liệu</span>
-              </figcaption>
-            </figure>
-
-            <div class="ref-box">
-              <h4 class="ref-title">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
-                </svg>
-                Bằng Chứng Khoa Học Tham Khảo
-              </h4>
-              <p class="ref-item">
-                <strong>American College of Physicians (Qaseem et al., 2017)</strong>: Hướng dẫn y khoa đề xuất nhiệt bề
-                mặt như một liệu pháp không dùng thuốc hàng đầu cho đau lưng cấp và bán cấp. (DOI: 10.7326/M16-2367).
-              </p>
-              <p class="ref-item">
-                <strong>Cochrane Database of Systematic Reviews (French et al., 2006)</strong>: Tổng quan về nhiệt/lạnh
-                bề mặt cho thấy lợi ích giảm đau ngắn hạn ở một số đối tượng; bằng chứng còn giới hạn. (DOI:
-                10.1002/14651858.CD004750.pub2).
-              </p>
-              <div class="ref-disclaimer">
-                * Lưu ý: Đây là cơ chế chung của liệu pháp nhiệt bề mặt, không phải kết quả thử nghiệm lâm sàng trên
-                riêng sản phẩm thảm này.
-              </div>
+        <div class="hero-grid">
+          <div class="hero-left">
+            <div class="hero-quote-box">
+              <h1 class="hero-h1">“Bố mẹ không sao đâu con…”</h1>
             </div>
-          </div>
 
-          <!-- Right: Evaluation Table based on PDF Section 1 -->
-          <div class="eval-table-card">
-            <div class="eval-header">
-              <h3>Đánh Giá Chức Năng & Mức Độ Bằng Chứng</h3>
-              <span class="badge badge-gold">Rà Soát Y Khoa</span>
-            </div>
-            <ul class="eval-list">
-              <li class="eval-item">
-                <div>
-                  <div class="eval-item-name">1. Giữ ấm, thư giãn</div>
-                  <div class="eval-item-guide">Có cơ sở sinh lý học rõ ràng; nhấn mạnh trải nghiệm nghỉ ngơi dễ chịu.
-                  </div>
-                </div>
-                <span class="badge badge-success">Có cơ sở</span>
-              </li>
-              <li class="eval-item">
-                <div>
-                  <div class="eval-item-name">2. Giảm đau lưng</div>
-                  <div class="eval-item-guide">Nhiệt bề mặt có bằng chứng hỗ trợ ngắn hạn cho đau lưng cấp/bán cấp.
-                  </div>
-                </div>
-                <span class="badge badge-success">Có bằng chứng</span>
-              </li>
-              <li class="eval-item">
-                <div>
-                  <div class="eval-item-name">3. Giảm căng cứng cơ</div>
-                  <div class="eval-item-guide">Có cơ sở sinh lý; sử dụng đúng ngôn ngữ "hỗ trợ thư giãn cơ".</div>
-                </div>
-                <span class="badge badge-purple">Hỗ trợ thư giãn</span>
-              </li>
-              <li class="eval-item">
-                <div>
-                  <div class="eval-item-name">4. Hỗ trợ trước khi ngủ</div>
-                  <div class="eval-item-guide">Tạo trạng thái thư giãn dễ chịu; không cam kết điều trị khỏi mất ngủ.
-                  </div>
-                </div>
-                <span class="badge badge-purple">Thư giãn</span>
-              </li>
-              <li class="eval-item">
-                <div>
-                  <div class="eval-item-name">5. Hồng ngoại xa / PEMF / Ion âm</div>
-                  <div class="eval-item-guide">Chỉ công bố thông số và lợi ích khi có kiểm định trên đúng mẫu thiết bị.
-                  </div>
-                </div>
-                <span class="badge badge-warning">Cần kiểm định</span>
-              </li>
-              <li class="eval-item">
-                <div>
-                  <div class="eval-item-name">6. Thải độc bằng mồ hôi</div>
-                  <div class="eval-item-guide">Chưa có bằng chứng khoa học đủ mạnh để quảng cáo thảm có tác dụng thải
-                    độc.</div>
-                </div>
-                <span class="badge badge-warning">Không quảng cáo</span>
-              </li>
-              <li class="eval-item">
-                <div>
-                  <div class="eval-item-name">7. Thạch anh tím chữa bệnh</div>
-                  <div class="eval-item-guide">Chưa có bằng chứng lâm sàng đáng tin cậy để khẳng định chữa bệnh.</div>
-                </div>
-                <span class="badge badge-warning">Không cam kết</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-         03 — CẤU TẠO VÀ CÔNG NGHỆ
-         ========================================================================== -->
-    <section id="cau-tao" class="bg-white">
-      <div class="container">
-        <div class="text-center mx-auto" style="max-width: 46rem;">
-          <span class="kicker">03 — Vật Liệu & Chế Tác</span>
-          <h2 class="section-title">Cấu Tạo Đa Tầng & Hệ Thống Gia Nhiệt</h2>
-          <p class="section-desc mx-auto">
-            Sự kết hợp giữa đá thạch anh tím tự nhiên và hệ thống gia nhiệt an toàn, kiến tạo bề mặt tiếp xúc ấm áp, bền
-            bỉ và dễ chịu.
-          </p>
-        </div>
-
-        <!-- 4-Layer Product Architecture -->
-        <div class="layers-grid">
-          <div class="layer-card">
-            <figure class="thumb-holder aspect-4-3">
-              <img src="images/be-mat.png" alt="Bề mặt da PU cao cấp chống nước" loading="lazy">
-              <figcaption class="thumb-caption">
-                <span class="thumb-caption-title">Da PU Cao Cấp</span>
-              </figcaption>
-            </figure>
-            <span class="layer-num">Tầng 1 — Bề Mặt</span>
-            <h3 class="layer-title">Da PU Cao Cấp</h3>
-            <p class="layer-desc">Chống bám bẩn, êm ái với làn da, dễ dàng lau chùi và vệ sinh sau khi sử dụng.</p>
-          </div>
-
-          <div class="layer-card">
-            <figure class="thumb-holder aspect-4-3">
-              <img src="images/lop-da.png" alt="Lớp đá thạch anh tím tự nhiên" loading="lazy">
-              <figcaption class="thumb-caption">
-                <span class="thumb-caption-title">Đá Thạch Anh Tím</span>
-              </figcaption>
-            </figure>
-            <span class="layer-num">Tầng 2 — Tích Nhiệt</span>
-            <h3 class="layer-title">Đá Thạch Anh Tím</h3>
-            <p class="layer-desc">Các hạt đá tự nhiên được xếp đều đặn, hỗ trợ giữ nhiệt lâu và tỏa nhiệt êm dịu.</p>
-          </div>
-
-          <div class="layer-card">
-            <figure class="thumb-holder aspect-4-3">
-              <img src="images/gia-nhiet.png" alt="Hệ thống dây dẫn gia nhiệt an toàn" loading="lazy">
-              <figcaption class="thumb-caption">
-                <span class="thumb-caption-title">Hệ Thống Dây Nhiệt</span>
-              </figcaption>
-            </figure>
-            <span class="layer-num">Tầng 3 — Tỏa Nhiệt</span>
-            <h3 class="layer-title">Hệ Thống Gia Nhiệt</h3>
-            <p class="layer-desc">Dây dẫn bọc cách điện đa tầng, tỏa nhiệt đồng đều, tích hợp cảm biến nhiệt.</p>
-          </div>
-
-          <div class="layer-card">
-            <figure class="thumb-holder aspect-4-3">
-              <img src="images/de.png" alt="Đế thảm cách nhiệt và chống trượt" loading="lazy">
-              <figcaption class="thumb-caption">
-                <span class="thumb-caption-title">Đế Cách Nhiệt</span>
-              </figcaption>
-            </figure>
-            <span class="layer-num">Tầng 4 — Bảo Vệ</span>
-            <h3 class="layer-title">Đế Cách Nhiệt Chống Trượt</h3>
-            <p class="layer-desc">Ngăn nhiệt thất thoát xuống sàn, giữ thảm cố định vững chãi và an toàn điện.</p>
-          </div>
-        </div>
-
-        <!-- Technical Specification Sheet -->
-        <div class="specs-wrapper">
-          <div
-            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
-            <div>
-              <h3 style="font-size: 1.35rem; color: var(--plum);">Thông Số Kỹ Thuật Dự Kiến</h3>
-              <p style="font-size: 0.875rem; color: var(--text-muted);">Thông tin dựa trên bản thiết kế và sẽ được cập
-                nhật chính xác theo chứng nhận nhà máy.</p>
-            </div>
-            <span class="badge badge-gold">Minh Bạch Thông Số</span>
-          </div>
-
-          <div class="specs-grid">
-            <div class="spec-item">
-              <span class="spec-label">Kích thước tiêu chuẩn</span>
-              <span class="spec-val">Khoảng 75 × 185 cm (ôm trọn cơ thể)</span>
-            </div>
-            <div class="spec-item">
-              <span class="spec-label">Chất liệu bề mặt</span>
-              <span class="spec-val">Da PU — <span class="spec-pending">Cần xác nhận đúng phiên bản</span></span>
-            </div>
-            <div class="spec-item">
-              <span class="spec-label">Vật liệu tinh thể</span>
-              <span class="spec-val"><span class="spec-pending">Chờ chứng nhận vật liệu đá</span></span>
-            </div>
-            <div class="spec-item">
-              <span class="spec-label">Công suất tiêu thụ</span>
-              <span class="spec-val"><span class="spec-pending">Chờ hồ sơ kiểm định nhà cung cấp</span></span>
-            </div>
-            <div class="spec-item">
-              <span class="spec-label">Dải nhiệt độ điều chỉnh</span>
-              <span class="spec-val"><span class="spec-pending">Chờ xác nhận dải nhiệt khuyến nghị</span></span>
-            </div>
-            <div class="spec-item">
-              <span class="spec-label">Bộ điều khiển thông minh</span>
-              <span class="spec-val">Hiển thị nhiệt độ & hẹn giờ tắt — <span class="spec-pending">Chờ mẫu</span></span>
-            </div>
-            <div class="spec-item">
-              <span class="spec-label">Bảo vệ quá nhiệt an toàn</span>
-              <span class="spec-val"><span class="spec-pending">Chờ kiểm định an toàn điện</span></span>
-            </div>
-            <div class="spec-item">
-              <span class="spec-label">Hồng ngoại xa / PEMF / Ion âm</span>
-              <span class="spec-val"><span class="spec-pending">Chỉ công bố khi có đo kiểm chính thức</span></span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-         04 — HIỂU ĐÚNG VỀ THẢI ĐỘC (Myth vs Fact)
-         ========================================================================== -->
-    <section id="thai-doc" class="myth-section">
-      <div class="container">
-        <div class="text-center mx-auto" style="max-width: 48rem;">
-          <span class="kicker kicker-gold">04 — Góc Nhìn Y Khoa Trung Thực</span>
-          <h2 class="section-title" style="color: #ffffff;">Hiểu Đúng Về Thải Độc & Cơ Thể</h2>
-          <p class="section-desc mx-auto" style="color: #d8cde3;">
-            Ra mồ hôi không đồng nghĩa với thải độc. Chúng tôi ưu tiên cung cấp thông tin trung thực,
-            tránh ngộ nhận hay các tuyên bố quảng cáo thổi phồng không có chứng cứ khoa học.
-          </p>
-        </div>
-
-        <div class="myth-grid">
-          <!-- Card 1: Sweat Physiology -->
-          <div class="myth-card">
-            <figure class="thumb-holder aspect-16-9">
-              <img src="images/mo-hoi.png" alt="Mồ hôi chủ yếu giúp điều hòa thân nhiệt" loading="lazy">
-              <figcaption class="thumb-caption">
-                <span>Cơ Chế Tiết Mồ Hôi</span>
-                <span class="badge badge-purple">Sinh Lý Học</span>
-              </figcaption>
-            </figure>
-            <span class="myth-badge myth-badge-fact" style="margin-top: 1rem;">Cơ Chế Sinh Lý</span>
-            <h3 class="myth-title">Mồ Hôi Là Để Điều Hòa Nhiệt</h3>
-            <p class="myth-desc">
-              Tuyến mồ hôi chủ yếu tiết nước và khoáng chất để làm mát cơ thể khi gặp nhiệt độ cao.
-              Hiện chưa có bằng chứng lâm sàng đáng tin cậy chứng minh việc đổ mồ hôi qua thảm giúp "thải độc" hay loại
-              bỏ kim loại nặng.
-            </p>
-          </div>
-
-          <!-- Card 2: Liver & Kidney -->
-          <div class="myth-card">
-            <figure class="thumb-holder aspect-16-9">
-              <img src="images/co-quan.png" alt="Gan và thận là cơ quan thải độc chính" loading="lazy">
-              <figcaption class="thumb-caption">
-                <span>Gan Và Thận</span>
-                <span class="badge badge-success">Cơ Quan Chủ Lực</span>
-              </figcaption>
-            </figure>
-            <span class="myth-badge myth-badge-fact" style="margin-top: 1rem;">Cơ Quan Chủ Lực</span>
-            <h3 class="myth-title">Gan Và Thận Mới Là Đào Thải Chính</h3>
-            <p class="myth-desc">
-              Gan, thận và hệ tiêu hóa là các cơ quan sinh học đóng vai trò trung tâm trong quá trình chuyển hóa và bài
-              tiết chất thải.
-              Không nên suy luận rằng thảm gia nhiệt có thể thay thế hay hỗ trợ thải độc lâm sàng.
-            </p>
-          </div>
-
-          <!-- Card 3: True Value -->
-          <div class="myth-card">
-            <figure class="thumb-holder aspect-16-9">
-              <img src="images/giu-am.png" alt="Giữ ấm và thư giãn đúng nghĩa" loading="lazy">
-              <figcaption class="thumb-caption">
-                <span>Giữ Ấm Thư Thái</span>
-                <span class="badge badge-gold">Giá Trị Thật</span>
-              </figcaption>
-            </figure>
-            <span class="myth-badge myth-badge-truth" style="margin-top: 1rem;">Giá Trị Đích Thực</span>
-            <h3 class="myth-title">Tập Trung Giữ Ấm & Thư Giãn</h3>
-            <p class="myth-desc">
-              Giá trị cao quý nhất của chiếc thảm chính là tạo ra không gian nghỉ ngơi ấm áp ngày đông cho bố mẹ,
-              giúp xua tan giá lạnh, xoa dịu cảm giác căng cứng cơ lưng và đem lại sự thư thái, dễ chịu mỗi ngày.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-         05 — TRẢI NGHIỆM AN TOÀN (4 Bước & Cảnh Báo)
-         ========================================================================== -->
-    <section id="an-toan" class="bg-cream">
-      <div class="container">
-        <div class="text-center mx-auto" style="max-width: 46rem;">
-          <span class="kicker">05 — Quy Trình Khuyến Nghị</span>
-          <h2 class="section-title">4 Bước Trải Nghiệm An Toàn Tại Nhà</h2>
-          <p class="section-desc mx-auto">
-            Sử dụng đúng hướng dẫn để tận hưởng trọn vẹn cảm giác ấm áp và bảo vệ sức khỏe cho người thân yêu.
-          </p>
-        </div>
-
-        <div class="steps-grid">
-          <div class="step-box">
-            <figure class="thumb-holder aspect-1-1">
-              <img src="images/buoc-1.png" alt="Bước 1: Trải thảm phẳng phiu" loading="lazy">
-              <figcaption class="thumb-caption">
-                <span>1. Trải Phẳng</span>
-                <span class="badge badge-gold">Bước 01</span>
-              </figcaption>
-            </figure>
-            <span class="step-indicator" style="margin-top: 0.85rem;">Bước 01</span>
-            <h3 class="step-title">Trải Thảm Phẳng Phiu</h3>
-            <p class="step-desc">Đặt thảm trên giường hoặc mặt sàn vững chắc, không gấp khúc tấm thảm khi đang sử dụng.
-            </p>
-          </div>
-
-          <div class="step-box">
-            <figure class="thumb-holder aspect-1-1">
-              <img src="images/buoc-2.png" alt="Bước 2: Kết nối nguồn điện đúng hướng dẫn" loading="lazy">
-              <figcaption class="thumb-caption">
-                <span>2. Nối Điện</span>
-                <span class="badge badge-gold">Bước 02</span>
-              </figcaption>
-            </figure>
-            <span class="step-indicator" style="margin-top: 0.85rem;">Bước 02</span>
-            <h3 class="step-title">Nối Nguồn Điện</h3>
-            <p class="step-desc">Cắm chặt giắc cắm bộ điều khiển vào thảm trước khi cắm phích vào ổ điện gia đình.</p>
-          </div>
-
-          <div class="step-box">
-            <figure class="thumb-holder aspect-1-1">
-              <img src="images/buoc-3.png" alt="Bước 3: Chọn mức nhiệt thấp ban đầu" loading="lazy">
-              <figcaption class="thumb-caption">
-                <span>3. Nhiệt Thấp</span>
-                <span class="badge badge-gold">Bước 03</span>
-              </figcaption>
-            </figure>
-            <span class="step-indicator" style="margin-top: 0.85rem;">Bước 03</span>
-            <h3 class="step-title">Chọn Nhiệt Thấp Trước</h3>
-            <p class="step-desc">Bắt đầu ở mức nhiệt độ thấp để cơ thể thích ứng dần, không lạm dụng nhiệt độ quá cao.
-            </p>
-          </div>
-
-          <div class="step-box">
-            <figure class="thumb-holder aspect-1-1">
-              <img src="images/buoc-4.png" alt="Bước 4: Nghỉ ngơi trong thời gian khuyến nghị" loading="lazy">
-              <figcaption class="thumb-caption">
-                <span>4. Nghỉ Ngơi</span>
-                <span class="badge badge-gold">Bước 04</span>
-              </figcaption>
-            </figure>
-            <span class="step-indicator" style="margin-top: 0.85rem;">Bước 04</span>
-            <h3 class="step-title">Nghỉ Ngơi Khuyến Nghị</h3>
-            <p class="step-desc">Thư giãn khoảng 20 – 40 phút. Không ngủ quên trên thảm đang gia nhiệt nếu không có chế
-              độ tự ngắt.</p>
-          </div>
-        </div>
-
-        <!-- Warning Panel based on PDF Section 5 -->
-        <div class="warning-panel">
-          <div class="warning-icon-large">⚠</div>
-          <div>
-            <h3 class="warning-heading">Cảnh Báo An Toàn & Đối Tượng Cần Lưu Ý Y Khoa</h3>
-            <div class="warning-content">
+            <div class="hero-lead-text">
               <p>
-                <strong>Hỏi ý kiến bác sĩ chuyên khoa trước khi sử dụng nếu:</strong>
+                Có bao giờ bạn nhận ra <strong>bố mẹ đứng lên chậm hơn</strong>, thường xoa lưng nhưng vẫn nói mình
+                khỏe?
               </p>
-              <ul class="warning-list">
-                <li>Người cao tuổi, người mắc bệnh lý nền, bệnh lý tuần hoàn ngoại biên, hoặc giảm cảm giác nhận biết
-                  nhiệt nóng (như biến chứng tiểu đường).</li>
-                <li>Phụ nữ đang mang thai hoặc người có mang thiết bị điện tử y tế cấy ghép trong cơ thể (như máy tạo
-                  nhịp tim) — đặc biệt lưu ý nếu thảm có trang bị tính năng xung điện từ PEMF.</li>
-              </ul>
-              <p style="margin-top: 0.65rem;">
-                <strong>Ngừng sử dụng ngay lập tức:</strong> Khi nhận thấy da bị đỏ rát bất thường, cảm thấy chóng mặt,
-                choáng váng hoặc khó chịu.
-              </p>
-              <p style="margin-top: 0.65rem; font-style: italic;">
-                * Sản phẩm không dùng để thay thế việc thăm khám, chẩn đoán và điều trị y tế chuyên nghiệp.
+              <p>
+                Ngày bé, bố mẹ chăm từng giấc ngủ của con. Giờ đây, <strong>ai chăm sóc những phút nghỉ ngơi của bố
+                  mẹ?</strong>
               </p>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- ==========================================================================
-         06 — NIỀM TIN VÀ ƯU ĐÃI
-         ========================================================================== -->
-    <section id="niem-tin" class="bg-white">
-      <div class="container">
-        <div class="text-center mx-auto" style="max-width: 46rem;">
-          <span class="kicker">06 — Minh Bạch & Uy Tín</span>
-          <h2 class="section-title">Chỉ Công Bố Những Gì Đã Kiểm Chứng</h2>
-          <p class="section-desc mx-auto">
-            Chúng tôi tuân thủ nguyên tắc minh bạch tuyệt đối về nguồn gốc, hồ sơ kỹ thuật và chính sách chăm sóc khách
-            hàng.
-          </p>
-        </div>
-
-        <div class="trust-grid">
-          <!-- Left: Verification Checklist based on PDF Section 5 -->
-          <div class="trust-card">
-            <h3 class="trust-title">Hồ Sơ Cần Xác Minh Từ Nhà Cung Cấp</h3>
-            <ul class="verify-list">
-              <li class="verify-item">
-                <span class="verify-num">1</span>
-                <div class="verify-text">
-                  <strong>Chứng nhận vật liệu đá tự nhiên:</strong>
-                  <p>Giám định nguồn gốc đá thạch anh tím đúng tiêu chuẩn vật liệu khai khoáng.</p>
-                </div>
-              </li>
-              <li class="verify-item">
-                <span class="verify-num">2</span>
-                <div class="verify-text">
-                  <strong>Kết quả đo phát xạ hồng ngoại xa:</strong>
-                  <p>Chỉ công bố bước sóng và hệ số phát xạ khi có chứng thư kiểm nghiệm trên đúng mẫu thiết bị.</p>
-                </div>
-              </li>
-              <li class="verify-item">
-                <span class="verify-num">3</span>
-                <div class="verify-text">
-                  <strong>Thông số PEMF hoặc ion âm (nếu có):</strong>
-                  <p>Phải đo lường tần số, từ trường cụ thể và cảnh báo an toàn kèm theo.</p>
-                </div>
-              </li>
-              <li class="verify-item">
-                <span class="verify-num">4</span>
-                <div class="verify-text">
-                  <strong>Kiểm định an toàn điện & bảo vệ quá nhiệt:</strong>
-                  <p>Bảo đảm chống rò điện, tự ngắt nguồn an toàn khi nhiệt độ vượt ngưỡng cho phép.</p>
-                </div>
-              </li>
-              <li class="verify-item">
-                <span class="verify-num">5</span>
-                <div class="verify-text">
-                  <strong>Chính sách bảo hành và hướng dẫn tiếng Việt:</strong>
-                  <p>Bảo hành chính hãng, hướng dẫn chi tiết và phản hồi từ người mua thực tế đã xác minh.</p>
-                </div>
-              </li>
-            </ul>
+            <div class="hero-action-group">
+              <a href="#modun-02" class="btn btn-heat">
+                <span>Tôi muốn chăm sóc bố mẹ</span>
+                <span>↓</span>
+              </a>
+              <a href="#modun-04" class="btn btn-ghost-light">
+                <span>Khám phá món quà</span>
+              </a>
+            </div>
           </div>
 
-          <!-- Right: Winter Gift Offer & Product Presentation -->
-          <div class="offer-box">
-            <figure class="thumb-holder aspect-16-9">
-              <img src="images/qua.png" alt="Hộp quà tặng thảm nhiệt thạch anh tím tri ân bố mẹ" loading="lazy">
-              <figcaption class="thumb-caption">
-                <span>Hộp quà tặng trang trọng</span>
-                <span class="badge badge-success">Ưu Đãi Mùa Đông</span>
-              </figcaption>
-            </figure>
-
-            <h3 class="offer-title">Ưu Đãi Quà Tặng Mùa Đông</h3>
-            <p class="offer-desc">
-              Gửi trọn tấm lòng hiếu kính đến bố mẹ. Giá bán chính thức và ưu đãi vận chuyển sẽ được chuyên viên tư vấn
-              chi tiết khi liên hệ.
-            </p>
-
-            <ul class="offer-perks">
-              <li>Giao hàng tận nơi toàn quốc — Kiểm tra hàng trước khi thanh toán</li>
-              <li>Tư vấn 1:1 hướng dẫn chi tiết cách dùng cho người cao tuổi</li>
-              <li>Chính sách đổi trả minh bạch nếu phát sinh lỗi kỹ thuật từ nhà sản xuất</li>
-            </ul>
-
-            <a href="#tu-van" class="btn btn-heat" style="margin-top: auto;">Nhận Ưu Đãi & Báo Giá Quà Tặng</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-         07 — THU LEAD / CHUYỂN ĐỔI (Biểu Mẫu Tư Vấn)
-         ========================================================================== -->
-    <section id="tu-van" class="lead-section">
-      <div class="container lead-grid">
-        <!-- Left: Emotional Reassurance & Details -->
-        <div>
-          <span class="kicker kicker-gold">07 — Đồng Hành Cùng Gia Đình</span>
-          <h2 class="lead-info-title">Nhận Tư Vấn Quà Tặng & Ưu Đãi Mùa Đông</h2>
-          <p class="lead-info-desc">
-            Để lại thông tin để chuyên viên gọi điện tư vấn chi tiết theo thể trạng của người sử dụng,
-            giúp bạn chọn đúng món quà ấm áp và an tâm nhất cho bố mẹ.
-          </p>
-
-          <div class="lead-preview-card">
-            <figure class="thumb-holder aspect-16-9">
-              <img src="images/tu-van.png" alt="Ảnh người cao tuổi thư giãn ấm áp trên thảm" loading="lazy">
-              <figcaption class="thumb-caption">
-                <span>Nghỉ ngơi ấm áp mỗi ngày</span>
-                <span class="badge badge-gold">Chăm Sóc Gia Đình</span>
-              </figcaption>
-            </figure>
-            <p class="lead-guarantee" style="margin-top: 1rem;">
-              🔒 <strong>Cam kết bảo mật:</strong> Họ tên và số điện thoại chỉ dùng để chuyên viên liên hệ giải đáp
-              thông tin sản phẩm và chính sách ưu đãi. Tuyệt đối không chia sẻ cho bên thứ ba.
-            </p>
-          </div>
-        </div>
-
-        <!-- Right: Professional Lead Capture Form -->
-        <div>
-          <form id="form-tu-van" class="consult-form" action="#tu-van" method="post" novalidate>
-            <div class="form-header">
-              <h3>Đăng Ký Tư Vấn Miễn Phí</h3>
-              <p>Chuyên viên sẽ liên hệ lại trong thời gian sớm nhất</p>
-            </div>
-
-            <p class="form-error" id="form-error" role="alert"></p>
-
-            <div class="form-group">
-              <label for="ho_ten">Họ và tên của bạn <span style="color: var(--heat-primary);">*</span></label>
-              <input class="form-input" id="ho_ten" name="ho_ten" type="text" autocomplete="name" required
-                maxlength="80" placeholder="Ví dụ: Nguyễn Văn An">
-            </div>
-
-            <div class="form-group">
-              <label for="so_dien_thoai">Số điện thoại liên hệ <span
-                  style="color: var(--heat-primary);">*</span></label>
-              <input class="form-input" id="so_dien_thoai" name="so_dien_thoai" type="tel" inputmode="tel"
-                autocomplete="tel" required placeholder="Ví dụ: 0912 345 678" pattern="^(0|\+84)[0-9]{9,10}$">
-            </div>
-
-            <div class="form-group">
-              <label for="nguoi_su_dung">Người sử dụng chính <span style="color: var(--heat-primary);">*</span></label>
-              <select class="form-select" id="nguoi_su_dung" name="nguoi_su_dung" required>
-                <option value="">-- Vui lòng chọn người sử dụng --</option>
-                <option value="Bố hoặc mẹ">Bố hoặc mẹ</option>
-                <option value="Ông hoặc bà">Ông hoặc bà</option>
-                <option value="Bản thân">Bản thân</option>
-                <option value="Người thân khác">Người thân khác trong gia đình</option>
-              </select>
-            </div>
-
-            <fieldset class="radio-fieldset">
-              <legend>Mục đích sử dụng chính</legend>
-              <div class="radio-options">
-                <label class="radio-label">
-                  <input type="radio" name="muc_dich" value="Giữ ấm" checked>
-                  <span>Giữ ấm</span>
-                </label>
-                <label class="radio-label">
-                  <input type="radio" name="muc_dich" value="Thư giãn">
-                  <span>Thư giãn</span>
-                </label>
-                <label class="radio-label">
-                  <input type="radio" name="muc_dich" value="Hỗ trợ giảm đau mỏi tạm thời">
-                  <span>Giảm mỏi tạm thời</span>
-                </label>
+          <div class="hero-right">
+            <div class="hero-card">
+              <figure class="thumb-holder aspect-hero">
+                <img src="images/THẢM 1.jpg"
+                  alt="Bố mẹ trong phòng khách, người con ân cần ngồi bên; ánh sáng ấm, chân thực" loading="eager">
+                <figcaption class="thumb-caption">
+                  <span>Khoảnh khắc ân cần bên bố mẹ</span>
+                  <span class="badge badge-gold">Ánh Sáng Ấm Áp</span>
+                </figcaption>
+              </figure>
+              <div class="hero-subcard">
+                <div class="hero-pill">
+                  <span class="hero-pill-icon">❤</span>
+                  <div>
+                    <div class="hero-pill-title">Đồng Cảm Gia Đình</div>
+                    <div class="hero-pill-desc">Thấu hiểu từng cơn mỏi mệt</div>
+                  </div>
+                </div>
+                <div class="hero-pill">
+                  <span class="hero-pill-icon">♨</span>
+                  <div>
+                    <div class="hero-pill-title">Hơi Ấm Yêu Thương</div>
+                    <div class="hero-pill-desc">Xua tan giá lạnh mùa đông</div>
+                  </div>
+                </div>
               </div>
-            </fieldset>
-
-            <label class="checkbox-label">
-              <input type="checkbox" name="dong_y" id="dong_y" required>
-              <span>Tôi đồng ý để cửa hàng sử dụng họ tên và số điện thoại nhằm liên hệ tư vấn sản phẩm và ưu đãi theo
-                chính sách bảo mật.</span>
-            </label>
-
-            <button type="submit" class="btn btn-heat" style="width: 100%; height: 50px; font-size: 1rem;">
-              Nhận Tư Vấn & Ưu Đãi Mùa Đông
-            </button>
-          </form>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- ==========================================================================
-         CLOSING STATEMENT BANNER
+         MÔĐUN 02 | KHƠI GỢI NHU CẦU
+         MỤC TIÊU TÂM LÝ: Nhận diện vấn đề hàng ngày
          ========================================================================== -->
-    <section class="closing-banner">
+    <section id="modun-02" class="section-modun-2">
       <div class="container">
-        <blockquote class="closing-quote">
-          “Thảm nhiệt đá thạch anh tím — Giữ ấm, thư giãn, hỗ trợ giảm đau mỏi tạm thời.
-          Món quà chăm sóc bố mẹ dựa trên nguyên lý nhiệt trị liệu.”
-        </blockquote>
+        <div class="modun-header text-center">
+          <div class="modun-badge-wrap">
+            <span class="modun-tag">MÔĐUN 02 | KHƠI GỢI NHU CẦU</span>
+            <span class="modun-divider">/</span>
+            <span class="modun-goal">Mục tiêu tâm lý: Nhận diện vấn đề hàng ngày</span>
+          </div>
+          <h2 class="section-title">Tuổi tác không chỉ hiện lên trên mái tóc bạc</h2>
+          <p class="section-desc mx-auto">
+            Thời gian trôi qua, cơ thể bố mẹ dần xuất hiện những dấu hiệu lão hóa tự nhiên và cần một sự chăm sóc ân
+            cần, đều đặn mỗi ngày.
+          </p>
+        </div>
+
+        <!-- 3 Điểm Nhận Diện Nhu Cầu Hàng Ngày -->
+        <div class="need-points-grid">
+          <div class="need-card">
+            <div class="need-icon-box">🦴</div>
+            <h3 class="need-card-title">Căng cứng & Đau mỏi cơ</h3>
+            <p class="need-card-desc">
+              Sau sinh hoạt và làm việc nhà, lưng vai và cơ bắp của bố mẹ có thể căng cứng, mệt mỏi, khó khăn khi cúi
+              gập hay đứng lên.
+            </p>
+          </div>
+
+          <div class="need-card">
+            <div class="need-icon-box">❄</div>
+            <h3 class="need-card-title">Nhu cầu giữ ấm ngày lạnh</h3>
+            <p class="need-card-desc">
+              Những ngày trở lạnh, tuần hoàn máu kém khiến bố mẹ hay bị buốt lưng, lạnh chân tay, thường muốn có nơi
+              nghỉ ngơi thật ấm áp.
+            </p>
+          </div>
+
+          <div class="need-card">
+            <div class="need-icon-box">💌</div>
+            <h3 class="need-card-title">Sự quan tâm của con cái</h3>
+            <p class="need-card-desc">
+              Bố mẹ cần thư giãn và được con cái quan tâm, dù con ở gần hay xa. Một món quà chăm sóc sức khỏe là lời
+              nhắc nhở yêu thương thiết thực nhất.
+            </p>
+          </div>
+        </div>
+
+        <!-- Bốn Cảnh Nhỏ: xoa lưng, quàng chăn, nghỉ ngơi, con gọi điện hỏi thăm -->
+        <div class="scenes-showcase">
+          <h3 class="scenes-title">Bốn Khoảnh Khắc Đời Thường Bố Mẹ Rất Cần Hơi Ấm</h3>
+          <div class="scenes-grid">
+            <div class="scene-item">
+              <div class="scene-thumb">
+                <img src="images/buoc-1.png" alt="Cảnh bố mẹ xoa lưng sau sinh hoạt mệt mỏi" loading="lazy">
+              </div>
+              <div class="scene-content">
+                <span class="scene-num">Cảnh 01</span>
+                <div class="scene-name">Xoa Lưng Mệt Mỏi</div>
+                <p class="scene-desc">Bố mẹ thường đưa tay xoa nhẹ thắt lưng sau mỗi lần đứng lên ngồi xuống.</p>
+              </div>
+            </div>
+
+            <div class="scene-item">
+              <div class="scene-thumb">
+                <img src="images/buoc-2.png" alt="Cảnh quàng chăn tìm hơi ấm khi trở gió" loading="lazy">
+              </div>
+              <div class="scene-content">
+                <span class="scene-num">Cảnh 02</span>
+                <div class="scene-name">Quàng Chăn Giữ Ấm</div>
+                <p class="scene-desc">Những ngày lạnh, bố mẹ phải đắp nhiều lớp chăn dày nhưng vẫn thấy lạnh lưng.</p>
+              </div>
+            </div>
+
+            <div class="scene-item">
+              <div class="scene-thumb">
+                <img src="images/buoc-3.png" alt="Cảnh nghỉ ngơi thư giãn trên giường quen thuộc" loading="lazy">
+              </div>
+              <div class="scene-content">
+                <span class="scene-num">Cảnh 03</span>
+                <div class="scene-name">Nghỉ Ngơi Trằn Trọc</div>
+                <p class="scene-desc">Cơ bắp nhức mỏi khiến những phút nghỉ trưa hay giấc ngủ tối chưa trọn vẹn.</p>
+              </div>
+            </div>
+
+            <div class="scene-item">
+              <div class="scene-thumb">
+                <img src="images/buoc-4.png" alt="Cảnh con gọi điện hỏi thăm sức khỏe bố mẹ" loading="lazy">
+              </div>
+              <div class="scene-content">
+                <span class="scene-num">Cảnh 04</span>
+                <div class="scene-name">Con Gọi Điện Hỏi Thăm</div>
+                <p class="scene-desc">Nghe giọng con qua điện thoại, bố mẹ luôn mỉm cười nói: "Bố mẹ vẫn khỏe, con yên
+                  tâm".</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center" style="margin-top: 2.25rem;">
+            <a href="#modun-03" class="btn btn-heat">
+              <span>Tìm hiểu nhu cầu của bố mẹ</span>
+              <span>↓</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         MÔĐUN 03 | MỞ VIỄN CẢNH
+         MỤC TIÊU TÂM LÝ: Hình dung lợi ích mong muốn
+         ========================================================================== -->
+    <section id="modun-03" class="section-modun-3">
+      <div class="container">
+        <div class="modun-header">
+          <div class="modun-badge-wrap light-theme">
+            <span class="modun-tag">MÔĐUN 03 | MỞ VIỄN CẢNH</span>
+            <span class="modun-divider">/</span>
+            <span class="modun-goal">Mục tiêu tâm lý: Hình dung lợi ích mong muốn</span>
+          </div>
+          <h2 class="section-title" style="color: #ffffff;">Mỗi tối, một khoảng thời gian ấm áp</h2>
+        </div>
+
+        <div class="vision-grid">
+          <div class="vision-left">
+            <div class="vision-quote-card">
+              <p class="vision-quote-text">
+                “Hãy hình dung sau bữa cơm, bố mẹ được nằm nghỉ trong không gian quen thuộc, tận hưởng hơi ấm vừa phải
+                và thả lỏng cơ bắp.”
+              </p>
+              <div class="vision-quote-author">
+                <span>✦ Khoảnh khắc bình yên của tuổi xế chiều</span>
+              </div>
+            </div>
+
+            <div class="vision-bullets">
+              <div class="vision-bullet-item">
+                <div class="vision-bullet-icon">✓</div>
+                <div class="vision-bullet-text">
+                  <strong>Không cần cầu kỳ:</strong> Chỉ cần một góc nghỉ ngơi thân thuộc, một thiết bị phù hợp và sự
+                  quan tâm chu đáo của con.
+                </div>
+              </div>
+              <div class="vision-bullet-item">
+                <div class="vision-bullet-icon">✓</div>
+                <div class="vision-bullet-text">
+                  <strong>Thả lỏng toàn thân:</strong> Hơi nhiệt dịu nhẹ từ đá thạch anh tự nhiên lan tỏa khắp vùng
+                  lưng, xoa dịu cảm giác ê mỏi sau ngày dài.
+                </div>
+              </div>
+              <div class="vision-bullet-item">
+                <div class="vision-bullet-icon">✓</div>
+                <div class="vision-bullet-text">
+                  <strong>Hạnh phúc trọn vẹn:</strong> Niềm vui lớn nhất của người con đôi khi chỉ là được thấy bố mẹ
+                  thư thái, ngủ ngon giấc và ấm áp mỗi đêm.
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top: 2.25rem;">
+              <a href="#modun-04" class="btn btn-heat">
+                <span>Khám phá món quà ấm áp</span>
+                <span>→</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="vision-right">
+            <figure class="thumb-holder aspect-4-3" style="box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);">
+              <img src="images/phong-nghi.png" alt="Bố mẹ thư giãn trong phòng ngủ ấm áp, người con mỉm cười bên cạnh"
+                loading="lazy">
+              <figcaption class="thumb-caption">
+                <span>Bố mẹ thư giãn trong phòng ngủ ấm áp</span>
+                <span class="badge badge-purple">Không Gian Nghỉ Dưỡng</span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         MÔĐUN 04 | ĐƯA GIẢI PHÁP
+         MỤC TIÊU TÂM LÝ: Chuyển mong muốn thành lựa chọn
+         ========================================================================== -->
+    <section id="modun-04" class="section-modun-4">
+      <div class="container">
+        <div class="modun-header text-center">
+          <div class="modun-badge-wrap">
+            <span class="modun-tag">MÔĐUN 04 | ĐƯA GIẢI PHÁP</span>
+            <span class="modun-divider">/</span>
+            <span class="modun-goal">Mục tiêu tâm lý: Chuyển mong muốn thành lựa chọn</span>
+          </div>
+          <h2 class="section-title">THẢM NHIỆT ĐÁ THẠCH ANH TÍM</h2>
+          <p class="section-desc mx-auto">
+            Thiết bị kết hợp bề mặt đá với hệ thống gia nhiệt để mang đến trải nghiệm thư giãn bằng nhiệt tại nhà.
+          </p>
+        </div>
+
+        <div class="solution-intro">
+          <div class="solution-core-box">
+            <ul class="solution-core-list">
+              <li class="solution-core-item">
+                <strong>Hơi ấm dễ chịu:</strong> Có thể hỗ trợ giảm căng cứng và đau mỏi cơ tạm thời thông qua nhiệt trị
+                liệu tiếp xúc an toàn.
+              </li>
+              <li class="solution-core-item">
+                <strong>Sử dụng an toàn tại nhà:</strong> Thiết kế chuẩn y tế gia đình khi dùng đúng đối tượng và đúng
+                hướng dẫn chi tiết kèm theo.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Showcase 4 Hình Ảnh: Thảm thật, cận cảnh đá, bộ điều khiển và video sử dụng -->
+        <div class="solution-gallery">
+          <div class="gallery-item">
+            <div class="gallery-thumb thumb-holder aspect-4-3">
+              <img src="images/san-pham.png" alt="Thảm thật toàn phần đá thạch anh tím tự nhiên" loading="lazy">
+            </div>
+            <div class="gallery-caption">
+              <span>Thảm Thật Trải Phẳng</span>
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <div class="gallery-thumb thumb-holder aspect-4-3">
+              <img src="images/da.png" alt="Cận cảnh các viên đá thạch anh tím đa cạnh giữ nhiệt" loading="lazy">
+            </div>
+            <div class="gallery-caption">
+              <span>Cận Cảnh Đá Thạch Anh Tím</span>
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <div class="gallery-thumb thumb-holder aspect-4-3">
+              <img src="images/dieu-khien.png" alt="Bộ điều khiển nhiệt độ thông minh màn hình LED hiển thị rõ ràng"
+                loading="lazy">
+            </div>
+            <div class="gallery-caption">
+              <span>Bộ Điều Khiển Thông Minh</span>
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <div class="gallery-thumb thumb-holder aspect-4-3">
+              <img src="images/tham.png" alt="Minh họa trải nghiệm sử dụng thảm nhiệt thực tế" loading="lazy">
+            </div>
+            <div class="gallery-caption">
+              <span>Video Trải Nghiệm Sử Dụng</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cấu Tạo Đa Tầng & Bảng Thông Số CẦN ĐIỀN (Kích thước, công suất, điều khiển, tự ngắt, bảo hành, giá) -->
+        <div class="solution-details-grid">
+          <!-- Cấu tạo 4 lớp vật liệu -->
+          <div>
+            <h3 style="font-size: 1.35rem; color: var(--plum); margin-bottom: 1.25rem;">Cấu Tạo 4 Tầng Vật Liệu Cao Cấp
+            </h3>
+            <div class="layers-mini-grid">
+              <div class="layer-mini-card">
+                <span class="layer-mini-num">Tầng 1 — Tiếp Xúc</span>
+                <div class="layer-mini-title">Da PU Kháng Nước</div>
+                <p class="layer-mini-desc">Bề mặt mềm êm, chống bám bụi và chống thấm mồ hôi, dễ lau chùi sạch sẽ.</p>
+              </div>
+              <div class="layer-mini-card">
+                <span class="layer-mini-num">Tầng 2 — Tích Nhiệt</span>
+                <div class="layer-mini-title">Đá Thạch Anh Tím</div>
+                <p class="layer-mini-desc">Hàng trăm viên đá tự nhiên gắn kết chặt chẽ, giữ nhiệt bền và tỏa nhiệt êm
+                  dịu.</p>
+              </div>
+              <div class="layer-mini-card">
+                <span class="layer-mini-num">Tầng 3 — Gia Nhiệt</span>
+                <div class="layer-mini-title">Hệ Thống Dây Dẫn Kép</div>
+                <p class="layer-mini-desc">Dây cách điện đa lớp phủ sợi thủy tinh, chống đứt gãy và chống rò điện tuyệt
+                  đối.</p>
+              </div>
+              <div class="layer-mini-card">
+                <span class="layer-mini-num">Tầng 4 — Bảo Vệ</span>
+                <div class="layer-mini-title">Đế Cách Nhiệt Chống Trượt</div>
+                <p class="layer-mini-desc">Ngăn nhiệt phân tán xuống giường đệm, tăng hiệu suất giữ ấm và chống xê dịch.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bảng Thông Số Kỹ Thuật Minh Bạch (CẦN ĐIỀN) -->
+          <div class="specs-card">
+            <div class="specs-title-row">
+              <h3 style="font-size: 1.35rem; color: var(--plum);">Thông Số Kỹ Thuật Đầy Đủ</h3>
+              <span class="badge badge-success">Minh Bạch Thông Số</span>
+            </div>
+
+            <table class="specs-table">
+              <tbody>
+                <tr>
+                  <td class="label-col">Kích thước sản phẩm</td>
+                  <td class="val-col"><span class="spec-badge-fill">50 × 150 cm</span> (Tiêu chuẩn) hoặc <span
+                      class="spec-badge-fill">60 × 160 cm</span> (Toàn thân)</td>
+                </tr>
+                <tr>
+                  <td class="label-col">Công suất tiêu thụ</td>
+                  <td class="val-col">120W – 160W (Tiết kiệm điện gia đình, ~500đ/lần dùng)</td>
+                </tr>
+                <tr>
+                  <td class="label-col">Bộ điều khiển nhiệt</td>
+                  <td class="val-col">Màn hình LED số lớn, dải chỉnh 30°C – 60°C, nút xoay bấm dễ dùng</td>
+                </tr>
+                <tr>
+                  <td class="label-col">Tính năng an toàn tự ngắt</td>
+                  <td class="val-col"><span class="spec-badge-fill">Cảm biến nhiệt tự ngắt</span> khi quá nhiệt & hẹn
+                    giờ tắt 1 - 12h</td>
+                </tr>
+                <tr>
+                  <td class="label-col">Chính sách bảo hành</td>
+                  <td class="val-col"><span class="spec-badge-fill">12 tháng chính hãng</span> (1 đổi 1 trong 30 ngày
+                    nếu lỗi kỹ thuật)</td>
+                </tr>
+                <tr>
+                  <td class="label-col">Giá bán niêm yết</td>
+                  <td class="val-col">Từ <strong>3.850.000 đ</strong> (Giá ưu đãi mùa đông trực tiếp từ hãng)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="text-center" style="margin-top: 3rem;">
+          <a href="#modun-07" class="btn btn-heat">
+            <span>Xem giá và chọn mẫu phù hợp</span>
+            <span>↓</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         MÔĐUN 05 | TẠO NIỀM TIN
+         MỤC TIÊU TÂM LÝ: Bằng chứng khoa học và an toàn
+         ========================================================================== -->
+    <section id="modun-05" class="section-modun-5">
+      <div class="container">
+        <div class="modun-header text-center">
+          <div class="modun-badge-wrap">
+            <span class="modun-tag">MÔĐUN 05 | TẠO NIỀM TIN</span>
+            <span class="modun-divider">/</span>
+            <span class="modun-goal">Mục tiêu tâm lý: Bằng chứng khoa học và an toàn</span>
+          </div>
+          <h2 class="section-title">Không cần lời hứa thần kỳ</h2>
+          <p class="section-desc mx-auto">
+            Chúng tôi nói sự thật khoa học, minh bạch bằng chứng y khoa và kiểm định an toàn, không phóng đại công dụng
+            để đánh đổi niềm tin của gia đình bạn.
+          </p>
+        </div>
+
+        <div class="evidence-grid">
+          <!-- Bằng chứng khoa học quốc tế -->
+          <div class="evidence-card">
+            <div class="evidence-card-header">
+              <div class="evidence-icon">📜</div>
+              <div>
+                <h3 style="font-size: 1.25rem; color: var(--plum);">Khuyến Nghị Y Khoa Quốc Tế</h3>
+                <span class="badge badge-purple">Khoa Học Thực Chứng</span>
+              </div>
+            </div>
+
+            <div class="evidence-cite-box">
+              <div class="evidence-cite-title">Hướng dẫn của American College of Physicians (ACP 2017)</div>
+              <p class="evidence-cite-content">
+                Nhiệt bề mặt được hướng dẫn điều trị của Hiệp hội Bác sĩ Nội khoa Hoa Kỳ (ACP 2017) đề cập như liệu pháp
+                không dùng thuốc hàng đầu cho một số trường hợp đau lưng cấp hoặc bán cấp.
+              </p>
+              <div class="evidence-cite-doi">Qaseem A. et al., Annals of Internal Medicine • DOI: 10.7326/M16-2367</div>
+            </div>
+
+            <div class="evidence-truth-box">
+              <div class="evidence-truth-title">
+                <span>⚠</span> Cam Kết Trung Thực Về Đá & Thải Độc
+              </div>
+              <p class="evidence-truth-desc">
+                Hiện tại <strong>không có đủ bằng chứng khoa học</strong> để nói riêng đá thạch anh tím có thể chữa khỏi
+                bệnh hoặc thải độc qua việc toát mồ hôi. Chúng tôi tuyệt đối không quảng cáo các tuyên bố thiếu căn cứ.
+              </p>
+            </div>
+          </div>
+
+          <!-- Kiểm định & Cảnh Báo An Toàn -->
+          <div class="evidence-card">
+            <div class="evidence-card-header">
+              <div class="evidence-icon">🛡</div>
+              <div>
+                <h3 style="font-size: 1.25rem; color: var(--plum);">Hồ Sơ Kiểm Định Cần Công Bố</h3>
+                <span class="badge badge-success">Minh Bạch Kỹ Thuật</span>
+              </div>
+            </div>
+
+            <ul class="safety-checklist">
+              <li class="safety-item">
+                <span class="safety-item-icon">✓</span>
+                <span><strong>Kiểm định điện an toàn:</strong> Chống rò rỉ điện, cách ly nguồn nhiệt với người
+                  dùng.</span>
+              </li>
+              <li class="safety-item">
+                <span class="safety-item-icon">✓</span>
+                <span><strong>Kiểm soát nhiệt độ:</strong> Cảm biến ngắt nhiệt tự động khi đạt ngưỡng an toàn.</span>
+              </li>
+              <li class="safety-item">
+                <span class="safety-item-icon">✓</span>
+                <span><strong>Hướng dẫn tiếng Việt chi tiết:</strong> Dành riêng cho người cao tuổi và người nhà.</span>
+              </li>
+              <li class="safety-item">
+                <span class="safety-item-icon">✓</span>
+                <span><strong>Video thật & Đánh giá xác thực:</strong> Minh chứng trải nghiệm từ người dùng thật.</span>
+              </li>
+            </ul>
+
+            <div class="medical-warning-box">
+              <div class="medical-warning-title">
+                <span>⚠</span> Cảnh Báo An Toàn Sức Khỏe Cho Bố Mẹ
+              </div>
+              <p class="medical-warning-desc">
+                Người giảm cảm giác nóng lạnh (như tiểu đường nặng), bệnh thần kinh hoặc tuần hoàn kém cần <strong>hỏi ý
+                  kiến chuyên gia y tế trước khi dùng</strong>. Không ngủ qua đêm trên thảm đang gia nhiệt nếu thiết bị
+                không hỗ trợ tính năng tự ngắt an toàn.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <a href="#modun-06" class="btn btn-heat">
+            <span>Xem bằng chứng và hướng dẫn an toàn</span>
+            <span>↓</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         MÔĐUN 06 | XỬ LÝ PHẢN ĐỐI
+         MỤC TIÊU TÂM LÝ: Giải đáp trước khi mua
+         ========================================================================== -->
+    <section id="modun-06" class="section-modun-6">
+      <div class="container">
+        <div class="modun-header text-center">
+          <div class="modun-badge-wrap">
+            <span class="modun-tag">MÔĐUN 06 | XỬ LÝ PHẢN ĐỐI</span>
+            <span class="modun-divider">/</span>
+            <span class="modun-goal">Mục tiêu tâm lý: Giải đáp trước khi mua</span>
+          </div>
+          <h2 class="section-title">Vì là quà tặng bố mẹ, an toàn phải đặt trước</h2>
+          <p class="section-desc mx-auto">
+            Chúng tôi hiểu bạn luôn cẩn trọng khi lựa chọn sản phẩm sức khỏe cho bố mẹ. Dưới đây là giải đáp chi tiết
+            cho những câu hỏi quan trọng nhất trước khi quyết định.
+          </p>
+        </div>
+
+        <!-- 4 Câu Hỏi & Giải Đáp Phản Đối (Accordion) -->
+        <div class="faq-container">
+          <!-- Câu 1 -->
+          <div class="faq-item active">
+            <button type="button" class="faq-question" aria-expanded="true">
+              <span class="faq-q-text">
+                <span class="faq-q-badge">HỎI 01</span>
+                <span>Thảm có chữa khỏi đau lưng, thoái hóa hay mất ngủ không?</span>
+              </span>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                <strong>ĐÁP: Không cam kết; sản phẩm không thay thế điều trị y tế chuyên khoa.</strong>
+              </p>
+              <p style="margin-top: 0.5rem;">
+                Thảm nhiệt hoạt động dựa trên cơ chế nhiệt bề mặt, giúp làm ấm cơ thể, tăng vi tuần hoàn máu cục bộ và
+                hỗ trợ giảm căng cứng cơ, mang lại cảm giác dễ chịu tạm thời. Với các bệnh lý xương khớp thoái hóa nặng
+                hoặc mất ngủ kinh niên, gia đình cần tuân thủ phác đồ điều trị và tư vấn từ bác sĩ.
+              </p>
+            </div>
+          </div>
+
+          <!-- Câu 2 -->
+          <div class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false">
+              <span class="faq-q-text">
+                <span class="faq-q-badge">HỎI 02</span>
+                <span>Bố mẹ lớn tuổi có dùng được không?</span>
+              </span>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                <strong>ĐÁP: Tùy sức khỏe, khả năng cảm nhận nhiệt và tuân thủ hướng dẫn thiết bị.</strong>
+              </p>
+              <p style="margin-top: 0.5rem;">
+                Người cao tuổi da mỏng và phản xạ cảm nhiệt có thể chậm hơn. Khi bố mẹ sử dụng:
+              </p>
+              <ul style="padding-left: 1.25rem; margin-top: 0.35rem;">
+                <li>Bắt đầu ở mức nhiệt thấp nhất (30°C – 40°C) để cơ thể làm quen.</li>
+                <li>Nên lót thêm một lớp khăn bông hoặc ga mỏng trên bề mặt thảm.</li>
+                <li>Thời gian nghỉ ngơi khuyến nghị từ 20 – 40 phút mỗi lần.</li>
+                <li>Người bị biến chứng mất cảm giác nhiệt (tiểu đường giai đoạn sau) cần có người nhà hỗ trợ kiểm tra
+                  nhiệt độ.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Câu 3 -->
+          <div class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false">
+              <span class="faq-q-text">
+                <span class="faq-q-badge">HỎI 03</span>
+                <span>Có tốt hơn túi chườm nóng thông thường không?</span>
+              </span>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                <strong>ĐÁP: So sánh chi tiết về diện tích, điều chỉnh nhiệt, tính năng an toàn, giá và độ tiện
+                  dụng:</strong>
+              </p>
+              <!-- Bảng So Sánh -->
+              <div class="compare-box">
+                <table class="compare-table">
+                  <thead>
+                    <tr>
+                      <th>Tiêu chí so sánh</th>
+                      <th>Thảm nhiệt thạch anh tím</th>
+                      <th>Túi chườm nước nóng</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>Diện tích tỏa nhiệt</strong></td>
+                      <td class="col-tham">Bao phủ toàn bộ lưng hoặc toàn thân (50×150cm)</td>
+                      <td class="col-tui">Chỉ áp được một vùng nhỏ cục bộ (20×30cm)</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Kiểm soát nhiệt độ</strong></td>
+                      <td class="col-tham">Ổn định liên tục theo nhiệt độ cài đặt chính xác</td>
+                      <td class="col-tui">Nóng rát lúc đầu, sau đó nguội nhanh chóng</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Mức độ an toàn</strong></td>
+                      <td class="col-tham">Hệ thống cảm biến tự ngắt, chống giật, chống cháy</td>
+                      <td class="col-tui">Nguy cơ rò rỉ bục vỡ nước sôi gây bỏng da</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Độ tiện dụng</strong></td>
+                      <td class="col-tham">Cắm điện bấm nút nằm nghỉ ngơi êm ái, phẳng phiu</td>
+                      <td class="col-tui">Phải đun nước sôi, châm nước vất vả cho người già</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Câu 4 -->
+          <div class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false">
+              <span class="faq-q-text">
+                <span class="faq-q-badge">HỎI 04</span>
+                <span>Nếu bố mẹ dùng không phù hợp có được đổi trả không?</span>
+              </span>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                <strong>ĐÁP: Hoàn toàn được! Công bố điều kiện đổi trả và bảo hành thật trước khi thanh toán.</strong>
+              </p>
+              <p style="margin-top: 0.5rem;">
+                - <strong>Kiểm tra trước khi thanh toán:</strong> Khách hàng được quyền mở hộp kiểm tra, cắm thử điện
+                rồi mới thanh toán tiền cho shipper.<br>
+                - <strong>1 Đổi 1 trong 30 ngày:</strong> Nếu phát sinh bất kỳ lỗi kỹ thuật nào từ nhà sản xuất, chúng
+                tôi đổi máy mới tận nhà.<br>
+                - <strong>Bảo hành chính hãng 12 tháng:</strong> Hỗ trợ kỹ thuật và bảo trì linh kiện trọn đời máy.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <a href="#modun-07" class="btn btn-heat">
+            <span>Trao đổi với tư vấn viên</span>
+            <span>↓</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         MÔĐUN 07 | CHỐT ĐƠN
+         MỤC TIÊU TÂM LÝ: Biến niềm tin thành hành động
+         ========================================================================== -->
+    <section id="modun-07" class="section-modun-7">
+      <div class="container">
+        <div class="modun-header text-center">
+          <div class="modun-badge-wrap light-theme">
+            <span class="modun-tag">MÔĐUN 07 | CHỐT ĐƠN</span>
+            <span class="modun-divider">/</span>
+            <span class="modun-goal">Mục tiêu tâm lý: Biến niềm tin thành hành động</span>
+          </div>
+          <h2 class="section-title" style="color: #ffffff;">Đừng chờ dịp đặc biệt mới quan tâm</h2>
+        </div>
+
+        <!-- Banner trích dẫn lay động tâm can -->
+        <div class="checkout-quote-banner">
+          <blockquote class="checkout-quote">
+            “Bố mẹ không cần món quà thật đắt tiền.<br>Bố mẹ cần biết con luôn quan tâm.”
+          </blockquote>
+        </div>
+
+        <div class="checkout-grid">
+          <!-- Cột 1: Thông tin sản phẩm & Giá bán thật -->
+          <div class="product-offer-card">
+            <span class="badge badge-gold" style="align-self: flex-start; margin-bottom: 0.75rem;">Món Quà Hiếu
+              Kính</span>
+            <h3 class="product-offer-title">THẢM NHIỆT ĐÁ THẠCH ANH TÍM</h3>
+            <p style="color: #dfd2ec; font-size: 0.9375rem;">
+              Phiên bản cao cấp gia nhiệt tự nhiên, mang lại hơi ấm và giấc ngủ êm đềm cho bố mẹ mỗi ngày.
+            </p>
+
+            <div class="product-price-box">
+              <span class="price-original">Giá niêm yết: 5.500.000 đ</span>
+              <div class="price-current">3.850.000 đ</div>
+              <span class="price-badge-save">Tiết kiệm ngay 1.650.000 đ (Ưu đãi mùa đông)</span>
+            </div>
+
+            <ul class="product-offer-specs">
+              <li>
+                <span>✓</span>
+                <div><strong>Kích thước lựa chọn:</strong> 50 × 150 cm (Bản tiêu chuẩn) hoặc 60 × 160 cm (Bản đại)</div>
+              </li>
+              <li>
+                <span>✓</span>
+                <div><strong>Bảo hành chính hãng:</strong> 12 tháng (1 đổi 1 trong 30 ngày nếu phát sinh lỗi)</div>
+              </li>
+              <li>
+                <span>✓</span>
+                <div><strong>Phí giao hàng:</strong> <span style="color: #79e7ab; font-weight: 700;">Miễn phí giao hàng
+                    toàn quốc</span> (Được kiểm tra trước khi nhận)</div>
+              </li>
+              <li>
+                <span>✓</span>
+                <div><strong>Quà tặng kèm:</strong> Vỏ áo bảo vệ thảm cao cấp + Hộp quà tặng trang trọng tri ân cha mẹ
+                </div>
+              </li>
+            </ul>
+
+            <div class="hotline-callout">
+              <span style="font-size: 0.8125rem; color: #dfd2ec;">Cần tư vấn trực tiếp ngay? Liên hệ Hotline /
+                Zalo:</span>
+              <a href="tel:0988356888" class="hotline-number">0988.356.888</a>
+            </div>
+          </div>
+
+          <!-- Cột 2: Biểu mẫu chốt đơn chuyển đổi cao -->
+          <div class="checkout-form-card">
+            <div class="checkout-form-header">
+              <h3 class="checkout-form-title">Đăng Ký Đặt Mua Quà Tặng</h3>
+              <p class="checkout-form-desc">Điền thông tin bên dưới để chuyên viên chuẩn bị quà và liên hệ xác nhận</p>
+            </div>
+
+            <p class="form-error" id="form-order-error" role="alert"></p>
+
+            <form id="form-dat-mua" action="#modun-07" method="post" novalidate>
+              <div class="form-group">
+                <label for="ho_ten">Họ và tên của bạn <span style="color: var(--heat-primary);">*</span></label>
+                <input class="form-input" id="ho_ten" name="ho_ten" type="text" autocomplete="name" required
+                  placeholder="Ví dụ: Nguyễn Minh Đức">
+              </div>
+
+              <div class="form-group">
+                <label for="so_dien_thoai">Số điện thoại liên hệ <span
+                    style="color: var(--heat-primary);">*</span></label>
+                <input class="form-input" id="so_dien_thoai" name="so_dien_thoai" type="tel" inputmode="tel"
+                  autocomplete="tel" required placeholder="Ví dụ: 0912 345 678" pattern="^(0|\+84)[0-9]{9,10}$">
+              </div>
+
+              <div class="form-group">
+                <label for="nhu_cau">Nhu cầu quà tặng & Kích thước <span
+                    style="color: var(--heat-primary);">*</span></label>
+                <select class="form-select" id="nhu_cau" name="nhu_cau" required>
+                  <option value="">-- Vui lòng chọn mẫu phù hợp --</option>
+                  <option value="Bản tiêu chuẩn 50x150cm (3.850.000 đ)">Thảm 50 × 150 cm — Tiêu chuẩn (3.850.000 đ)
+                  </option>
+                  <option value="Bản cao cấp toàn thân 60x160cm (4.650.000 đ)">Thảm 60 × 160 cm — Toàn thân (4.650.000
+                    đ)</option>
+                  <option value="Cần tư vấn thêm theo sức khỏe bố mẹ">Cần chuyên viên tư vấn thêm theo thể trạng bố mẹ
+                  </option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="dia_chi">Địa chỉ nhận hàng hoặc Lời nhắn cho bố mẹ</label>
+                <textarea class="form-textarea" id="dia_chi" name="dia_chi"
+                  placeholder="Nhập địa chỉ nhận hàng hoặc lời chúc gửi kèm quà..."></textarea>
+              </div>
+
+              <label class="form-checkbox-label">
+                <input type="checkbox" name="dong_y" id="dong_y" required checked>
+                <span>Tôi xác nhận đồng ý để cửa hàng liên hệ xác nhận đơn hàng, hướng dẫn sử dụng và áp dụng chính sách
+                  bảo hành 12 tháng.</span>
+              </label>
+
+              <button type="submit" class="btn btn-heat btn-submit-order">
+                <span>Đặt Mua Tặng Bố Mẹ</span>
+                <span>❤</span>
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
   <!-- ==========================================================================
-       FOOTER
+       HƯỚNG DẪN KỸ THUẬT: CONTENT – DESIGN – DEV (Theo tài liệu kịch bản)
        ========================================================================== -->
-  <footer class="footer">
+  <aside class="dev-guide-strip">
     <div class="container">
-      <div class="footer-content">
+      <div class="dev-guide-title">HƯỚNG DẪN CHO CONTENT – DESIGN – DEV</div>
+      <div class="dev-guide-flow">
+        <span class="dev-guide-item"><strong>M1:</strong> Tỷ lệ ở lại trang</span>
+        <span>•</span>
+        <span class="dev-guide-item"><strong>M2–M3:</strong> Cuộn trang / Xem video</span>
+        <span>•</span>
+        <span class="dev-guide-item"><strong>M4:</strong> Click xem giá & chọn mẫu</span>
+        <span>•</span>
+        <span class="dev-guide-item"><strong>M5:</strong> Xem bằng chứng y khoa</span>
+        <span>•</span>
+        <span class="dev-guide-item"><strong>M6:</strong> Mở FAQ giải đáp</span>
+        <span>•</span>
+        <span class="dev-guide-item"><strong>M7:</strong> Lead / Đơn hàng / Doanh thu</span>
+      </div>
+      <p class="dev-guide-note">
+        * Lưu ý: Ảnh trong tài liệu là hình minh họa vector, không phải ảnh sản phẩm thực tế. Trước khi xuất bản chính
+        thức cần thay bằng ảnh và video thực tế của sản phẩm.
+      </p>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       FOOTER & Y KHOA THAM CHIẾU
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
         <div class="footer-brand">
-          Thảm Nhiệt Đá Thạch Anh Tím
+          TRAO HƠI ẤM – GỬI YÊU THƯƠNG
         </div>
-        <div class="footer-links">
-          <a href="#khoa-hoc">Khoa Học</a>
-          <a href="#cau-tao">Cấu Tạo</a>
-          <a href="#an-toan">An Toàn</a>
-          <a href="#tu-van">Đăng Ký Tư Vấn</a>
-          <a href="#dau-trang">Về Đầu Trang ↑</a>
-        </div>
+        <nav class="footer-nav">
+          <a href="#modun-01">Nỗi Đau</a>
+          <a href="#modun-02">Nhu Cầu</a>
+          <a href="#modun-03">Viễn Cảnh</a>
+          <a href="#modun-04">Giải Pháp</a>
+          <a href="#modun-05">Niềm Tin</a>
+          <a href="#modun-06">An Tâm</a>
+          <a href="#modun-07">Đặt Mua</a>
+          <a href="#modun-01">Về Đầu Trang ↑</a>
+        </nav>
       </div>
-      <div class="footer-disclaimer">
-        Tài liệu là bản đề xuất nội dung marketing và rà soát khoa học; không phải chứng nhận hiệu quả hoặc tư vấn y tế
-        cá nhân.
-        Không sử dụng nhiệt quá cao hoặc kéo dài, nhất là với người giảm cảm giác nóng. Luôn tham khảo ý kiến bác sĩ khi
-        cần chẩn đoán hoặc điều trị bệnh lý.
+
+      <div class="footer-medical-ref">
+        <strong>Nguồn tham chiếu y khoa:</strong> Qaseem A. et al., Noninvasive Treatments for Acute, Subacute, and
+        Chronic Low Back Pain: A Clinical Practice Guideline From the American College of Physicians, <em>Annals of
+          Internal Medicine</em> (2017), DOI: <a href="https://doi.org/10.7326/M16-2367" target="_blank"
+          rel="noopener noreferrer" style="color: var(--gold); text-decoration: underline;">10.7326/M16-2367</a>.
       </div>
+
+      <p style="color: #8b7996; font-size: 0.75rem;">
+        * Tuyên bố miễn trừ trách nhiệm y tế: Sản phẩm là thiết bị nhiệt trị liệu hỗ trợ thư giãn và giữ ấm gia đình,
+        không phải thuốc và không thay thế thuốc chữa bệnh hay phác đồ điều trị của bác sĩ chuyên khoa.
+      </p>
     </div>
   </footer>
 
   <!-- ==========================================================================
-       LIGHTWEIGHT INTERACTION JAVASCRIPT
+       WIDGET LIÊN HỆ NỔI (Hotline & Zalo)
+       ========================================================================== -->
+  <div class="floating-contact">
+    <a href="tel:0988356888" class="btn-floating btn-floating-hotline" title="Gọi Hotline tư vấn nhanh">
+      <span class="floating-icon-circle">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path
+            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+          </path>
+        </svg>
+      </span>
+      <span class="floating-text">Gọi Hotline</span>
+    </a>
+    <a href="https://zalo.me/0988356888" target="_blank" rel="noopener noreferrer"
+      class="btn-floating btn-floating-zalo" title="Chat Zalo tư vấn">
+      <span class="floating-icon-circle zalo-circle">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="#0068FF" aria-hidden="true">
+          <path
+            d="M12.49 10.2722v-.4496h1.3467v6.3218h-.7704a.576.576 0 01-.5763-.5729l-.0006.0005a3.273 3.273 0 01-1.9372.6321c-1.8138 0-3.2844-1.4697-3.2844-3.2823 0-1.8125 1.4706-3.2822 3.2844-3.2822a3.273 3.273 0 011.9372.6321l.0006.0005zM6.9188 7.7896v.205c0 .3823-.051.6944-.2995 1.0605l-.03.0343c-.0542.0615-.1815.206-.2421.2843L2.024 14.8h4.8948v.7682a.5764.5764 0 01-.5767.5761H0v-.3622c0-.4436.1102-.6414.2495-.8476L4.8582 9.23H.1922V7.7896h6.7266zm8.5513 8.3548a.4805.4805 0 01-.4803-.4798v-7.875h1.4416v8.3548H15.47zM20.6934 9.6C22.52 9.6 24 11.0807 24 12.9044c0 1.8252-1.4801 3.306-3.3066 3.306-1.8264 0-3.3066-1.4808-3.3066-3.306 0-1.8237 1.4802-3.3044 3.3066-3.3044zm-10.1412 5.253c1.0675 0 1.9324-.8645 1.9324-1.9312 0-1.065-.865-1.9295-1.9324-1.9295s-1.9324.8644-1.9324 1.9295c0 1.0667.865 1.9312 1.9324 1.9312zm10.1412-.0033c1.0737 0 1.945-.8707 1.945-1.9453 0-1.073-.8713-1.9436-1.945-1.9436-1.0753 0-1.945.8706-1.945 1.9453z" />
+        </svg>
+      </span>
+      <span class="floating-text">Chat Zalo</span>
+    </a>
+  </div>
+
+  <!-- ==========================================================================
+       INTERACTIVE JAVASCRIPT: Accordion FAQ, Form Validation & State
        ========================================================================== -->
   <script>
     (function () {
-      var form = document.getElementById("form-tu-van");
-      var error = document.getElementById("form-error");
-      if (!form || !error) return;
+      // 1. FAQ Accordion Interaction (MÔĐUN 06)
+      var faqButtons = document.querySelectorAll(".faq-question");
+      faqButtons.forEach(function (button) {
+        button.addEventListener("click", function () {
+          var item = this.closest(".faq-item");
+          var isExpanded = this.getAttribute("aria-expanded") === "true";
 
-      form.addEventListener("submit", function (event) {
-        event.preventDefault();
-        error.textContent = "";
+          // Toggle current item
+          if (isExpanded) {
+            item.classList.remove("active");
+            this.setAttribute("aria-expanded", "false");
+          } else {
+            // Optional: close other items for clean accordion behavior
+            document.querySelectorAll(".faq-item").forEach(function (otherItem) {
+              otherItem.classList.remove("active");
+              var otherBtn = otherItem.querySelector(".faq-question");
+              if (otherBtn) otherBtn.setAttribute("aria-expanded", "false");
+            });
 
-        var hoTen = form.elements["ho_ten"].value.trim();
-        var sdt = form.elements["so_dien_thoai"].value.trim();
-        var nguoiDung = form.elements["nguoi_su_dung"].value;
-        var dongY = form.elements["dong_y"].checked;
-
-        if (!hoTen || !sdt || !nguoiDung || !dongY) {
-          error.textContent = "Vui lòng điền đủ họ tên, số điện thoại, người sử dụng và tích chọn đồng ý.";
-          return;
-        }
-
-        var phonePattern = /^(0|\+84)[0-9]{9,10}$/;
-        if (!phonePattern.test(sdt.replace(/\s+/g, ''))) {
-          error.textContent = "Số điện thoại chưa đúng định dạng (bắt đầu bằng 0 hoặc +84).";
-          return;
-        }
-
-        // Show elegant thank you state
-        form.innerHTML = `
-          <div class="form-success-card">
-            <div class="form-success-icon">✓</div>
-            <h3>Cảm Ơn Quý Khách!</h3>
-            <p>
-              Thông tin đăng ký của quý khách đã được ghi nhận.<br>
-              Chuyên viên tư vấn sẽ liên hệ lại qua số điện thoại <strong>${escapeHtml(sdt)}</strong> trong thời gian sớm nhất để hỗ trợ giải đáp và áp dụng ưu đãi mùa đông.
-            </p>
-          </div>
-        `;
+            item.classList.add("active");
+            this.setAttribute("aria-expanded", "true");
+          }
+        });
       });
+
+      // 2. Order Form Validation & Elegant Success Card (MÔĐUN 07)
+      var orderForm = document.getElementById("form-dat-mua");
+      var errorEl = document.getElementById("form-order-error");
+
+      if (orderForm && errorEl) {
+        orderForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+          errorEl.textContent = "";
+
+          var hoTen = orderForm.elements["ho_ten"].value.trim();
+          var sdt = orderForm.elements["so_dien_thoai"].value.trim();
+          var nhuCau = orderForm.elements["nhu_cau"].value;
+          var dongY = orderForm.elements["dong_y"].checked;
+
+          if (!hoTen || !sdt || !nhuCau || !dongY) {
+            errorEl.textContent = "Vui lòng điền họ tên, số điện thoại, chọn kích thước và xác nhận đồng ý.";
+            return;
+          }
+
+          var phonePattern = /^(0|\+84)[0-9]{9,10}$/;
+          if (!phonePattern.test(sdt.replace(/\s+/g, ""))) {
+            errorEl.textContent = "Số điện thoại chưa đúng định dạng (bắt đầu bằng 0 hoặc +84).";
+            return;
+          }
+
+          // Hiển thị thiệp cảm ơn trang nhã
+          var diaChi = orderForm.elements["dia_chi"].value.trim();
+          orderForm.parentElement.innerHTML = `
+            <div class="form-success-box">
+              <div class="form-success-icon">✓</div>
+              <h3 style="font-size: 1.5rem; color: var(--plum); margin-bottom: 0.75rem;">Đặt Mua Quà Tặng Thành Công!</h3>
+              <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.25rem;">
+                Cảm ơn bạn <strong>${escapeHtml(hoTen)}</strong> đã tin chọn món quà ấm áp dành tặng bố mẹ.<br>
+                Mẫu đã chọn: <strong>${escapeHtml(nhuCau)}</strong>.<br>
+                Chuyên viên sẽ liên hệ lại qua số điện thoại <strong>${escapeHtml(sdt)}</strong> trong ít phút để xác nhận địa chỉ giao hàng và hướng dẫn kích hoạt bảo hành 12 tháng.
+              </p>
+              <div style="background: var(--bg-cream); padding: 1rem; border-radius: 12px; font-size: 0.875rem; color: var(--plum); border: 1px dashed var(--gold);">
+                🚚 Đơn hàng của bạn sẽ được đóng gói hộp quà trang trọng và miễn phí vận chuyển tận tay.
+              </div>
+            </div>
+          `;
+        });
+      }
 
       function escapeHtml(text) {
         var map = {
